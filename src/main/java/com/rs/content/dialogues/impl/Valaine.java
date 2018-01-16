@@ -1,0 +1,67 @@
+package com.rs.content.dialogues.impl;
+
+import com.rs.content.dialogues.Dialogue;
+import com.rs.content.economy.shops.ShopsManager;
+
+public class Valaine extends Dialogue {
+
+    private int npcId;
+
+    @Override
+    public void start() {
+        npcId = (Integer) parameters[0];
+        sendNPCDialogue(npcId, 9827,
+                "Hello there. Want to have a look at what we're selling",
+                "today?");
+    }
+
+    @Override
+    public void run(final int interfaceId, final int componentId) {
+        switch (stage) {
+            case -1:
+                stage = 0;
+                sendOptionsDialogue(SEND_DEFAULT_OPTIONS_TITLE, "Yes, please.",
+                        "How should I use your Shop?", "No, thank you.");
+                break;
+            case 0:
+                switch (componentId) {
+                    case 2:
+                        ShopsManager.openShop(player, 17);
+                        end();
+                        break;
+                    case 3:
+                        stage = 1;
+                        sendNPCDialogue(
+                                npcId,
+                                9827,
+                                "I'm glad you ask! You can buy as many of the items",
+                                "stocked as you wish. The price of these items changes",
+                                "based on the amount in stock.");
+                        break;
+                    case 4:
+                    default:
+                        end();
+                        break;
+                }
+                break;
+            case 1:
+                stage = -2;
+                sendNPCDialogue(
+                        npcId,
+                        9827,
+                        "You can also sell most items to the Shop and the price given will be based on the amount in stock.");
+                break;
+            default:
+                end();
+                break;
+        }
+
+    }
+
+    @Override
+    public void finish() {
+        // TODO Auto-generated method stub
+
+    }
+
+}
