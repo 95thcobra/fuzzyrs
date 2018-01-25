@@ -669,7 +669,7 @@ public class NPC extends Entity implements Serializable {
             setLocation(respawnTile);
             finish();
         }
-        CoresManager.SLOW_EXECUTOR.schedule((Runnable) () -> {
+        CoresManager.SLOW_EXECUTOR.schedule(() -> {
                     try {
                         spawn();
                     } catch (final Throwable e) {

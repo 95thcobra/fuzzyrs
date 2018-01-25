@@ -51,11 +51,15 @@ public final class NPCCombat {
      */
     private int combatAttack() {
         final Entity target = this.target; // prevents multithread issues
-        if (target == null)
+        if (target == null) {
+            System.out.println("null target? combatAttack()");
             return 0;
+        }
         // if hes frooze not gonna attack
-        if (npc.getFreezeDelay() >= Utils.currentTimeMillis())
+        if (npc.getFreezeDelay() >= Utils.currentTimeMillis()) {
+            System.out.println("npc frozen during combatAttack()");
             return 0;
+        }
         // check if close to target, if not let it just walk and dont attack
         // this gameticket
         final NPCCombatDefinitions defs = npc.getCombatDefinitions();
@@ -73,6 +77,7 @@ public final class NPCCombat {
                 || distanceY < -1 - maxDistance)
             return 0;
         addAttackedByDelay(target);
+        System.out.println("Processed attack propertly for combatAttack()");
         return CombatScriptsHandler.specialAttack(npc, target);
     }
 

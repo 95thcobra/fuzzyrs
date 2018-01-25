@@ -17,6 +17,8 @@ import java.io.*;
  */
 public class GameFileManager {
 
+    private static final Gson GSON = new GsonBuilder().create();
+
     /**
      * Uses the {@link Gson} object to load a json file from a location and build it off a layout of a Class.
      *
@@ -28,11 +30,10 @@ public class GameFileManager {
      * @throws IOException            if the file cannot be found or read properly.
      * @throws ClassNotFoundException if the class cannot be found for the layout.
      */
-    public static Object loadJsonFile(@NotNull final File f, @NotNull Class type) throws IOException, ClassNotFoundException {
+    public static Object loadJsonFile(@NotNull final File f, @NotNull Class type) throws IOException {
         if (!f.exists())
             return new Object();
-        Gson gson = new GsonBuilder().create();
-        return gson.fromJson(new FileReader(f), type);
+        return GSON.fromJson(new FileReader(f), type);
     }
 
 
@@ -44,10 +45,9 @@ public class GameFileManager {
      * @param prettyPrinting whether or not the json file output should look beautiful.
      * @throws IOException if the file cannot be written or found.
      */
-    public static void storeJsonFile(@NotNull final Object o, @NotNull final File f, @NotNull boolean prettyPrinting) throws IOException {
+    public static void storeJsonFile(@NotNull final Object o, @NotNull final File f) throws IOException {
         try (Writer writer = new FileWriter(f)) {
-            Gson gson = prettyPrinting ? new GsonBuilder().setPrettyPrinting().create() : new GsonBuilder().create();
-            gson.toJson(o, writer);
+            GSON.toJson(o, writer);
         }
     }
 

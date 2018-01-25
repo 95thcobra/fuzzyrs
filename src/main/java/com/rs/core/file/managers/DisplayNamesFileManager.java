@@ -66,7 +66,7 @@ public class DisplayNamesFileManager {
     public static void save() {
         try {
             GameFileManager.storeJsonFile(cachedNames,
-                    new File(PATH), true);
+                    new File(PATH));
         } catch (final IOException e) {
             Logger.handle(e);
         }

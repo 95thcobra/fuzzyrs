@@ -38,7 +38,7 @@ public class IPBanFileManager {
         if (!edited)
             return;
         try {
-            GameFileManager.storeJsonFile(ipList, new File(PATH), true);
+            GameFileManager.storeJsonFile(ipList, new File(PATH));
         } catch (IOException e) {
             edited = false;
             Logger.handle(e);

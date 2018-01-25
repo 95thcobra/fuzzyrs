@@ -45,6 +45,9 @@ public class SailingController extends Controller {
     private ShipStorage storage;
     private long fadeTime;
 
+    /*
+     * TODO clean up region once done sailing.
+     */
     /**
      * The region base.
      */

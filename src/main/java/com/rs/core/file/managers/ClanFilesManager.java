@@ -31,7 +31,7 @@ public class ClanFilesManager {
 
     public synchronized static void saveClan(Clan clan) {
         try {
-            GameFileManager.storeJsonFile(clan, new File(CLAN_PATH + clan.getClanName() + ".json"), true);
+            GameFileManager.storeJsonFile(clan, new File(CLAN_PATH + clan.getClanName() + ".json"));
         } catch (IOException e) {
             Logger.handle(e);
         }

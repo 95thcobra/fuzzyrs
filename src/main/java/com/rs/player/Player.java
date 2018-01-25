@@ -1704,6 +1704,7 @@ public class Player extends Entity {
                 && hit.getLook() != Hit.HitLook.MAGIC_DAMAGE)
             return;
         if (invulnerable) {
+            System.out.println("This person is invulnerable.");
             hit.setDamage(0);
             return;
         }
@@ -1714,8 +1715,10 @@ public class Player extends Entity {
             }
         }
         final Entity source = hit.getSource();
-        if (source == null)
+        if (source == null) {
+            System.out.println("Why is this null?");
             return;
+        }
         if (polDelay > Utils.currentTimeMillis()) {
             hit.setDamage((int) (hit.getDamage() * 0.5));
         }

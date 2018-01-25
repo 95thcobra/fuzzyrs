@@ -245,7 +245,7 @@ public class NomadsRequiem extends Controller {
 
 	@Override
 	public void forceClose() {
-		leave(false);
+		//leave(false);
 	}
 
 	@Override

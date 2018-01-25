@@ -39,7 +39,7 @@ public class PkRankFileManager {
 
     public static void save() {
         try {
-            GameFileManager.storeJsonFile(pkRanks, new File(PATH), true);
+            GameFileManager.storeJsonFile(pkRanks, new File(PATH));
         } catch (IOException e) {
             Logger.handle(e);
         }

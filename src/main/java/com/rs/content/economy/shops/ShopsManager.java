@@ -54,7 +54,7 @@ public class ShopsManager {
 
     public static void saveShop(ShopData shopData) {
         try {
-            GameFileManager.storeJsonFile(shopData, new File(PATH + shopData.getName() + ".json"), true);
+            GameFileManager.storeJsonFile(shopData, new File(PATH + shopData.getName() + ".json"));
         } catch (IOException e) {
             e.printStackTrace();
         }

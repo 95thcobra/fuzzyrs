@@ -21,7 +21,7 @@ public class IPChecker {
                     continue;
                 }
                 player.setMuted(0);
-                GameFileManager.storeJsonFile(player, acc, true);
+                GameFileManager.storeJsonFile(player, acc);
             } catch (final Throwable e) {
                 System.out.println("failed: " + acc.getName() + ", " + e);
             }

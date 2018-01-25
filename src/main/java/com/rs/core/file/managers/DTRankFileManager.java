@@ -55,7 +55,7 @@ public class DTRankFileManager {
     public static void save() {
         try {
             GameFileManager.storeJsonFile(ranks, new File(
-                    PATH), true);
+                    PATH));
         } catch (IOException e) {
             Logger.handle(e);
         }

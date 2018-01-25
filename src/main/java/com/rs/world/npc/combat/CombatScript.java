@@ -12,6 +12,8 @@ import com.rs.world.npc.familiar.Steeltitan;
 import com.rs.world.task.worldtask.WorldTask;
 import com.rs.world.task.worldtask.WorldTasksManager;
 
+import java.util.Arrays;
+
 public abstract class CombatScript {
 
     public static void delayHit(final NPC npc, final int delay,
@@ -21,18 +23,21 @@ public abstract class CombatScript {
 
             @Override
             public void run() {
+                System.out.println("Hits processed: " + Arrays.toString(hits));
                 for (final Hit hit : hits) {
                     final NPC npc = (NPC) hit.getSource();
                     if (npc.isDead() || npc.hasFinished() || target.isDead()
-                            || target.hasFinished())
+                            || target.hasFinished()) {
+                        System.out.println("done with this fight delayHit()");
                         return;
+                    }
                     target.applyHit(hit);
                     npc.getCombat().doDefenceEmote(target);
                     /*
-					 * if (!(npc instanceof Nex) && hit.getLook() ==
-					 * HitLook.MAGIC_DAMAGE && hit.getDamage() == 0)
-					 * target.setNextGraphics(new Graphics(85, 0, 100));
-					 */
+                     * if (!(npc instanceof Nex) && hit.getLook() ==
+                     * HitLook.MAGIC_DAMAGE && hit.getDamage() == 0)
+                     * target.setNextGraphics(new Graphics(85, 0, 100));
+                     */
                     if (target instanceof Player) {
                         final Player p2 = (Player) target;
                         p2.closeInterfaces();
@@ -75,6 +80,7 @@ public abstract class CombatScript {
     public static int getRandomMaxHit(final NPC npc, final int maxHit,
                                       final int attackStyle, final Entity target) {
         final int[] bonuses = npc.getBonuses();
+        System.out.println("Bonuses for " + npc.getName() + ": " + Arrays.toString(bonuses));
         final double att = bonuses == null ? 0
                 : attackStyle == NPCCombatDefinitions.RANGE ? bonuses[CombatDefinitions.RANGE_ATTACK]
                 : attackStyle == NPCCombatDefinitions.MAGE ? bonuses[CombatDefinitions.MAGIC_ATTACK]
@@ -100,15 +106,22 @@ public abstract class CombatScript {
                     : CombatDefinitions.STAB_DEF];
             def *= 2;
         }
+        System.out.println("Attack: " + att);
+        System.out.println("Defense: " + def);
         double prob = att / def;
+        System.out.println("Probability of hit: " + prob);
         if (prob > 0.90) {
             prob = 0.90;
         } else if (prob < 0.05) {
             prob = 0.05;
         }
-        if (prob < Math.random())
+        if (prob < Math.random()) {
+            System.out.println("What fucking idiot put this here?");
             return 0;
-        return Utils.getRandom(maxHit);
+        }
+        int finalHit = Utils.getRandom(maxHit);
+        System.out.println("Hit registered: " + finalHit);
+        return finalHit;
     }
 
     /*

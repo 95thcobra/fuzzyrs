@@ -128,9 +128,6 @@ public abstract class Entity extends WorldTile {
 	public void applyHit(final Hit hit) {
 		if (isDead())
 			return;
-		if (this instanceof Player) {
-			final Player player = (Player) this;
-		}
 		// todo damage for who gets drop
 		receivedHits.add(hit); // added hit first because, soaking added after,
 		// if applyhit used right there shouldnt be any
@@ -1204,7 +1201,7 @@ public abstract class Entity extends WorldTile {
 	}
 
 	public void checkMultiArea() {
-		multiArea = forceMultiArea ? true : World.isMultiArea(this);
+		multiArea = forceMultiArea || World.isMultiArea(this);
 	}
 
 	public boolean isAtMultiArea() {

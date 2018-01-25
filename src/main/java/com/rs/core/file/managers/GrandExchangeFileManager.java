@@ -21,6 +21,7 @@ public class GrandExchangeFileManager {
     public static final String GE_OFFERS_HISTORY = GameConstants.DATA_PATH + "/GE/grandexchange/grandExchangeOffersTrack.json";
     public static final String GE_PRICES = GameConstants.DATA_PATH + "/GE/grandexchange/grandExchangePrices.json";
 
+    @SuppressWarnings("unchecked")
     public static synchronized HashMap<Long, Offer> loadGEOffers() {
         if (new File(GE_OFFERS).exists()) {
             try {
@@ -48,7 +49,7 @@ public class GrandExchangeFileManager {
         if (new File(GE_PRICES).exists()) {
             try {
                 return (HashMap<Integer, Integer>) GameFileManager.loadJsonFile(new File(GE_PRICES), HashMap.class);
-            } catch (IOException | ClassNotFoundException e) {
+            } catch (IOException e) {
                 Logger.handle(e);
             }
         }
@@ -61,7 +62,7 @@ public class GrandExchangeFileManager {
 
     public static synchronized void saveGEOffers(final HashMap<Long, Offer> offers) {
         try {
-            GameFileManager.storeJsonFile(offers, new File(GE_OFFERS), false);
+            GameFileManager.storeJsonFile(offers, new File(GE_OFFERS));
         } catch (IOException e) {
             Logger.handle(e);
         }
@@ -69,7 +70,7 @@ public class GrandExchangeFileManager {
 
     public static synchronized void saveGEHistory(ArrayList<OfferHistory> history) {
         try {
-            GameFileManager.storeJsonFile(history, new File(GE_OFFERS_HISTORY), false);
+            GameFileManager.storeJsonFile(history, new File(GE_OFFERS_HISTORY));
         } catch (IOException e) {
             Logger.handle(e);
         }
@@ -77,7 +78,7 @@ public class GrandExchangeFileManager {
 
     public static synchronized void saveGEPrices(HashMap<Integer, Integer> prices) {
         try {
-            GameFileManager.storeJsonFile(prices, new File(GE_PRICES), false);
+            GameFileManager.storeJsonFile(prices, new File(GE_PRICES));
         } catch (IOException e) {
             Logger.handle(e);
         }
