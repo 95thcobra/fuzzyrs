@@ -1,6 +1,6 @@
 package com.rs.core.net.handlers.button;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.impl.FightPitsViewingOrb;
 import com.rs.content.actions.impl.HomeTeleport;
 import com.rs.content.actions.impl.Rest;
@@ -32,7 +32,6 @@ import com.rs.core.net.handlers.PacketHandlerManager;
 import com.rs.core.net.handlers.inventory.*;
 import com.rs.core.net.io.InputStream;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.core.utils.item.ItemExamines;

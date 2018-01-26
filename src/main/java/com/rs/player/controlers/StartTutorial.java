@@ -1,8 +1,7 @@
 package com.rs.player.controlers;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.dialogues.impl.QuestGuide;
-import com.rs.core.settings.SettingsManager;
 import com.rs.world.Entity;
 import com.rs.world.World;
 import com.rs.world.WorldObject;

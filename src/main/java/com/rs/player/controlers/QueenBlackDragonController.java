@@ -1,9 +1,8 @@
 package com.rs.player.controlers;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.dialogues.impl.RewardChest;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.player.content.FadingScreen;
 import com.rs.player.content.Magic;

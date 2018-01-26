@@ -1,10 +1,9 @@
 package com.rs.content.commands.impl.admin;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.content.player.PlayerRank;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 import com.rs.world.Animation;
 import com.rs.world.ForceTalk;

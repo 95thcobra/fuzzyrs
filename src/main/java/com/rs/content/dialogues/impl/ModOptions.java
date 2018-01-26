@@ -1,9 +1,8 @@
 package com.rs.content.dialogues.impl;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.content.player.PlayerRank;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 import com.rs.player.content.TicketSystem;
 import com.rs.world.World;

@@ -1,12 +1,11 @@
 package com.rs.core.utils.tools;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.cache.Cache;
 import com.rs.core.cache.loaders.ItemDefinitions;
 import com.rs.core.cache.loaders.NPCDefinitions;
 import com.rs.core.file.data.npc.NPCDropsFileManager;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Utils;
 import com.rs.world.npc.Drop;
 

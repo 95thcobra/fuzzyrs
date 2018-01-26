@@ -1,12 +1,11 @@
 package com.rs.content.actions.skills.crafting;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.Action;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.impl.LeatherCraftingD;
 import com.rs.content.dialogues.types.SimpleMessage;
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.Animation;

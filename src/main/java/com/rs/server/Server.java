@@ -1,5 +1,7 @@
-package com.rs;
+package com.rs.server;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.rs.content.actions.skills.fishing.FishingSpotsHandler;
 import com.rs.content.christmas.funnyjoke.FunnyJokeHandler;
 import com.rs.content.commands.CommandManager;
@@ -16,7 +18,6 @@ import com.rs.core.cache.Cache;
 import com.rs.core.cache.loaders.ItemsEquipIds;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.file.GameFileManager;
-import com.rs.core.file.JsonFileManager;
 import com.rs.core.file.data.map.MapArchiveKeys;
 import com.rs.core.file.data.map.MapAreas;
 import com.rs.core.file.data.map.ObjectSpawnsFileManager;
@@ -26,7 +27,8 @@ import com.rs.core.file.managers.DisplayNamesFileManager;
 import com.rs.core.file.managers.IPBanFileManager;
 import com.rs.core.file.managers.PkRankFileManager;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
+import com.rs.server.file.impl.PlayerFileManager;
+import com.rs.server.file.impl.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.file.AutoBackup;
 import com.rs.core.utils.file.MusicHints;
@@ -49,10 +51,10 @@ import java.io.IOException;
 @Getter
 public final class Server {
 
-    private final JsonFileManager jsonFileManager;
+    private final SettingsManager settingsManager;
     private final GameEngine gameEngine;
     private final NetworkEngine networkEngine;
-    private final SettingsManager settingsManager;
+    private final PlayerFileManager playerFileManager;
 
     @Setter(AccessLevel.PRIVATE)
     private long startTime;
@@ -128,11 +130,11 @@ public final class Server {
     public static final class Builder {
 
         public Server build() {
-            JsonFileManager jsonFileManager = JsonFileManager.create();
+            SettingsManager settingsManager = new SettingsManager(GameFileConstants.SETTINGS_FILE);
             GameEngine gameEngine = new GameEngine();
             NetworkEngine networkEngine = new NetworkEngine();
-            SettingsManager settingsManager = new SettingsManager(GameConstants.SETTINGS_PATH, jsonFileManager);
-            return new Server(jsonFileManager, gameEngine, networkEngine, settingsManager);
+            PlayerFileManager playerFileManager = new PlayerFileManager(GameFileConstants.PLAYERS_DIR);
+            return new Server(settingsManager, gameEngine, networkEngine, playerFileManager);
         }
     }
 }

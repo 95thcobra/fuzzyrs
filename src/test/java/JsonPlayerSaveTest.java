@@ -1,10 +1,8 @@
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.rs.Launcher;
 import com.rs.core.file.DataFile;
-import com.rs.core.file.JsonFileManager;
+import com.rs.server.file.JsonFileManager;
 import com.rs.player.Player;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;

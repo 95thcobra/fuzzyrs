@@ -1,7 +1,6 @@
 package com.rs.player;
 
-import com.rs.Server;
-import com.rs.core.settings.SettingsManager;
+import com.rs.server.Server;
 import com.rs.core.utils.Logger;
 import com.rs.player.content.Foods.Food;
 import com.rs.player.content.Pots.Pot;

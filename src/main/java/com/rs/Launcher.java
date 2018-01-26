@@ -1,5 +1,7 @@
 package com.rs;
 
+import com.rs.server.Server;
+
 import java.io.IOException;
 
 /**

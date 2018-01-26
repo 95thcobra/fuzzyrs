@@ -1,6 +1,6 @@
 package com.rs.world;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.hunter.BoxAction;
 import com.rs.content.actions.skills.mining.LivingRockCavern;
 import com.rs.content.economy.exchange.GrandExchange;

@@ -1,6 +1,6 @@
 package com.rs.core.net.handlers.inventory;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.crafting.GemCutting;
 import com.rs.content.actions.skills.crafting.LeatherCrafting;
 import com.rs.content.actions.skills.firemaking.Firemaking;
@@ -15,7 +15,6 @@ import com.rs.content.magic.MagicOnItem;
 import com.rs.content.minigames.CrystalChest;
 import com.rs.core.net.handlers.PacketHandler;
 import com.rs.core.net.io.InputStream;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.player.Inventory;
 import com.rs.player.Player;

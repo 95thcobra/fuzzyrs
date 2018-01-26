@@ -1,6 +1,6 @@
 package com.rs.player;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.ActionManager;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.dungeoneering.dungeon.Dungeon;
@@ -35,7 +35,6 @@ import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
 import com.rs.core.net.encoders.impl.WorldPacketsEncoder;
 import com.rs.core.net.handlers.button.ButtonHandler;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.MachineInformation;
 import com.rs.core.utils.Utils;
@@ -58,7 +57,6 @@ import com.rs.world.task.gametask.GameTaskManager;
 import com.rs.world.task.gametask.impl.LoyaltyPointsTask;
 import com.rs.world.task.worldtask.WorldTask;
 import com.rs.world.task.worldtask.WorldTasksManager;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 

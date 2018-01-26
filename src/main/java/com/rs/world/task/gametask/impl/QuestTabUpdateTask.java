@@ -1,10 +1,9 @@
 package com.rs.world.task.gametask.impl;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.customskills.CustomSkills;
 import com.rs.content.player.points.PlayerPoints;
 import com.rs.core.cores.ServerOnlineTime;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 import com.rs.world.World;
 import com.rs.world.task.gametask.GameTask;

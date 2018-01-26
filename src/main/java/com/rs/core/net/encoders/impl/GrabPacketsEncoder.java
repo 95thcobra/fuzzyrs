@@ -1,12 +1,11 @@
 package com.rs.core.net.encoders.impl;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.cache.Cache;
 import com.rs.core.net.Session;
 import com.rs.core.net.encoders.Encoder;
 import com.rs.core.net.io.OutputStream;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;

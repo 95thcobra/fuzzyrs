@@ -1,9 +1,8 @@
 package com.rs.core.utils;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.core.cache.Cache;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 import com.rs.world.WorldTile;
 

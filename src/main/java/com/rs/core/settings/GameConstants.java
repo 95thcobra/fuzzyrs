@@ -8,7 +8,6 @@ public final class GameConstants {
     public static final String CACHE_PATH = DATA_PATH + "/cache/";
     public static final String ERROR_OUTPUT = DATA_PATH + "/logs/err.txt";
 	public static final String CONSOLE_OUTPUT = DATA_PATH + "/logs/out.txt";
-	public static final String SETTINGS_PATH = DATA_PATH + "/settings/settings.json";
 
 	/**
 	 * General client and server settings.

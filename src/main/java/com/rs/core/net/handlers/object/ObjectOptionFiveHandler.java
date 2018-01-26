@@ -1,10 +1,9 @@
 package com.rs.core.net.handlers.object;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.firemaking.Bonfire;
 import com.rs.core.cache.loaders.ObjectDefinitions;
 import com.rs.core.net.handlers.PacketHandler;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.player.CoordsEvent;
 import com.rs.player.Player;

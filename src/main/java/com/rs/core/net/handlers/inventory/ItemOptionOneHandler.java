@@ -1,6 +1,6 @@
 package com.rs.core.net.handlers.inventory;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.fletching.Fletching;
 import com.rs.content.actions.skills.herblore.HerbCleaning;
@@ -16,7 +16,6 @@ import com.rs.content.dialogues.types.SimplePlayerMessage;
 import com.rs.content.drinking.Alcohol;
 import com.rs.content.player.PlayerRank;
 import com.rs.core.net.handlers.PacketHandler;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.player.ClueScrolls;

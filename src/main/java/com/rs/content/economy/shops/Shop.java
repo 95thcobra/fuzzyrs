@@ -1,8 +1,7 @@
 package com.rs.content.economy.shops;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.item.ItemExamines;
 import com.rs.core.utils.item.ItemSetsKeyGenerator;
 import com.rs.player.Player;

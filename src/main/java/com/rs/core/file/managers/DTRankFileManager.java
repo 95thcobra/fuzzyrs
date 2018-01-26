@@ -1,9 +1,8 @@
 package com.rs.core.file.managers;
 
 import com.google.gson.reflect.TypeToken;
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.file.GameFileManager;
-import com.rs.core.file.DataFile;
 import com.rs.core.file.impl.DominionTowerRank;
 import com.rs.core.settings.GameConstants;
 import com.rs.core.utils.Logger;
@@ -13,7 +12,6 @@ import com.rs.player.Player;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

@@ -1,11 +1,10 @@
 package com.rs.core.net.decoders.impl;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.net.Session;
 import com.rs.core.net.decoders.Decoder;
 import com.rs.core.net.io.InputStream;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 
 public final class ClientPacketsDecoder extends Decoder {

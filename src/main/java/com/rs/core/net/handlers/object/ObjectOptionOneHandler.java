@@ -1,6 +1,6 @@
 package com.rs.core.net.handlers.object;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.CryptHandler;
 import com.rs.content.WhirlPoolHandler;
 import com.rs.content.actions.impl.CowMilkingAction;
@@ -36,7 +36,6 @@ import com.rs.core.net.handlers.object.impl.DoorHandler;
 import com.rs.core.net.handlers.object.impl.GateHandler;
 import com.rs.core.net.handlers.object.impl.LadderHandler;
 import com.rs.core.net.handlers.object.impl.StaircaseHandler;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.player.*;

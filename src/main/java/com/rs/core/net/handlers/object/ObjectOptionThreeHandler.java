@@ -1,6 +1,6 @@
 package com.rs.core.net.handlers.object;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.cache.loaders.ObjectDefinitions;
 import com.rs.core.net.handlers.PacketHandler;
 import com.rs.core.net.handlers.PacketHandlerManager;
@@ -8,7 +8,6 @@ import com.rs.core.net.handlers.object.impl.DoorHandler;
 import com.rs.core.net.handlers.object.impl.GateHandler;
 import com.rs.core.net.handlers.object.impl.LadderHandler;
 import com.rs.core.net.handlers.object.impl.StaircaseHandler;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.player.CoordsEvent;
 import com.rs.player.Player;

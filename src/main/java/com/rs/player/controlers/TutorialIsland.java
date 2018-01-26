@@ -1,6 +1,6 @@
 package com.rs.player.controlers;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.woodcutting.Woodcutting.TreeDefinitions;
 import com.rs.content.dialogues.impl.ItemMessage;
@@ -9,7 +9,6 @@ import com.rs.content.dialogues.impl.RuneScapeGuide;
 import com.rs.content.dialogues.impl.SurvivalExpert;
 import com.rs.content.dialogues.types.SimpleMessage;
 import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Inventory;
 import com.rs.world.World;
 import com.rs.world.WorldObject;

@@ -1,7 +1,6 @@
 package com.rs.core.utils;
 
-import com.rs.Server;
-import com.rs.core.NetworkEngine;
+import com.rs.server.Server;
 import com.rs.world.task.worldtask.WorldTasksManager;
 
 import java.util.Calendar;

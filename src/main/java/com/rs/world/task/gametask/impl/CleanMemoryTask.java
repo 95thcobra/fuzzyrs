@@ -1,12 +1,11 @@
 package com.rs.world.task.gametask.impl;
 
 import com.alex.store.Index;
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.cache.Cache;
 import com.rs.core.cache.loaders.ItemDefinitions;
 import com.rs.core.cache.loaders.NPCDefinitions;
 import com.rs.core.cache.loaders.ObjectDefinitions;
-import com.rs.core.settings.SettingsManager;
 import com.rs.world.Region;
 import com.rs.world.World;
 import com.rs.world.task.gametask.GameTask;

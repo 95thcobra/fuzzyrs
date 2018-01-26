@@ -1,8 +1,7 @@
 package com.rs.content.actions.skills;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.dialogues.impl.LevelUp;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 
 import java.io.Serializable;

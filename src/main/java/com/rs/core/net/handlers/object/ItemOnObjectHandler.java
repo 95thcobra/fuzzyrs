@@ -1,6 +1,6 @@
 package com.rs.core.net.handlers.object;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.cooking.Cooking;
 import com.rs.content.actions.skills.firemaking.Bonfire;
 import com.rs.content.actions.skills.prayer.GildedAltar;
@@ -11,7 +11,6 @@ import com.rs.content.dialogues.types.SimpleMessage;
 import com.rs.content.ectofuntus.Ectofuntus;
 import com.rs.core.cache.loaders.ObjectDefinitions;
 import com.rs.core.net.handlers.PacketHandler;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.CoordsEvent;
 import com.rs.player.Player;
 import com.rs.player.combat.PlayerCombat;

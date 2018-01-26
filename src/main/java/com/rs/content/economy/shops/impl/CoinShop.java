@@ -1,10 +1,9 @@
 package com.rs.content.economy.shops.impl;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.economy.shops.Shop;
 import com.rs.content.economy.shops.ShopData;
 import com.rs.content.economy.shops.ShopItem;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 import com.rs.world.item.Item;
 

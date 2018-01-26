@@ -1,6 +1,6 @@
 package com.rs.content.customskills.sailing;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.impl.Rest;
 import com.rs.content.customskills.CustomSkills;
 import com.rs.content.customskills.sailing.ships.PlayerShip;
@@ -9,7 +9,6 @@ import com.rs.content.customskills.sailing.ships.Ships;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
 import com.rs.core.net.handlers.button.ButtonHandler;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.player.Bank;

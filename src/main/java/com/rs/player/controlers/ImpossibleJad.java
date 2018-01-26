@@ -1,9 +1,8 @@
 package com.rs.player.controlers;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;

@@ -1,6 +1,6 @@
 package com.rs.core.net.encoders.impl;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.clans.ClansManager;
 import com.rs.content.economy.exchange.Offer;
 import com.rs.content.player.PlayerRank;
@@ -10,7 +10,6 @@ import com.rs.core.net.Session;
 import com.rs.core.net.encoders.Encoder;
 import com.rs.core.net.io.OutputStream;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.core.utils.huffman.Huffman;

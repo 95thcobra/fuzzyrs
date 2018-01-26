@@ -1,9 +1,8 @@
 package com.rs.content.dialogues.impl;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.core.cache.loaders.NPCDefinitions;
-import com.rs.core.settings.SettingsManager;
 
 public class Roddeck extends Dialogue {
 

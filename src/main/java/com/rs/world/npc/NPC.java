@@ -1,6 +1,6 @@
 package com.rs.world.npc;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.herblore.HerbCleaning;
 import com.rs.content.actions.skills.prayer.Burying;
@@ -14,7 +14,6 @@ import com.rs.core.file.data.npc.NPCCombatDefinitionsFileManager;
 import com.rs.core.file.data.npc.NPCDropsFileManager;
 import com.rs.core.file.data.npc.NPCNameFileManager;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;

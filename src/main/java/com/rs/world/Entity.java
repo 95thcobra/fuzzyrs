@@ -1,11 +1,10 @@
 package com.rs.world;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.core.cache.loaders.AnimationDefinitions;
 import com.rs.core.cache.loaders.ObjectDefinitions;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.content.Magic;

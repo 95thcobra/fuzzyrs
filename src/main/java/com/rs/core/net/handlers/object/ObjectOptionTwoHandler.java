@@ -1,6 +1,6 @@
 package com.rs.core.net.handlers.object;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.crafting.FlaxCrafting;
 import com.rs.content.actions.skills.thieving.Thieving;
@@ -15,7 +15,6 @@ import com.rs.core.net.handlers.object.impl.DoorHandler;
 import com.rs.core.net.handlers.object.impl.GateHandler;
 import com.rs.core.net.handlers.object.impl.LadderHandler;
 import com.rs.core.net.handlers.object.impl.StaircaseHandler;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.player.CoordsEvent;
 import com.rs.player.Player;

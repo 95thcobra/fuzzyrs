@@ -1,7 +1,6 @@
 package com.rs.world.task.gametask.impl;
 
-import com.rs.Server;
-import com.rs.core.settings.SettingsManager;
+import com.rs.server.Server;
 import com.rs.world.task.gametask.GameTask;
 import com.rs.world.task.gametask.GameTaskManager;
 import com.rs.world.task.gametask.GameTaskType;

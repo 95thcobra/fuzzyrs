@@ -1,10 +1,9 @@
 package com.rs.player.content;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.player.PlayerRank;
 import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.net.io.OutputStream;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Utils;
 import com.rs.player.FriendsIgnores;
 import com.rs.player.Player;

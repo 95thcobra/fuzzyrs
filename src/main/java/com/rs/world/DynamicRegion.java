@@ -1,9 +1,8 @@
 package com.rs.world;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.cache.loaders.ObjectDefinitions;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 
 public class DynamicRegion extends Region {

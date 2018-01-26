@@ -1,6 +1,6 @@
 package com.rs.core.net.handlers.npc;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.impl.Rest;
 import com.rs.content.actions.skills.fishing.Fishing;
 import com.rs.content.actions.skills.fishing.Fishing.FishingSpots;
@@ -20,7 +20,6 @@ import com.rs.content.player.PlayerRank;
 import com.rs.content.player.points.PlayerPoints;
 import com.rs.content.prestige.PrestigeD;
 import com.rs.core.net.io.InputStream;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.player.CoordsEvent;

@@ -1,9 +1,8 @@
 package com.rs.player.content;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.dialogues.impl.ClassPick;
 import com.rs.content.player.PlayerRank;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 
 /**

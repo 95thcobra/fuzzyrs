@@ -1,6 +1,6 @@
 package com.rs.core.net.decoders.impl;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.actions.impl.PlayerFollow;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.prayer.GildedAltar;
@@ -27,7 +27,6 @@ import com.rs.core.net.handlers.npc.NPCHandler;
 import com.rs.core.net.handlers.object.ItemOnObjectHandler;
 import com.rs.core.net.handlers.object.ObjectHandler;
 import com.rs.core.net.io.InputStream;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.core.utils.huffman.Huffman;

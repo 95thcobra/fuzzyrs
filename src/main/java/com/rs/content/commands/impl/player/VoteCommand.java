@@ -1,9 +1,8 @@
 package com.rs.content.commands.impl.player;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 
 /**

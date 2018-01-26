@@ -1,9 +1,8 @@
 package com.rs.core.file.managers;
 
 import com.google.gson.reflect.TypeToken;
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.file.GameFileManager;
-import com.rs.core.file.DataFile;
 import com.rs.core.settings.GameConstants;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
@@ -11,7 +10,6 @@ import com.rs.player.Player;
 import com.rs.player.content.FriendChatsManager;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

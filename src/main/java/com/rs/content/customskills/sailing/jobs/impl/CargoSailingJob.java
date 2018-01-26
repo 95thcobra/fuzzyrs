@@ -1,13 +1,12 @@
 package com.rs.content.customskills.sailing.jobs.impl;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.content.customskills.CustomSkills;
 import com.rs.content.customskills.sailing.SailingController;
 import com.rs.content.customskills.sailing.jobs.SailingJob;
 import com.rs.content.dialogues.DialogueExpressions;
 import com.rs.content.dialogues.types.ExpressionNPCMessage;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
-import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemsContainer;

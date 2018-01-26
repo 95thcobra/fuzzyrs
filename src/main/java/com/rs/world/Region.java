@@ -1,6 +1,6 @@
 package com.rs.world;
 
-import com.rs.Server;
+import com.rs.server.Server;
 import com.rs.core.cache.Cache;
 import com.rs.core.cache.loaders.ClientScriptMap;
 import com.rs.core.cache.loaders.ObjectDefinitions;
@@ -9,7 +9,6 @@ import com.rs.core.file.data.map.MapArchiveKeys;
 import com.rs.core.file.data.map.ObjectSpawnsFileManager;
 import com.rs.core.file.data.npc.NPCSpawnsFileManager;
 import com.rs.core.net.io.InputStream;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
