@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import lombok.AccessLevel;
 import lombok.Getter;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -36,7 +37,16 @@ public class JsonFileManager {
     }
 
     public <T> void save(String fileLocation, T object) throws IOException {
-        try (FileWriter fileWriter = new FileWriter(fileLocation)) {
+        File file = new File(fileLocation);
+        if (!file.exists()) {
+            if (file.getParentFile() != null && !file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            if (!file.createNewFile()) {
+                return;
+            }
+        }
+        try (FileWriter fileWriter = new FileWriter(file, false)) {
             getGson().toJson(object, fileWriter);
         }
     }
