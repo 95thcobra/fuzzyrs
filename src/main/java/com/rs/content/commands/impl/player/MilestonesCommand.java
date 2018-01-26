@@ -26,7 +26,8 @@ public class MilestonesCommand implements Command {
         player.getPackets()
                 .sendIComponentText(275, 18,
                         "You must kill 100 bosses in the Dominion Tower. (trimmed only)");
-        player.getPackets().sendIComponentText(
+        //TODO fix godwars objective
+        /*player.getPackets().sendIComponentText(
                 275,
                 20,
                 "You must kill General Graardor " + player.bandos
@@ -35,7 +36,7 @@ public class MilestonesCommand implements Command {
                 275,
                 21,
                 "You must kill Kree'arra " + player.armadyl
-                        + "/10 times.");
+                        + "/10 times.");*/
         player.getPackets().sendIComponentText(275, 23, " ");
         player.getPackets().sendIComponentText(275, 24,
                 "Minigames and Quests");
@@ -60,6 +61,5 @@ public class MilestonesCommand implements Command {
         player.getPackets().sendIComponentText(275, 46, " ");
         player.getPackets().sendIComponentText(275, 47, "None");
         player.getPackets().sendIComponentText(275, 48, " ");
-        return;
     }
 }

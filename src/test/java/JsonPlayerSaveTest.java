@@ -1,5 +1,6 @@
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.rs.Launcher;
 import com.rs.core.file.DataFile;
 import com.rs.core.file.JsonFileManager;
 import com.rs.player.Player;
@@ -15,12 +16,15 @@ import java.io.IOException;
 public class JsonPlayerSaveTest {
 
     @Test
-    public void run() throws IOException {
+    public void run() throws IOException, InstantiationException, IllegalAccessException, ClassNotFoundException {
+        Launcher.main();
         String accountPath = "./data/playersaves/characters/fuzzyavacado.p";
         Player player = new DataFile<Player>(new File(accountPath)).fromSerialUnchecked();
         String jsonAccountPath = "./data/players/fuzzyavacado.json";
         JsonFileManager jsonFileManager = JsonFileManager.create();
         jsonFileManager.save(jsonAccountPath, player);
-        player = jsonFileManager.load(jsonAccountPath, Player.class);
+        player = jsonFileManager.load(jsonAccountPath, new TypeToken<Player>() {
+        }.getType());
+        System.out.println(player);
     }
 }

@@ -96,7 +96,7 @@ public class Fletching extends Action {
         player.getPackets().sendGameMessage("You attempt to create a " + new Item(fletch.getProduct()[option]).getDefinitions().getName().replace("(u)", ""), true);
         final int invAmount = player.getInventory().getNumberOf(fletch.getId());
         final int amount = maxMakeQuantityTen(fletch) ? (invAmount > 10 ? 10 : invAmount) : 1;
-        if (player.KarateFletching) {
+        if (player.isKarateFletching()) {
             player.setNextAnimation(new Animation(17299));
             player.setNextGraphics(new Graphics(3300));
             player.getInventory().deleteItem(fletch.getId(), fletch.getProduct()[option] == 52 ? 1 : amount);

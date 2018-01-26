@@ -12,9 +12,9 @@ public class OldSkillAnimationsCommand implements Command {
 
     @Override
     public void handle(Player player, String[] cmd) {
-        player.ChillBlastMining = false;
-        player.IronFistSmithing = false;
-        player.KarateFletching = false;
-        player.SamuraiCooking = false;
+        player.setChillBlastMining(false);
+        player.setIronFistSmithing(false);
+        player.setKarateFletching(false);
+        player.setSamuraiCooking(false);
     }
 }

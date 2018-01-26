@@ -24,6 +24,6 @@ public class TimeOnlineTask extends GameTask {
 
 	@Override
 	public void run() {
-		player.time++;
+		player.setTime(player.getTime() + 1);
 	}
 }

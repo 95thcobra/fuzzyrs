@@ -84,7 +84,7 @@ public final class Mining extends MiningBase {
 
 	@Override
 	public boolean process(final Player player) {
-		if (player.ChillBlastMining == true) {
+		if (player.isChillBlastMining()) {
 			player.setNextAnimation(new Animation(17310));
 			player.setNextGraphics(new Graphics(3304));
 			return checkRock(player);

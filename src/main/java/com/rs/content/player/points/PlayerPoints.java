@@ -19,8 +19,7 @@ public enum PlayerPoints {
     DUNGEONEERING_TOKENS,
     ZEALS;
 
-    @Override
-    public String toString() {
+    public String formattedName() {
         return this.name().replace('_', ' ');
     }
 

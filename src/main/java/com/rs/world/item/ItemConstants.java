@@ -94,7 +94,8 @@ public class ItemConstants {
                         "You must kill the Queen Black Dragon.");
                 return false;
             }
-            if (player.bandos < 20) {
+            //TODO implement godwars again.
+            /*if (player.bandos < 20) {
                 player.getPackets().sendGameMessage(
                         "You must kill General Graardor atleast 20 times.");
                 return false;
@@ -103,9 +104,9 @@ public class ItemConstants {
                 player.getPackets().sendGameMessage(
                         "You must kill Kree'arra atleast 10 times.");
                 return false;
-            }
+            }*/
         } else if (item.getId() == 20769) {
-            if (player.bandos < 20) {
+            /*if (player.bandos < 20) {
                 player.getPackets().sendGameMessage(
                         "You must kill General Graardor atleast 20 times.");
                 return false;
@@ -114,7 +115,7 @@ public class ItemConstants {
                 player.getPackets().sendGameMessage(
                         "You must kill Kree'arra atleast 10 times.");
                 return false;
-            }
+            }*/
         } else if (item.getId() == 19893) {
             if (player.getRank().getDonateRank().isMinimumRank(PlayerRank.DonateRank.VIP)) {
                 player.getPackets().sendGameMessage(

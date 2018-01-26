@@ -23,7 +23,7 @@ public class DungeonExit extends Dialogue {
             stage = 0;
         } else if (stage == 0) {
             if (componentId == 2) {
-                player.dungeon = null;
+                player.setDungeon(null);
             }
             end();
         }

@@ -58,6 +58,9 @@ import com.rs.world.task.gametask.GameTaskManager;
 import com.rs.world.task.gametask.impl.LoyaltyPointsTask;
 import com.rs.world.task.worldtask.WorldTask;
 import com.rs.world.task.worldtask.WorldTasksManager;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -71,7 +74,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
 
-
+@Getter
+@Setter
 public class Player extends Entity {
 
     public static final int TELE_MOVE_TYPE = 127, WALK_MOVE_TYPE = 1, RUN_MOVE_TYPE = 2;
@@ -91,55 +95,53 @@ public class Player extends Entity {
     private final FriendsIgnores friendsIgnores;
     private final int[] pouches;
     private final ChargesManager charges;
-    public boolean trollReward;
-    public boolean lividcraft;
-    public boolean lividfarming;
-    public boolean lividmagic;
-    public boolean lividfarm;
-    public boolean hasBankPin;
-    public boolean hasEnteredPin;
-    public int pin;
-    public int clueScrollReward;
-    public int completed = 0;
-    public boolean ChillBlastMining;
-    public boolean IronFistSmithing;
-    public boolean KarateFletching;
-    public boolean SamuraiCooking;
+    private Toolbelt toolBelt;
+    private DominionTower dominionTower;
+    private Familiar familiar;
+    private AuraManager auraManager;
+    private QuestManager questManager;
+    private PetManager petManager;
+    private SailingManager sailingManager;
+    private PlayerRank playerRank;
+    private LocationCrystal crystal;
+    private PlayerPointManager playerPointManager;
+    private Dungeon dungeon;
+    private WorldObject dwarfCannonObject;
+    private Notes notes;
+    private SlayerTask task;
+    private GrandExchangeManager geManager;
+    private CustomSkillManager customSkills;
+
+    private String password;
+    private String displayName;
+    private String lastIP;
+
+    private boolean trollReward;
+    private boolean lividcraft;
+    private boolean lividfarming;
+    private boolean lividmagic;
+    private boolean lividfarm;
+    private boolean hasBankPin;
+    private boolean hasEnteredPin;
+    private int pin;
+    private int clueScrollReward;
+    private int completed = 0;
+    private boolean ChillBlastMining;
+    private boolean IronFistSmithing;
+    private boolean KarateFletching;
+    private boolean SamuraiCooking;
     // guilds
-    public int warned = 0;
-    // killstreak
-    // Boss Kills
-    public int wolverine = 0;
-    public int nex = 0;
-    public int bandos = 0;
-    public int saradomin = 0;
-    public int armadyl = 0;
-    public int zamorak = 0;
-    public int thunder = 0;
-    public int blink = 0;
-    public int dard = 0;
-    public int dagprime = 0;
-    public int davatar = 0;
-    public int icytroll = 0;
-    public int tarn = 0;
-    public int giantmole = 0;
-    public int giantroc = 0;
-    public int kbd = 0;
-    public int torms = 0;
-    public int corp = 0;
-    public int dagsup = 0;
-    public int dagrex = 0;
-    public int kraken = 0;
+    private int warned = 0;
     // Kuradal
-    public boolean talkedWithKuradal;
+    private boolean talkedWithKuradal;
     // talked with border guard
-    public boolean talkedWithBorder;
+    private boolean talkedWithBorder;
     // quest
-    public boolean talkedWithChild;
+    private boolean talkedWithChild;
     // rfd
-    public boolean rfd1, rfd2, rfd3, rfd4, rfd5 = false;
+    private boolean rfd1, rfd2, rfd3, rfd4, rfd5 = false;
     // time online
-    public int time = 0;
+    private int time = 0;
     /**
      * Location System
      */
@@ -154,22 +156,22 @@ public class Player extends Entity {
     public int isYesYes = 0;
     /*
      * Dwarf Cannon
-	 */
+     */
     public boolean hasSetupCannon = false;
     public boolean hasSetupRoyalCannon = false;
     public String hex;
     public long count;
-    public WorldObject dwarfCannonObject;
     public boolean isBurying = false;
     public int bossId;
     public int dungtime;
-    public Dungeon dungeon;
     public transient boolean dfsActivate;
     public transient boolean isBuying;
     public int boneType;
     public boolean bonesGrinded;
     public int unclaimedEctoTokens;
     private int gambleNumber;
+    private int trollsToKill;
+    private int trollsKilled;
     // Money Pouch
     private int money = 0;
 
@@ -180,7 +182,7 @@ public class Player extends Entity {
     private transient int displayMode;
     private transient int screenWidth;
     private transient int screenHeight;
-    // interface
+
     private transient InterfaceManager interfaceManager;
     private transient DialogueManager dialogueManager;
     private transient SquealOfFortune sof;
@@ -196,14 +198,10 @@ public class Player extends Entity {
     private transient VarsManager varsManager;
     private transient FriendChatsManager currentFriendChat;
     private transient com.rs.player.content.ShootingStar ShootingStar;
-    private int trollsToKill;
-    private int trollsKilled;
     private transient Trade trade;
     private transient DuelRules lastDuelRules;
     private transient IsaacKeyPair isaacKeyPair;
     private transient Pet pet;
-    private LocationCrystal crystal;
-    private PlayerPointManager playerPointManager;
     private boolean[] seenDungeon;
     // anti-boost
     private String lastKilled = "";
@@ -239,17 +237,6 @@ public class Player extends Entity {
     private transient double hpBoostMultiplier;
     private transient boolean largeSceneView;
     // saving stuff
-    private String password;
-    private PlayerRank playerRank;
-    private String displayName;
-    private String lastIP;
-    private Toolbelt toolBelt;
-    private DominionTower dominionTower;
-    private Familiar familiar;
-    private AuraManager auraManager;
-    private QuestManager questManager;
-    private PetManager petManager;
-    private SailingManager sailingManager;
     private byte runEnergy;
     private boolean allowChatEffects;
     private boolean mouseButtons;
@@ -278,10 +265,9 @@ public class Player extends Entity {
     private int assistStatus;
     private String lastMsg;
     // Slayer
-    private SlayerTask task;
     // Used for storing recent ips and password
-    private ArrayList<String> passwordList = new ArrayList<>();
-    private ArrayList<String> ipList = new ArrayList<>();
+    private ArrayList<String> passwordList;
+    private ArrayList<String> ipList;
     // honor
     private int killCount, deathCount;
     // barrows
@@ -315,7 +301,6 @@ public class Player extends Entity {
     private int spins;
     private long lastVoted;
     private transient boolean finishing;
-    private Notes notes;
     /**
      * Custom title's
      */
@@ -323,7 +308,6 @@ public class Player extends Entity {
     private String customTitle;
     private boolean hasCustomTitle;
     private String actualPassword;
-    private GrandExchangeManager geManager;
     private transient MoneyPouch moneyPouch;
     private transient ClansManager clanManager, guestClanManager;
     private String clanName;
@@ -333,7 +317,6 @@ public class Player extends Entity {
     private FunnyJoke funnyJoke;
     private transient double weight;
     private int prestigeLevel;
-    private CustomSkillManager customSkills;
     private int alcoholIntake = 0;
     private transient int moneyPouchTrade;
     private transient boolean addedFromPouch;
@@ -1424,8 +1407,8 @@ public class Player extends Entity {
     }
 
     /*
-	 * do not use this, only used by pm
-	 */
+     * do not use this, only used by pm
+     */
     public void setUsername(final String username) {
         this.username = username;
     }
@@ -3708,78 +3691,6 @@ public class Player extends Entity {
 
     public void falseWithKuradal() {
         talkedWithKuradal = false;
-    }
-
-    public int getZamorak() {
-        return zamorak;
-    }
-
-    public void setZamorak(final int zamorak) {
-        this.zamorak = zamorak;
-    }
-
-    public int getSaradomin() {
-        return saradomin;
-    }
-
-    public void setSaradomin(final int saradomin) {
-        this.saradomin = saradomin;
-    }
-
-    public int getArmadyl() {
-        return armadyl;
-    }
-
-    public void setArmadyl(final int armadyl) {
-        this.armadyl = armadyl;
-    }
-
-    public int getBlink() {
-        return blink;
-    }
-
-    public void setBlink(final int blink) {
-        this.blink = blink;
-    }
-
-    public int getThunder() {
-        return thunder;
-    }
-
-    public void setThunder(final int thunder) {
-        this.thunder = thunder;
-    }
-
-    public int getDard() {
-        return dard;
-    }
-
-    public void setDard(final int dard) {
-        this.dard = dard;
-    }
-
-    public int getBandos() {
-        return bandos;
-    }
-
-    public void setBandos(final int bandos) {
-        this.bandos = bandos;
-    }
-
-    public int getNex() {
-        return nex;
-    }
-
-    public void setNex(final int nex) {
-        this.nex = nex;
-    }
-
-    public int getWolverine() {
-        return wolverine;
-    }
-
-    public void setWolverine(final int wolverine) {
-        this.wolverine = wolverine;
     }
 
     public int getBankPin() {

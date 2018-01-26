@@ -21,7 +21,7 @@ public class TimeOnlineCommand implements Command {
         player.getPackets().sendIComponentText(1245, 13, " ");
         player.getPackets().sendIComponentText(1245, 14, " ");
         player.getPackets().sendIComponentText(1245, 15,
-                "You have been playing for " + player.time + " hours.");
+                "You have been playing for " + player.getTime() + " hours.");
         player.getPackets().sendIComponentText(1245, 16, " ");
         player.getPackets().sendIComponentText(1245, 17, " ");
         player.getPackets().sendIComponentText(1245, 18, " ");
@@ -31,6 +31,6 @@ public class TimeOnlineCommand implements Command {
         player.getPackets().sendIComponentText(1245, 22, " ");
         player.getPackets().sendIComponentText(1245, 23, " ");
         player.setNextForceTalk(new ForceTalk("I've spent a total of "
-                + player.time + " on " + Server.getInstance().getSettingsManager().getSettings().getServerName()));
+                + player.getTime() + " on " + Server.getInstance().getSettingsManager().getSettings().getServerName()));
     }
 }

@@ -27,7 +27,7 @@ public class Banker extends Dialogue {
                 player.getBank().openBank();
                 end();
             } else if (componentId == OPTION_2) {
-                if (!player.hasBankPin) {
+                if (!player.isHasBankPin()) {
                     stage = 14;
                     sendNPCDialogue(
                             npcId,
@@ -36,14 +36,14 @@ public class Banker extends Dialogue {
                 }
             } else if (componentId == OPTION_3) {
                 // bank pin removal
-                if (!player.hasEnteredPin && player.hasBankPin) {
+                if (!player.isHasEnteredPin() && player.isHasBankPin()) {
                     player.getTemporaryAttributtes().put("bank_pin1",
                             Boolean.TRUE);
                     player.getPackets().sendRunScript(108,
                             "Enter Your Bank Pin Please");
                     end();
                 } else {
-                    player.hasBankPin = false;
+                    player.setHasBankPin(false);
                     player.getTemporaryAttributtes().put("bank_pin",
                             Boolean.FALSE);
                     player.getPackets().sendGameMessage(

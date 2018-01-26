@@ -12,9 +12,9 @@ public class NewSkillAnimationsCommand implements Command {
 
     @Override
     public void handle(Player player, String[] cmd) {
-        player.ChillBlastMining = true;
-        player.IronFistSmithing = true;
-        player.KarateFletching = true;
-        player.SamuraiCooking = true;
+        player.setChillBlastMining(true);
+        player.setIronFistSmithing(true);
+        player.setKarateFletching(true);
+        player.setSamuraiCooking(true);
     }
 }

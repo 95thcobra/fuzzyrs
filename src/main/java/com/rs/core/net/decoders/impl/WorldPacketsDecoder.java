@@ -1442,19 +1442,19 @@ public final class WorldPacketsDecoder extends Decoder {
                 if (value < 0)
                     return;
                 player.setBankPin(value);
-                player.hasBankPin = true;
+                player.setHasBankPin(true);
                 player.getAppearance().generateAppearenceData();
                 player.getDialogueManager().startDialogue(SimpleMessage.class, "Your Bank Pin Is... <col=FF0000>" + player.getBankPin() + " </col>Remember it!");
                 player.getTemporaryAttributtes().put("bank_pin", Boolean.FALSE);
             } else if (player.getTemporaryAttributtes().get("bank_pin1") == Boolean.TRUE) {
                 if (value < 0)
                     return;
-                if (player.pin != value) {
+                if (player.getPin() != value) {
                     player.getDialogueManager().startDialogue(SimpleMessage.class, "Wrong Pin please try again.");
                 } else {
                     player.getAppearance().generateAppearenceData();
                     player.getDialogueManager().startDialogue(SimpleMessage.class, "You have entered your bank pin, Thank You");
-                    player.hasEnteredPin = true;
+                    player.setHasEnteredPin(true);
                     player.getBank().openBank();
                 }
                 player.getTemporaryAttributtes()

@@ -176,13 +176,13 @@ public class ClueScrolls {
 
 	public static void giveReward(final Player p) {
 		int random = Utils.getRandom(999) + 1;
-		if (p.clueScrollReward == 1) {
+		if (p.getClueScrollReward() == 1) {
 			random += 100;
-			p.clueScrollReward += 1;
-		} else if (p.clueScrollReward == 2) {
+			p.setClueScrollReward(p.getClueScrollReward() + 1);
+		} else if (p.getClueScrollReward() == 2) {
 			random += 250;
-			p.clueScrollReward += 1;
-		} else if (p.clueScrollReward == 3) {
+			p.setClueScrollReward(p.getClueScrollReward() + 1);
+		} else if (p.getClueScrollReward() == 3) {
 			random += 450;
 		}
 		if (random > 675) {
@@ -206,13 +206,13 @@ public class ClueScrolls {
 
 			}
 			p.getInventory().deleteItem(2717, 1);
-			p.clueScrollReward = 0;
+			p.setClueScrollReward(0);
 		} else {
 			p.getInventory().deleteItem(2717, 1);
 			p.getInventory().addItem(
 					ScrollIds[Utils.getRandom(ScrollIds.length)], 1);
-			if (p.clueScrollReward == 0) {
-				p.clueScrollReward += 1;
+			if (p.getClueScrollReward() == 0) {
+				p.setClueScrollReward(p.getClueScrollReward() + 1);
 			}
 
 		}

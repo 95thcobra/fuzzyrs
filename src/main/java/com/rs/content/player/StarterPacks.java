@@ -83,7 +83,7 @@ public class StarterPacks {
         player.getEquipment().refresh();
         player.getAppearance().generateAppearenceData();
         player.getEquipment().refreshAll();
-        player.completed += 1;
+        player.setCompleted(player.getCompleted() + 1);
         player.getAppearance().setTitle(3678);
     }
 

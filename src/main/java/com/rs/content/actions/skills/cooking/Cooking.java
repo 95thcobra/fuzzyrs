@@ -93,7 +93,7 @@ public class Cooking extends Action {
     @Override
     public int processWithDelay(final Player player) {
         amount--;
-        if (player.SamuraiCooking == true) {
+        if (player.isSamuraiCooking()) {
             player.setNextAnimation(new Animation(17314));
             player.setNextGraphics(new Graphics(3306));
         } else {

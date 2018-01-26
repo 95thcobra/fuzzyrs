@@ -29,9 +29,9 @@ public class QuestTabUpdateTask extends GameTask {
 
     public static void sendQuestTab(Player player) {
         int playercount = World.getPlayers().size();
-        int pHours = player.time / 60;
+        int pHours = player.getTime() / 60;
         int pDays = pHours / 24;
-        int pMinutes = player.time % 60;
+        int pMinutes = player.getTime() % 60;
         player.getPackets().sendIComponentText(930, 10, "<col=" + Color.MAGENTA.hashCode() + ">" + Server.getInstance().getSettingsManager().getSettings().getServerName());
         INFORMATION[0] = "Players online:<col=9ECBFF> " + playercount;
         INFORMATION[2] = "Server Online:";
@@ -48,7 +48,7 @@ public class QuestTabUpdateTask extends GameTask {
             if (p == PlayerPoints.RUNESPAN_POINTS) {
                 continue;
             }
-            INFORMATION[(++counter) + 14] = "<col=76A5DB>" + p.toString() + ":<col=9ECBFF> " + player.getPlayerPoints().getPoints(p);
+            INFORMATION[(++counter) + 14] = "<col=76A5DB>" + p.formattedName() + ":<col=9ECBFF> " + player.getPlayerPoints().getPoints(p);
         }
         StringBuilder builder = new StringBuilder();
         for (String s : INFORMATION) {

@@ -18,12 +18,12 @@ public class WarnPlayerCommand implements Command {
         final Player others = World.getPlayerByDisplayName(name);
         if (others == null)
             return;
-        others.warned += 1;
+        others.setWarned(others.getWarned() + 1);
         others.getPackets()
                 .sendGameMessage(
                         "<col=ff0000>You are being observed by a staff member.</col>");
         others.getPackets().sendGameMessage(
-                "<col=ff0000>You have been warned " + others.warned
+                "<col=ff0000>You have been warned " + others.getWarned()
                         + " times.</col>");
     }
 }

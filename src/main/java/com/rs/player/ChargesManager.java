@@ -16,6 +16,7 @@ public class ChargesManager implements Serializable {
 
 	public ChargesManager() {
 		charges = new HashMap<>();
+		System.out.println(charges);
 	}
 
 	public void setPlayer(final Player player) {

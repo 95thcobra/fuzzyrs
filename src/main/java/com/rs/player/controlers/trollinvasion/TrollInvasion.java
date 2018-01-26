@@ -388,12 +388,12 @@ public class TrollInvasion extends Controller {
                             player.getDialogueManager()
                                     .startDialogue(SimpleMessage.class,
                                             "You made it to wave 7 and completed the hard mode!");
-                            player.trollReward = true;
+                            player.setTrollReward(true);
                         } else {
                             player.getDialogueManager()
                                     .startDialogue(SimpleMessage.class,
                                             "You made it to wave 20 and completed the standard mode!");
-                            player.trollReward = true;
+                            player.setTrollReward(true);
                         }
                     });
                 }

@@ -769,7 +769,7 @@ public class NPC extends Entity implements Serializable {
             if (getId() == 1885) {
                 killer.sendMessage("Good job, you finally solved the riddle.");
             }
-            if (getId() == 15126) {
+            /*if (getId() == 15126) {
                 killer.setWolverine(killer.getWolverine() + 1);
             }
             if (getId() == 13450) {
@@ -826,6 +826,15 @@ public class NPC extends Entity implements Serializable {
             if (getId() == 6222) {
                 killer.setArmadyl(killer.getArmadyl() + 1);
             }
+            if (getId() == 11872) {
+                killer.setThunder(killer.getThunder() + 1);
+            }
+            if (getId() == 8335) {
+                killer.setDard(killer.getDard() + 1);
+            }
+            if (getId() == 12878) {
+                killer.setBlink(killer.getBlink() + 1);
+            }*/
             if (getId() == 15172) {
                 killer.setNextWorldTile(new WorldTile(2336, 4320, 0));
             }
@@ -836,9 +845,6 @@ public class NPC extends Entity implements Serializable {
                 killer.setNextWorldTile(new WorldTile(
                         Server.getInstance().getSettingsManager().getSettings().getStartPlayerLocation()));
                 killer.getInventory().addItem(21511, 1);
-            }
-            if (getId() == 12878) {
-                killer.setBlink(killer.getBlink() + 1);
             }
             if (getId() == 1885) {
                 killer.getInterfaceManager().sendInterface(1244);
@@ -855,12 +861,6 @@ public class NPC extends Entity implements Serializable {
                         .sendGameMessage(
                                 "Congratulations! You have completed the Bandit Assasination quest!");
                 killer.setSpins(killer.getSpins() + 2);
-            }
-            if (getId() == 11872) {
-                killer.setThunder(killer.getThunder() + 1);
-            }
-            if (getId() == 8335) {
-                killer.setDard(killer.getDard() + 1);
             }
             // SlayerTask task = killer.getSlayerTask();
             if (killer.getTask() != null) {

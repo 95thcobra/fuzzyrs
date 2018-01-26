@@ -4,6 +4,8 @@ import com.rs.content.economy.shops.ShopCurrency;
 
 import java.io.Serializable;
 import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author FuzzyAvacado
@@ -12,7 +14,7 @@ public class PlayerPointManager implements Serializable {
 
     private static final long serialVersionUID = 5236225143248295313L;
 
-    private EnumMap<PlayerPoints, Integer> points;
+    private Map<PlayerPoints, Integer> points;
 
     public PlayerPointManager() {
         points = new EnumMap<>(PlayerPoints.class);

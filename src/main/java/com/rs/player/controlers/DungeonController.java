@@ -114,7 +114,7 @@ public class DungeonController extends Controller {
             player.getSkills().addXp(24, fn);
             player.setNextWorldTile(new WorldTile(3449, 3725, 0));
             player.dungtime = 0;
-            player.dungeon = null;
+            player.setDungeon(null);
             player.reset();
             player.stopAll();
             dungeon.removePlayer(player);

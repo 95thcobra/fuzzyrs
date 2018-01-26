@@ -215,28 +215,28 @@ public class RecipeforDisaster extends Controller {
         spawned = true;
 
         if (getCurrentWave() == 2) {
-            player.rfd1 = true;
+            player.setRfd1(true);
             player.getBank().addItem(7453, 1, true);
             player.getBank().addItem(7454, 1, true);
             player.getPackets()
                     .sendGameMessage(
                             "<col=ff0000>Two pair of gloves have been added to your bank.");
         } else if (getCurrentWave() == 3) {
-            player.rfd2 = true;
+            player.setRfd2(true);
             player.getBank().addItem(7455, 1, true);
             player.getBank().addItem(7456, 1, true);
             player.getPackets()
                     .sendGameMessage(
                             "<col=ff0000>Two pair of gloves have been added to your bank.");
         } else if (getCurrentWave() == 4) {
-            player.rfd3 = true;
+            player.setRfd3(true);
             player.getBank().addItem(7457, 1, true);
             player.getBank().addItem(7458, 1, true);
             player.getPackets()
                     .sendGameMessage(
                             "<col=ff0000>Two pair of gloves have been added to your bank.");
         } else if (getCurrentWave() == 5) {
-            player.rfd4 = true;
+            player.setRfd4(true);
             player.getBank().addItem(7459, 1, true);
             player.getBank().addItem(7460, 1, true);
             player.getPackets()
@@ -341,7 +341,7 @@ public class RecipeforDisaster extends Controller {
                 if (type == 4) {
                     fade(player);
                     player.reset();
-                    player.rfd5 = true;
+                    player.setRfd5(true);
                     player.getBank().addItem(7461, 1, true);
                     player.getBank().addItem(7462, 1, true);
                     player.getPackets().sendGameMessage(

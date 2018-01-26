@@ -32,7 +32,7 @@ public class LividFarm {
                 "You have taken a log from the log pile.");
         player.getInventory().addItem(logs, 1);
         player.lock(1);
-        player.lividfarm = false; // <- Reseter
+        player.setLividfarm(false);
         player.setNextAnimation(new Animation(832));
     }
 
@@ -130,7 +130,7 @@ public class LividFarm {
                 "You have taken five logs from the log pile.");
         player.lock(2);
         player.getInventory().addItem(1511, 5);
-        player.lividfarm = false; // <- Reseter
+        player.setLividfarm(false);
         player.setNextAnimation(new Animation(832));
     }
 
@@ -141,7 +141,7 @@ public class LividFarm {
         if (player.getInventory().containsItem(logs, 28)) {
             player.getInventory().deleteItem(logs, 28);
             player.getInventory().addItem(bucket, 1);
-            player.lividfarm = true;
+            player.setLividfarm(true);
             player.getDialogueManager().startDialogue(
                     SimpleNPCMessage.class,
                     LADY,
@@ -161,27 +161,27 @@ public class LividFarm {
      * Player-owned experience settings, after reaching 80+ farming.
      */
     public static void setCrafting(final Player player) {
-        player.lividcraft = true;
+        player.setLividcraft(true);
         player.getPackets().sendGameMessage(
                 "You will be gaining now Crafting experience only.");
-        player.lividmagic = false;
-        player.lividfarming = false;
+        player.setLividmagic(false);
+        player.setLividfarming(true);
     }
 
     public static void setMagic(final Player player) {
-        player.lividcraft = false;
+        player.setLividcraft(false);
         player.getPackets().sendGameMessage(
                 "You will be gaining now Magic experience only.");
-        player.lividmagic = true;
-        player.lividfarming = false;
+        player.setLividmagic(true);
+        player.setLividfarming(false);
     }
 
     public static void setFarming(final Player player) {
-        player.lividcraft = false;
+        player.setLividcraft(false);
         player.getPackets().sendGameMessage(
                 "You will be gaining now Crafting experience only.");
-        player.lividmagic = false;
-        player.lividfarming = true;
+        player.setLividmagic(false);
+        player.setLividfarming(true);
     }
 
     /*

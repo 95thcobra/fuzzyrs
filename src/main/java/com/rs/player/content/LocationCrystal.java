@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class LocationCrystal implements Serializable {
 
     private static final long serialVersionUID = -3788650257010921632L;
-    private final Player player;
+    private transient Player player;
     private transient WorldTile tile;
     private Location[] locations;
 
