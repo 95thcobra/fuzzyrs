@@ -1,49 +1,55 @@
-package com.rs.core.file.managers;
+package com.rs.server.file.impl;
 
 import com.google.gson.reflect.TypeToken;
-import com.rs.server.Server;
-import com.rs.core.file.GameFileManager;
 import com.rs.core.file.impl.DominionTowerRank;
-import com.rs.core.settings.GameConstants;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.player.DominionTower;
 import com.rs.player.Player;
+import com.rs.server.file.JsonFileManager;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * @author FuzzyAvacado
  */
-public class DTRankFileManager {
+@Getter(AccessLevel.PRIVATE)
+public final class DTRankFileManager extends JsonFileManager {
 
-    private static final String PATH = GameConstants.DATA_PATH + "/dtRanks.json";
+    private final String path;
 
-    private static List<DominionTowerRank> ranks;
+    @Setter(AccessLevel.PRIVATE)
+    private List<DominionTowerRank> ranks;
 
-    public static void init() {
-        final File file = new File(PATH);
+    public DTRankFileManager(String path) {
+        this.path = path;
+    }
+
+    public void init() {
+        final File file = new File(getPath());
         if (file.exists()) {
             try {
-                ranks = Server.getInstance().getJsonFileManager().load(PATH, new TypeToken<ArrayList<DominionTowerRank>>() {
-                }.getType());
+                setRanks(load(getPath(), new TypeToken<ArrayList<DominionTowerRank>>() {
+                }.getType()));
             } catch (IOException e) {
                 Logger.handle(e);
             }
             return;
         }
-        ranks = new ArrayList<>(10);
+        setRanks(new ArrayList<>(10));
         save();
     }
 
-    public static void showRanks(final Player player) {
+    public void showRanks(final Player player) {
         player.getInterfaceManager().sendInterface(1158);
         int count = 0;
-        for (final DominionTowerRank rank : ranks) {
+        for (final DominionTowerRank rank : getRanks()) {
             if (rank == null)
                 return;
             player.getPackets().sendIComponentText(1158, 9 + count * 5, Utils.formatPlayerNameForDisplay(rank.getUsername()));
@@ -54,55 +60,49 @@ public class DTRankFileManager {
         }
     }
 
-    public static void save() {
+    public void save() {
         try {
-            GameFileManager.storeJsonFile(ranks, new File(
-                    PATH));
+            save(getPath(), getRanks());
         } catch (IOException e) {
             Logger.handle(e);
         }
     }
 
-    public static void sort() {
-        Collections.sort(ranks, (arg0, arg1) -> {
+    public void sort() {
+        getRanks().sort((arg0, arg1) -> {
             if (arg0 == null)
                 return 1;
             if (arg1 == null)
                 return -1;
-            if (arg0.getDominionFactor() < arg1.getDominionFactor())
-                return 1;
-            else if (arg0.getDominionFactor() > arg1.getDominionFactor())
-                return -1;
-            else
-                return 0;
+            return Long.compare(arg1.getDominionFactor(), arg0.getDominionFactor());
         });
     }
 
-    public static void checkRank(final Player player, final int mode, final String boss) {
+    public void checkRank(final Player player, final int mode, final String boss) {
         final long dominionFactor = player.getDominionTower().getTotalScore();
-        for (DominionTowerRank rank : ranks) {
-            int index = ranks.indexOf(rank);
+        for (DominionTowerRank rank : getRanks()) {
+            int index = getRanks().indexOf(rank);
             if (rank == null) {
                 break;
             }
             if (rank.getUsername().equalsIgnoreCase(player.getUsername())) {
-                ranks.set(index, new DominionTowerRank(player, mode, boss));
+                getRanks().set(index, new DominionTowerRank(player, mode, boss));
                 sort();
                 return;
             }
         }
-        for (DominionTowerRank rank : ranks) {
-            int index = ranks.indexOf(rank);
+        for (DominionTowerRank rank : getRanks()) {
+            int index = getRanks().indexOf(rank);
             if (rank == null) {
-                ranks.set(index, new DominionTowerRank(player, mode, boss));
+                getRanks().set(index, new DominionTowerRank(player, mode, boss));
                 sort();
                 return;
             }
         }
-        for (DominionTowerRank rank : ranks) {
-            int index = ranks.indexOf(rank);
+        for (DominionTowerRank rank : getRanks()) {
+            int index = getRanks().indexOf(rank);
             if (rank.getDominionFactor() < dominionFactor) {
-                ranks.set(index, new DominionTowerRank(player, mode, boss));
+                getRanks().set(index, new DominionTowerRank(player, mode, boss));
                 sort();
                 return;
             }

@@ -12,7 +12,7 @@ import com.rs.content.minigames.duel.DuelController;
 import com.rs.content.minigames.soulwars.SoulWarsManager;
 import com.rs.content.player.PlayerRank;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.file.managers.IPBanFileManager;
+import com.rs.server.file.impl.IPBanFileManager;
 import com.rs.core.file.managers.PkRankFileManager;
 import com.rs.core.settings.GameConstants;
 import com.rs.core.utils.Logger;
@@ -768,15 +768,15 @@ public final class World {
 	}
 
 	public static Player getPlayerByDisplayName(final String username) {
-		final String formatedUsername = Utils
+		final String formattedUsername = Utils
 				.formatPlayerNameForDisplay(username);
 		for (final Player player : getPlayers()) {
 			if (player == null) {
 				continue;
 			}
-			if (player.getUsername().equalsIgnoreCase(formatedUsername)
+			if (player.getUsername().equalsIgnoreCase(formattedUsername)
 					|| player.getDisplayName().equalsIgnoreCase(
-							formatedUsername))
+							formattedUsername))
 				return player;
 		}
 		return null;
@@ -1673,7 +1673,7 @@ public final class World {
 				continue;
 			}
 			if (p.getUsername().equalsIgnoreCase(
-					Utils.formatPlayerNameForProtocol(playerName)))
+					PlayerFileManager.formatUserNameForFile(playerName)))
 				return p.getIndex();
 		}
 		return 0;

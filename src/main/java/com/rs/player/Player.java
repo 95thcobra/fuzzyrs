@@ -29,7 +29,6 @@ import com.rs.content.potiontimers.PotionType;
 import com.rs.content.web.impl.HighScores;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.file.managers.PkRankFileManager;
-import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.net.Session;
 import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
 import com.rs.core.net.encoders.impl.WorldPacketsEncoder;
@@ -1350,7 +1349,7 @@ public class Player extends Entity {
         setFinished(true);
         GrandExchange.unlinkOffers(this);
         session.setDecoder(-1);
-        PlayerFilesManager.savePlayer(this);
+        Server.getInstance().getPlayerFileManager().save(this);
         if (!getRank().isMinimumRank(PlayerRank.ADMIN)) {
             GameTaskManager.scheduleTask(new HighScores(this));
         }

@@ -2,13 +2,13 @@ package com.rs.content.staff.actions.impl;
 
 import com.rs.content.player.PlayerRank;
 import com.rs.content.staff.actions.StaffAction;
-import com.rs.core.file.DataFile;
-import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.settings.GameConstants;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
+import com.rs.server.Server;
 
 import java.io.File;
+import java.util.Optional;
 
 /**
  * @author FuzzyAvacado
@@ -20,12 +20,17 @@ public class UnBanAction implements StaffAction {
         final File acc = new File(GameConstants.DATA_PATH + "/playersaves/characters/"
                 + value.replace(" ", "_") + ".p");
         Player target = null;
-        target = new DataFile<Player>(acc).fromSerialUnchecked();
+        Optional<Player> targetOptional = Server.getInstance().getPlayerFileManager().load(value);
+        if (targetOptional.isPresent()) {
+            target = targetOptional.get();
+            target.setUsername(Utils
+                    .formatPlayerNameForProtocol(value));
+        }
         assert target != null;
         target.setPermBanned(false);
         target.setBanned(0);
         player.getPackets().sendGameMessage("You've unbanned " + Utils.formatPlayerNameForDisplay(target.getUsername()) + ".");
-        PlayerFilesManager.savePlayer(target);
+        Server.getInstance().getPlayerFileManager().save(target);
     }
 
     @Override

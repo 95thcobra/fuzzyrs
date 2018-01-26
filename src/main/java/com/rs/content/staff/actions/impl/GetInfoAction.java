@@ -4,11 +4,13 @@ import com.rs.content.actions.skills.Skills;
 import com.rs.content.player.PlayerRank;
 import com.rs.content.player.points.PlayerPoints;
 import com.rs.content.staff.actions.StaffAction;
-import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.combat.CombatDefinitions;
+import com.rs.server.Server;
 import com.rs.world.World;
+
+import java.util.Optional;
 
 /**
  * @author FuzzyAvacado
@@ -20,9 +22,9 @@ public class GetInfoAction implements StaffAction {
         Player target = World.getPlayerByDisplayName(value);
         boolean loggedIn = true;
         if (target == null) {
-            target = PlayerFilesManager.loadPlayer(Utils
-                    .formatPlayerNameForProtocol(value));
-            if (target != null) {
+            Optional<Player> targetOptional = Server.getInstance().getPlayerFileManager().load(value);
+            if (targetOptional.isPresent()) {
+                target = targetOptional.get();
                 target.setUsername(Utils
                         .formatPlayerNameForProtocol(value));
             }

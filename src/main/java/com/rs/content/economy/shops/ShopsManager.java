@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.rs.content.customskills.sailing.ships.ShipShop;
 import com.rs.content.economy.shops.impl.CoinShop;
 import com.rs.content.economy.shops.impl.PointShop;
-import com.rs.core.file.GameFileManager;
 import com.rs.core.settings.GameConstants;
 import com.rs.core.utils.Logger;
 import com.rs.player.Player;

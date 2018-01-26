@@ -1,7 +1,5 @@
 package com.rs.server;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.rs.content.actions.skills.fishing.FishingSpotsHandler;
 import com.rs.content.christmas.funnyjoke.FunnyJokeHandler;
 import com.rs.content.commands.CommandManager;
@@ -17,18 +15,13 @@ import com.rs.core.NetworkEngine;
 import com.rs.core.cache.Cache;
 import com.rs.core.cache.loaders.ItemsEquipIds;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.file.GameFileManager;
 import com.rs.core.file.data.map.MapArchiveKeys;
 import com.rs.core.file.data.map.MapAreas;
 import com.rs.core.file.data.map.ObjectSpawnsFileManager;
 import com.rs.core.file.data.npc.*;
-import com.rs.core.file.managers.DTRankFileManager;
-import com.rs.core.file.managers.DisplayNamesFileManager;
-import com.rs.core.file.managers.IPBanFileManager;
+import com.rs.player.Player;
+import com.rs.server.file.impl.*;
 import com.rs.core.file.managers.PkRankFileManager;
-import com.rs.core.settings.GameConstants;
-import com.rs.server.file.impl.PlayerFileManager;
-import com.rs.server.file.impl.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.file.AutoBackup;
 import com.rs.core.utils.file.MusicHints;
@@ -55,6 +48,11 @@ public final class Server {
     private final GameEngine gameEngine;
     private final NetworkEngine networkEngine;
     private final PlayerFileManager playerFileManager;
+    private final DTRankFileManager dtRankFileManager;
+    private final IPBanFileManager ipBanFileManager;
+    private final DisplayNamesFileManager displayNamesFileManager;
+    private final ClanFilesManager clanFilesManager;
+    private final GrandExchangeFileManager grandExchangeFileManager;
 
     @Setter(AccessLevel.PRIVATE)
     private long startTime;
@@ -66,10 +64,10 @@ public final class Server {
         Cache.init();
         ItemsEquipIds.init();
         Huffman.init();
-        DisplayNamesFileManager.init();
-        IPBanFileManager.init();
+        getDisplayNamesFileManager().init();
+        getIpBanFileManager().init();
         PkRankFileManager.init();
-        DTRankFileManager.init();
+        getDtRankFileManager().init();
         MapArchiveKeys.init();
         MapAreas.init();
         ObjectSpawnsFileManager.init();
@@ -107,10 +105,24 @@ public final class Server {
     }
 
     public void stop() {
-        GameFileManager.saveAll();
+        saveAll();
         getNetworkEngine().shutdown();
         getGameEngine().shutdown();
         CoresManager.shutdown();
+    }
+
+    public void saveAll() {
+        for (final Player player : World.getPlayers()) {
+            if (player == null || !player.hasStarted() || player.hasFinished()) {
+                continue;
+            }
+            getPlayerFileManager().save(player);
+        }
+        getDisplayNamesFileManager().save();
+        GrandExchange.save();
+        getIpBanFileManager().save();
+        PkRankFileManager.save();
+        getDtRankFileManager().save();
     }
 
     public void restart() {
@@ -134,7 +146,13 @@ public final class Server {
             GameEngine gameEngine = new GameEngine();
             NetworkEngine networkEngine = new NetworkEngine();
             PlayerFileManager playerFileManager = new PlayerFileManager(GameFileConstants.PLAYERS_DIR);
-            return new Server(settingsManager, gameEngine, networkEngine, playerFileManager);
+            DTRankFileManager dtRankFileManager = new DTRankFileManager(GameFileConstants.DT_RANKS_FILE);
+            IPBanFileManager ipBanFileManager = new IPBanFileManager(GameFileConstants.IP_BANS_FILE);
+            DisplayNamesFileManager displayNamesFileManager = new DisplayNamesFileManager(GameFileConstants.DISPLAY_NAMES_FILE);
+            ClanFilesManager clanFilesManager = new ClanFilesManager();
+            GrandExchangeFileManager grandExchangeFileManager = new GrandExchangeFileManager();
+            return new Server(settingsManager, gameEngine, networkEngine, playerFileManager, dtRankFileManager,
+                    ipBanFileManager, displayNamesFileManager, clanFilesManager, grandExchangeFileManager);
         }
     }
 }

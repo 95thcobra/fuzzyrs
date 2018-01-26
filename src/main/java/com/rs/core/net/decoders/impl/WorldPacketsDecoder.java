@@ -15,7 +15,7 @@ import com.rs.content.minigames.clanwars.ClanWars;
 import com.rs.content.minigames.creations.StealingCreation;
 import com.rs.content.staff.StaffInterface;
 import com.rs.content.staff.StaffPanelHandler;
-import com.rs.core.file.managers.DisplayNamesFileManager;
+import com.rs.server.file.impl.DisplayNamesFileManager;
 import com.rs.core.net.Session;
 import com.rs.core.net.decoders.Decoder;
 import com.rs.core.net.handlers.PacketHandlerManager;

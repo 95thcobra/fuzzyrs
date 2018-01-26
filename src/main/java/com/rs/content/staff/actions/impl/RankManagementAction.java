@@ -4,10 +4,12 @@ import com.rs.content.dialogues.Dialogue;
 import com.rs.content.player.PlayerRank;
 import com.rs.content.staff.StaffPanelDialogue;
 import com.rs.content.staff.actions.StaffAction;
-import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
+import com.rs.server.Server;
 import com.rs.world.World;
+
+import java.util.Optional;
 
 /**
  * @author FuzzyAvacado
@@ -21,9 +23,9 @@ public class RankManagementAction extends Dialogue implements StaffAction {
     public void handle(Player player, String value) {
         Player target = World.getPlayerByDisplayName(value);
         if (target == null) {
-            target = PlayerFilesManager.loadPlayer(Utils
-                    .formatPlayerNameForProtocol(value));
-            if (target != null) {
+            Optional<Player> targetOptional = Server.getInstance().getPlayerFileManager().load(value);
+            if (targetOptional.isPresent()) {
+                target = targetOptional.get();
                 target.setUsername(Utils
                         .formatPlayerNameForProtocol(value));
             }

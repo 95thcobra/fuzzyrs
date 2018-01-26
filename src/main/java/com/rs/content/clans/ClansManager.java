@@ -6,11 +6,12 @@ import com.rs.content.dialogues.impl.ClanMotto;
 import com.rs.content.dialogues.impl.LeaveClan;
 import com.rs.content.minigames.clanwars.ClanWars;
 import com.rs.core.cache.loaders.ClientScriptMap;
-import com.rs.core.file.managers.ClanFilesManager;
+import com.rs.server.file.impl.ClanFilesManager;
 import com.rs.core.net.io.OutputStream;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.QuickChatMessage;
+import com.rs.server.file.impl.PlayerFileManager;
 import com.rs.world.World;
 
 import java.text.DateFormat;
@@ -944,9 +945,9 @@ public class ClansManager {
 
 	public Player getPlayerByDisplayName(String username) {
 		synchronized (this) {
-			String formatedUsername = Utils.formatPlayerNameForProtocol(username);
+			String formattedUsername = PlayerFileManager.formatUserNameForFile(username);
 			for (Player player : channelPlayers) {
-				if (player.getUsername().equals(formatedUsername) || player.getDisplayName().equalsIgnoreCase(username))
+				if (player.getUsername().equals(formattedUsername) || player.getDisplayName().equalsIgnoreCase(username))
 					return player;
 			}
 			return null;

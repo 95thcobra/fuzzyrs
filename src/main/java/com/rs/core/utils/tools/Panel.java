@@ -1,6 +1,6 @@
 package com.rs.core.utils.tools;
 
-import com.rs.core.file.managers.IPBanFileManager;
+import com.rs.server.file.impl.IPBanFileManager;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.content.Magic;

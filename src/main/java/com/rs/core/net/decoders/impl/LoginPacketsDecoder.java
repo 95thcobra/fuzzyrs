@@ -2,7 +2,6 @@ package com.rs.core.net.decoders.impl;
 
 import com.rs.server.Server;
 import com.rs.core.cache.Cache;
-import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.net.Session;
 import com.rs.core.net.decoders.Decoder;
 import com.rs.core.net.io.InputStream;

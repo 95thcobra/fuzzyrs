@@ -18,6 +18,7 @@ import com.rs.player.Player;
 import com.rs.player.PublicChatMessage;
 import com.rs.player.QuickChatMessage;
 import com.rs.player.content.FriendChatsManager;
+import com.rs.server.file.impl.PlayerFileManager;
 import com.rs.world.*;
 import com.rs.world.item.FloorItem;
 import com.rs.world.item.Item;
@@ -671,7 +672,7 @@ public class WorldPacketsEncoder extends Encoder {
 		stream.writeString(displayName.equals(username) ? "" : username);
 		stream.writeShort(putOnline ? world : 0);
 		stream.writeByte(player.getFriendsIgnores().getRank(
-				Utils.formatPlayerNameForProtocol(username)));
+				PlayerFileManager.formatUserNameForFile(username)));
 		stream.writeByte(0);
 		if (putOnline) {
 			stream.writeString(Server.getInstance().getSettingsManager().getSettings().getServerName());

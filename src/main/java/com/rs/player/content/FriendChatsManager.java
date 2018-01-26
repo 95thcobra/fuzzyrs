@@ -2,15 +2,16 @@ package com.rs.player.content;
 
 import com.rs.server.Server;
 import com.rs.content.player.PlayerRank;
-import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.net.io.OutputStream;
 import com.rs.core.utils.Utils;
 import com.rs.player.FriendsIgnores;
 import com.rs.player.Player;
 import com.rs.player.QuickChatMessage;
+import com.rs.server.file.impl.PlayerFileManager;
 import com.rs.world.World;
 
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -70,26 +71,26 @@ public class FriendChatsManager {
                 return;
             player.getPackets()
                     .sendGameMessage("Attempting to join channel...");
-            final String formatedName = Utils
-                    .formatPlayerNameForProtocol(ownerName);
-            FriendChatsManager chat = cachedFriendChats.get(formatedName);
+            final String formattedName = PlayerFileManager.formatUserNameForFile(ownerName);
+            FriendChatsManager chat = cachedFriendChats.get(formattedName);
             if (chat == null) {
                 Player owner = World.getPlayerByDisplayName(ownerName);
                 if (owner == null) {
-                    if (!PlayerFilesManager.containsPlayer(formatedName)) {
+                    if (!Server.getInstance().getPlayerFileManager().exists(formattedName)) {
                         player.getPackets()
                                 .sendGameMessage(
                                         "The channel you tried to join does not exist.");
                         return;
                     }
-                    owner = PlayerFilesManager.loadPlayer(formatedName);
-                    if (owner == null) {
+                    Optional<Player> ownerOptional = Server.getInstance().getPlayerFileManager().load(formattedName);
+                    if (!ownerOptional.isPresent()) {
                         player.getPackets()
                                 .sendGameMessage(
                                         "The channel you tried to join does not exist.");
                         return;
                     }
-                    owner.setUsername(formatedName);
+                    owner = ownerOptional.get();
+                    owner.setUsername(formattedName);
                 }
                 final FriendsIgnores settings = owner.getFriendsIgnores();
                 if (!settings.hasFriendChat()) {

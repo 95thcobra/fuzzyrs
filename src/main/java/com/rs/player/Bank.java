@@ -3,7 +3,6 @@ package com.rs.player;
 import com.rs.server.Server;
 import com.rs.content.actions.skills.prayer.GildedAltar;
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.utils.item.ItemExamines;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemsContainer;
@@ -332,7 +331,7 @@ public class Bank implements Serializable {
             removeItem(i.getId());
         }
         refreshItems();
-        PlayerFilesManager.savePlayer(player);
+        Server.getInstance().getPlayerFileManager().save(player);
     }
 
     public boolean hasBankSpace() {

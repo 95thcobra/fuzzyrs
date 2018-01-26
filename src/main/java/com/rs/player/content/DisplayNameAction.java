@@ -1,8 +1,8 @@
 package com.rs.player.content;
 
-import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
+import com.rs.server.Server;
 
 /**
  * @author JazzyYaYaYa | Fuzen Seth | Nexon
@@ -15,7 +15,7 @@ public class DisplayNameAction {
 		player.setDisplayName(Utils.formatPlayerNameForDisplay(player
 				.getUsername()));
 		player.getInterfaceManager().closeChatBoxInterface();
-		PlayerFilesManager.savePlayer(player);
+		Server.getInstance().getPlayerFileManager().save(player);
 		player.getPackets()
 				.sendGameMessage(
 						"Your display name has been removed. You must re-login for it to take effect.");

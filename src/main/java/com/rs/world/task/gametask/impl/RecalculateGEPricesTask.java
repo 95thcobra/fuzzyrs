@@ -1,7 +1,7 @@
 package com.rs.world.task.gametask.impl;
 
 import com.rs.content.economy.exchange.GrandExchangePriceManager;
-import com.rs.core.file.managers.GrandExchangeFileManager;
+import com.rs.server.file.impl.GrandExchangeFileManager;
 import com.rs.world.task.gametask.GameTask;
 import com.rs.world.task.gametask.GameTaskManager;
 import com.rs.world.task.gametask.GameTaskType;

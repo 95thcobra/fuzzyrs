@@ -1,7 +1,7 @@
 package com.rs.content.economy.exchange;
 
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.file.managers.GrandExchangeFileManager;
+import com.rs.server.file.impl.GrandExchangeFileManager;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
 

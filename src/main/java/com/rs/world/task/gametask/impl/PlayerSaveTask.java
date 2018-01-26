@@ -1,6 +1,6 @@
 package com.rs.world.task.gametask.impl;
 
-import com.rs.core.file.GameFileManager;
+import com.rs.server.Server;
 import com.rs.world.task.gametask.GameTask;
 import com.rs.world.task.gametask.GameTaskManager;
 import com.rs.world.task.gametask.GameTaskType;
@@ -19,6 +19,6 @@ public class PlayerSaveTask extends GameTask {
 
     @Override
     public void run() {
-        GameFileManager.saveAll();
+        Server.getInstance().saveAll();
     }
 }

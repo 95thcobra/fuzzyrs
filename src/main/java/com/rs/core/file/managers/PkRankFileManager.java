@@ -2,7 +2,6 @@ package com.rs.core.file.managers;
 
 import com.google.gson.reflect.TypeToken;
 import com.rs.server.Server;
-import com.rs.core.file.GameFileManager;
 import com.rs.core.file.impl.PlayerKillingRank;
 import com.rs.core.settings.GameConstants;
 import com.rs.core.utils.Logger;

@@ -1,6 +1,7 @@
 package com.rs.core.net;
 
-import com.rs.core.file.managers.IPBanFileManager;
+import com.rs.server.Server;
+import com.rs.server.file.impl.IPBanFileManager;
 import com.rs.core.net.decoders.Decoder;
 import com.rs.core.net.decoders.impl.ClientPacketsDecoder;
 import com.rs.core.net.decoders.impl.GrabPacketsDecoder;
@@ -25,7 +26,7 @@ public class Session {
 
 	public Session(final Channel channel) {
 		this.channel = channel;
-		if (IPBanFileManager.isBanned(getIP())) {
+		if (Server.getInstance().getIpBanFileManager().isBanned(getIP())) {
 			channel.disconnect();
 			return;
 		}
