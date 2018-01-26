@@ -1,5 +1,6 @@
 package com.rs.content.commands.impl.admin;
 
+import com.rs.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.content.player.PlayerRank;
@@ -24,7 +25,7 @@ public class BowPlayersCommand implements Command {
             players.setNextAnimation(new Animation(9098));
             players.setNextForceTalk(new ForceTalk(
                     "We hail the great owner of "
-                            + SettingsManager.getSettings().SERVER_NAME));
+                            + Server.getInstance().getSettingsManager().getSettings().getServerName()));
         }
     }
 }

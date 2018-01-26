@@ -1,5 +1,6 @@
 package com.rs.player.controlers;
 
+import com.rs.Server;
 import com.rs.content.dialogues.impl.QuestGuide;
 import com.rs.core.settings.SettingsManager;
 import com.rs.world.Entity;
@@ -208,7 +209,7 @@ public class StartTutorial extends Controller {
 		player.getPackets().sendGameMessage("Enjoy your stay! ;)");
 		player.getControllerManager().removeControlerWithoutCheck();
 		World.sendWorldMessage("<col=00aaff " + player.getDisplayName()
-				+ " has just joined " + SettingsManager.getSettings().SERVER_NAME + "! <col>", false);
+				+ " has just joined " + Server.getInstance().getSettingsManager().getSettings().getServerName() + "! <col>", false);
 
 		WorldTasksManager.schedule(new WorldTask() {
 			@Override

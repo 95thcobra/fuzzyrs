@@ -1,5 +1,6 @@
 package com.rs.player.controlers;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.thieving.Thieving;
 import com.rs.core.settings.SettingsManager;
@@ -257,7 +258,7 @@ public class Wilderness extends Controller {
 					player.getInventory().init();
 					player.reset();
 					player.setNextWorldTile(new WorldTile(
-							SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION));
+							Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation()));
 					player.setNextAnimation(new Animation(-1));
 				} else if (loop == 2) {
 					removeIcon();

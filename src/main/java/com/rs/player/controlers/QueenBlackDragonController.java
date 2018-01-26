@@ -1,5 +1,6 @@
 package com.rs.player.controlers;
 
+import com.rs.Server;
 import com.rs.content.dialogues.impl.RewardChest;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.settings.SettingsManager;
@@ -22,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  */
 public final class QueenBlackDragonController extends Controller {
 
-	public static final WorldTile OUTSIDE = SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION;
+	public static final WorldTile OUTSIDE = Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation();
 
 	/**
 	 * The platform steps offsets.
@@ -158,7 +159,7 @@ public final class QueenBlackDragonController extends Controller {
 		}
 		if (object.getId() == 70813) {
 			Magic.sendObjectTeleportSpell(player, true,
-					SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION);
+					Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation());
 			return false;
 		}
 		if (object.getId() == 70814) {

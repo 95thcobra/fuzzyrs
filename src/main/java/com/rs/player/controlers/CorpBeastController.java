@@ -1,5 +1,6 @@
 package com.rs.player.controlers;
 
+import com.rs.Server;
 import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 import com.rs.world.Animation;
@@ -55,7 +56,7 @@ public class CorpBeastController extends Controller {
 					player.getInventory().init();
 					player.reset();
 					player.setNextWorldTile(new WorldTile(
-							SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION));
+							Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation()));
 					player.setNextAnimation(new Animation(-1));
 				} else if (loop == 4) {
 					removeControler();

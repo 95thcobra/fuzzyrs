@@ -1,5 +1,7 @@
 package com.rs.core.file.managers;
 
+import com.google.gson.reflect.TypeToken;
+import com.rs.Server;
 import com.rs.core.file.GameFileManager;
 import com.rs.core.file.DataFile;
 import com.rs.core.file.impl.DominionTowerRank;
@@ -11,6 +13,7 @@ import com.rs.player.Player;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,7 +31,8 @@ public class DTRankFileManager {
         final File file = new File(PATH);
         if (file.exists()) {
             try {
-                ranks = new DataFile<ArrayList<DominionTowerRank>>(file).fromJson();
+                ranks = Server.getInstance().getJsonFileManager().load(PATH, new TypeToken<ArrayList<DominionTowerRank>>() {
+                }.getType());
             } catch (IOException e) {
                 Logger.handle(e);
             }

@@ -1,5 +1,6 @@
 package com.rs.content.commands.impl.admin;
 
+import com.rs.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.content.player.PlayerRank;
@@ -20,7 +21,7 @@ public class TeleportAwayCommand implements Command {
         final Player other = World.getPlayerByDisplayName(username);
         if (other == null)
             return;
-        other.setNextWorldTile(SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION);
+        other.setNextWorldTile(Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation());
         other.stopAll();
     }
 }

@@ -1,6 +1,7 @@
 package com.rs.core.utils;
 
-import com.rs.core.RS2NetworkEngine;
+import com.rs.Server;
+import com.rs.core.NetworkEngine;
 import com.rs.world.task.worldtask.WorldTasksManager;
 
 import java.util.Calendar;
@@ -8,7 +9,6 @@ import java.util.Calendar;
 public final class Logger {
 
     private Logger() {
-
     }
 
     public static void handle(final Throwable throwable) {
@@ -24,7 +24,7 @@ public final class Logger {
                 "WorldRunningTasks: " + WorldTasksManager.getTasksCount());
         info(Logger.class,
                 "ConnectedChannels: "
-                        + RS2NetworkEngine.getConnectedChannelsSize());
+                        + Server.getInstance().getNetworkEngine().getConnectedChannelsSize());
         info(Logger.class, "---DEBUG--- end");
     }
 

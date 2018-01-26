@@ -1,5 +1,6 @@
 package com.rs.content.dialogues.impl;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.content.minigames.castlewars.CastleWarsConstants;
@@ -16,7 +17,7 @@ public class MrEx extends Dialogue {
 
     @Override
     public void start() {
-        if (SettingsManager.getSettings().ECONOMY) {
+        if (Server.getInstance().getSettingsManager().getSettings().isEconomy()) {
             player.getPackets().sendGameMessage(
                     "Mr.Ex is in no mood to talk to you.");
             end();
@@ -25,7 +26,7 @@ public class MrEx extends Dialogue {
         npcId = (Integer) parameters[0];
         sendEntityDialogue(SEND_2_TEXT_CHAT,
                 new String[]{NPCDefinitions.getNPCDefinitions(npcId).name,
-                        "Hello, I can teleport you all around " + SettingsManager.getSettings().SERVER_NAME + ",",
+                        "Hello, I can teleport you all around " + Server.getInstance().getSettingsManager().getSettings().getServerName() + ",",
                         " would you like to?"}, IS_NPC, npcId, 9827);
     }
 

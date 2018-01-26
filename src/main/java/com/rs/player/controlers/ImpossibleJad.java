@@ -1,5 +1,6 @@
 package com.rs.player.controlers;
 
+import com.rs.Server;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.settings.SettingsManager;
@@ -310,7 +311,7 @@ public class ImpossibleJad extends Controller {
 							"Kill the zombies dont let them kill you!");
 				} else {
 					int tokkul = getCurrentWave() * 8032 / WAVES.length;
-					tokkul *= SettingsManager.getSettings().DROP_RATE; // 10x more
+					tokkul *= Server.getInstance().getSettingsManager().getSettings().getDropRate(); // 10x more
 					if (!player.getInventory().addItem(6529, tokkul)) {
 						World.addGroundItem(new Item(6529, tokkul),
 								new WorldTile(player), player, true, 180, true);

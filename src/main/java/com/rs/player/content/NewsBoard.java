@@ -1,5 +1,6 @@
 package com.rs.player.content;
 
+import com.rs.Server;
 import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
 
@@ -20,7 +21,7 @@ public class NewsBoard {
 			"Don't forget to vote at <col=ff0000>::vote</col>." };
 
 	public static void display(final Player player, final int completed) {
-		if (!SettingsManager.getSettings().NEWS_BOARD)
+		if (!Server.getInstance().getSettingsManager().getSettings().isNewsBoard())
 			return;
 		if (completed == 1) {
 			player.getInterfaceManager().sendInterface(1151);

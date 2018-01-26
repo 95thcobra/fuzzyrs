@@ -1,5 +1,6 @@
 package com.rs.player.controlers;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.summoning.Summoning;
 import com.rs.content.actions.skills.summoning.pet.Pets;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
@@ -366,7 +367,7 @@ public class ZombiesOwned extends Controller {
                                     "Well I suppose you tried... better luck next time.");
                 } else {
                     int tokkul = getCurrentWave() * 8032 / WAVES.length;
-                    tokkul *= SettingsManager.getSettings().DROP_RATE; // 10x more
+                    tokkul *= Server.getInstance().getSettingsManager().getSettings().getDropRate(); // 10x more
                     if (!player.getInventory().addItem(6529, tokkul)) {
                         World.addGroundItem(new Item(6529, tokkul),
                                 new WorldTile(player), player, true, 180, true);

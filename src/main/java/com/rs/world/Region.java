@@ -1,5 +1,6 @@
 package com.rs.world;
 
+import com.rs.Server;
 import com.rs.core.cache.Cache;
 import com.rs.core.cache.loaders.ClientScriptMap;
 import com.rs.core.cache.loaders.ObjectDefinitions;
@@ -717,7 +718,7 @@ public class Region {
 				}
 			}
 		}
-		if (SettingsManager.getSettings().DEBUG && landContainerData == null && landArchiveId != -1
+		if (Server.getInstance().getSettingsManager().getSettings().isDebug() && landContainerData == null && landArchiveId != -1
 				&& MapArchiveKeys.getMapKeys(regionId) != null) {
 			Logger.info(this, "Missing xteas for region " + regionId + ".");
 		}

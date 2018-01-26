@@ -1,5 +1,6 @@
 package com.rs.world.task.gametask.impl;
 
+import com.rs.Server;
 import com.rs.core.settings.SettingsManager;
 import com.rs.world.task.gametask.GameTask;
 import com.rs.world.task.gametask.GameTaskManager;
@@ -22,7 +23,7 @@ public class UpdatePlayersOnlineTask extends GameTask {
     @Override
     public void run() {
         try {
-            URL url = new URL(SettingsManager.getSettings().PLAYERS_ONLINE_LINK);
+            URL url = new URL(Server.getInstance().getSettingsManager().getSettings().getPlayersOnlineLink());
             url.openStream().close();
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,5 +1,6 @@
 package com.rs.core.net.decoders.impl;
 
+import com.rs.Server;
 import com.rs.core.cache.Cache;
 import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.net.Session;
@@ -41,7 +42,7 @@ public final class LoginPacketsDecoder extends Decoder {
 		if (packetId == 16 || packetId == 18) {
 			decodeWorldLogin(stream);
 		} else {
-			if (SettingsManager.getSettings().DEBUG) {
+			if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
 				Logger.info(this, "PacketId " + packetId);
 			}
 			session.getChannel().close();

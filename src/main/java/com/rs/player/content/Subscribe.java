@@ -1,5 +1,6 @@
 package com.rs.player.content;
 
+import com.rs.Server;
 import com.rs.content.dialogues.impl.ClassPick;
 import com.rs.content.player.PlayerRank;
 import com.rs.core.settings.SettingsManager;
@@ -15,7 +16,7 @@ public class Subscribe {
 	public static void SubBoard(final Player player) {
 		if (player.getRank().getDonateRank().isMinimumRank(PlayerRank.DonateRank.DONATOR)) { /* Membership screen */
 			player.getPackets().sendIComponentText(1067, 17,
-					"Welcome back to " + SettingsManager.getSettings().SERVER_NAME + ", thanks for donating.");
+					"Welcome back to " + Server.getInstance().getSettingsManager().getSettings().getServerName() + ", thanks for donating.");
 			player.getPackets()
 					.sendIComponentText(1067, 23, "Continue Playing");
 			player.getPackets()
@@ -23,7 +24,7 @@ public class Subscribe {
 			player.getInterfaceManager().sendInterface(BOARD);
 		} else { // F2p Screen
 			player.getPackets().sendIComponentText(1067, 17,
-					"Welcome back to " + SettingsManager.getSettings().SERVER_NAME + ".");
+					"Welcome back to " + Server.getInstance().getSettingsManager().getSettings().getServerName() + ".");
 			player.getPackets()
 					.sendIComponentText(1067, 23, "Continue Playing");
 			player.getPackets()
@@ -51,7 +52,7 @@ public class Subscribe {
 		}
 		if (componentId == 24) { // Visit website
 			player.getPackets().sendOpenURL(
-					SettingsManager.getSettings().FORUM_LINK);
+					Server.getInstance().getSettingsManager().getSettings().getForumLink());
 			player.getInventory().refresh();
 			player.closeInterfaces();
 			detectPlayerStatus(player);

@@ -1,5 +1,6 @@
 package com.rs.content.dialogues.impl;
 
+import com.rs.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.core.settings.SettingsManager;
 
@@ -63,7 +64,7 @@ public class Banker extends Dialogue {
         } else if (stage == 1) {
             stage = 2;
             sendNPCDialogue(npcId, 9827, "This is a branch of the Bank of "
-                            + SettingsManager.getSettings().SERVER_NAME + ". We have",
+                            + Server.getInstance().getSettingsManager().getSettings().getServerName() + ". We have",
                     "branches in many towns.");
         } else if (stage == 2) {
             stage = 3;

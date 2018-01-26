@@ -1,5 +1,6 @@
 package com.rs.content.customskills.sailing;
 
+import com.rs.Server;
 import com.rs.content.actions.impl.Rest;
 import com.rs.content.customskills.CustomSkills;
 import com.rs.content.customskills.sailing.ships.PlayerShip;
@@ -128,7 +129,7 @@ public class SailingController extends Controller {
                             player.getAppearance().setRenderEmote(-1);
                             player.sendMessage("You have arrived at " + requirements.name().toLowerCase().replace("_", " ") + ".");
                             finishStorage();
-                            player.getCustomSkills().addXp(CustomSkills.SAILING, 100 * SettingsManager.getSettings().SKILLING_XP_RATE);
+                            player.getCustomSkills().addXp(CustomSkills.SAILING, 100 * Server.getInstance().getSettingsManager().getSettings().getSkillingXpRate());
                             player.unlock();
                             this.removeControler();
                             player.getInterfaceManager().sendInterfaces();

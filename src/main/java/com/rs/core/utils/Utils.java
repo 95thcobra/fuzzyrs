@@ -1,5 +1,6 @@
 package com.rs.core.utils;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.core.cache.Cache;
 import com.rs.core.settings.SettingsManager;
@@ -831,7 +832,7 @@ public final class Utils {
             final int value = player.getCrucibleHighScore();
             data = new byte[]{(byte) (value >> 24), (byte) (value >> 16),
                     (byte) (value >> 8), (byte) value};
-        } else if (SettingsManager.getSettings().DEBUG) {
+        } else if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
             Logger.info("Utils", "qc: " + player.getUsername() + ", "
                     + (data == null ? 0 : data.length));
         }

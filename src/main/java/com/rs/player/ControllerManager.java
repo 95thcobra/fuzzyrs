@@ -1,5 +1,6 @@
 package com.rs.player;
 
+import com.rs.Server;
 import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.player.content.Foods.Food;
@@ -27,7 +28,7 @@ public final class ControllerManager implements Serializable {
     @SuppressWarnings("unchecked")
     public ControllerManager() {
         try {
-            lastController = (Class<? extends Controller>) Class.forName(SettingsManager.getSettings().START_CONTROLER);
+            lastController = (Class<? extends Controller>) Class.forName(Server.getInstance().getSettingsManager().getSettings().getStartController());
         } catch (ClassNotFoundException e) {
             //nothing lol
         }

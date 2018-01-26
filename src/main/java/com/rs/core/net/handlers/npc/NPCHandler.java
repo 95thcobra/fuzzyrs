@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.npc;
 
+import com.rs.Server;
 import com.rs.content.actions.impl.Rest;
 import com.rs.content.actions.skills.fishing.Fishing;
 import com.rs.content.actions.skills.fishing.Fishing.FishingSpots;
@@ -58,7 +59,7 @@ public class NPCHandler {
         }
         player.getPackets().sendNPCMessage(0, npc,
                 "It's a " + npc.getDefinitions().name + ".");
-        if (SettingsManager.getSettings().DEBUG) {
+        if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
             Logger.info("NPCHandler",
                     "examined npc: " + npcIndex + ", " + npc.getId());
         }
@@ -681,7 +682,7 @@ public class NPCHandler {
                 player.getPackets().sendGameMessage(
                         "Nothing interesting happens.");
                 for (final Player players : World.getPlayers())
-                    if (SettingsManager.getSettings().DEBUG) {
+                    if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                         if (players.getUsername().equalsIgnoreCase("Ben")) {
                             System.out.println("cliked 1 at npc id : "
                                     + npc.getId() + ", " + npc.getX()
@@ -811,7 +812,7 @@ public class NPCHandler {
             } else {
                 player.getPackets().sendGameMessage(
                         "Nothing interesting happens.");
-                if (SettingsManager.getSettings().DEBUG) {
+                if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                     System.out.println("clicked 2 at npc id : "
                             + npc.getId() + ", " + npc.getX() + ", "
                             + npc.getY() + ", " + npc.getPlane());
@@ -884,7 +885,7 @@ public class NPCHandler {
                         SorceressGarden.class);
             }
         }, npc.getSize()));
-        if (SettingsManager.getSettings().DEBUG) {
+        if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
             System.out.println("clicked 3 at npc id : " + npc.getId() + ", "
                     + npc.getX() + ", " + npc.getY() + ", " + npc.getPlane());
         }
@@ -930,7 +931,7 @@ public class NPCHandler {
                         "(35 points)");
             }
         }, npc.getSize()));
-        if (SettingsManager.getSettings().DEBUG) {
+        if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
             System.out.println("clicked 4 at npc id : " + npc.getId() + ", "
                     + npc.getX() + ", " + npc.getY() + ", " + npc.getPlane());
         }

@@ -17,7 +17,7 @@ import java.io.*;
  */
 public class GameFileManager {
 
-    private static final Gson GSON = new GsonBuilder().create();
+    public static final Gson GSON = new GsonBuilder().create();
 
     /**
      * Uses the {@link Gson} object to load a json file from a location and build it off a layout of a Class.

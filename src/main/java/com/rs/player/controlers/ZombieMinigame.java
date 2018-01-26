@@ -1,5 +1,6 @@
 package com.rs.player.controlers;
 
+import com.rs.Server;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
@@ -99,7 +100,7 @@ public class ZombieMinigame extends Controller {
 				} else if (loop == 3) {
 					player.reset();
 					player.setNextWorldTile(new WorldTile(
-							SettingsManager.getSettings().DUNG_PLAYER_LOCATION));
+							Server.getInstance().getSettingsManager().getSettings().getDungeonPlayerLocation()));
 					player.setNextAnimation(new Animation(-1));
 				} else if (loop == 4) {
 					player.getPackets().sendMusicEffect(90);

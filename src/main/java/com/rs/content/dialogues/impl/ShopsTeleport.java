@@ -1,5 +1,6 @@
 package com.rs.content.dialogues.impl;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.content.minigames.castlewars.CastleWarsConstants;
@@ -16,7 +17,7 @@ public class ShopsTeleport extends Dialogue {
 
     @Override
     public void start() {
-        if (SettingsManager.getSettings().ECONOMY) {
+        if (Server.getInstance().getSettingsManager().getSettings().isEconomy()) {
             player.getPackets().sendGameMessage(
                     "Mr.Ex is in no mood to talk to you.");
             end();

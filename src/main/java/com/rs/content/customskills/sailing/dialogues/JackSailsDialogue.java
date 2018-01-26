@@ -1,5 +1,6 @@
 package com.rs.content.customskills.sailing.dialogues;
 
+import com.rs.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.content.dialogues.DialogueExpressions;
 import com.rs.content.economy.shops.ShopsManager;
@@ -16,7 +17,7 @@ public class JackSailsDialogue extends Dialogue {
 
     @Override
     public void start() {
-        sendNPCDialogue(NPC_ID, DialogueExpressions.CALM_TALK.getId(), "Eyy " + player.getDisplayName() + "! My name is Jack. Jack Sails. I am the best sailor in all of " + SettingsManager.getSettings().SERVER_NAME + ". What would ya like to know about sailing?");
+        sendNPCDialogue(NPC_ID, DialogueExpressions.CALM_TALK.getId(), "Eyy " + player.getDisplayName() + "! My name is Jack. Jack Sails. I am the best sailor in all of " + Server.getInstance().getSettingsManager().getSettings().getServerName() + ". What would ya like to know about sailing?");
         stage = 0;
     }
 
@@ -53,7 +54,7 @@ public class JackSailsDialogue extends Dialogue {
                 player.getDialogueManager().startDialogue(ShowAttributesDialogue.class);
                 break;
             case 5:
-                sendNPCDialogue(NPC_ID, DialogueExpressions.TALKING_ALOT.getId(), "Of course ya can mate! You can do jobs for traders to deliver cargo across the world of " + SettingsManager.getSettings().SERVER_NAME + ".");
+                sendNPCDialogue(NPC_ID, DialogueExpressions.TALKING_ALOT.getId(), "Of course ya can mate! You can do jobs for traders to deliver cargo across the world of " + Server.getInstance().getSettingsManager().getSettings().getServerName() + ".");
                 stage = 7;
                 break;
             case 6:

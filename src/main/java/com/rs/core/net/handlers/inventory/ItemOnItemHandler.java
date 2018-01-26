@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.inventory;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.crafting.GemCutting;
 import com.rs.content.actions.skills.crafting.LeatherCrafting;
 import com.rs.content.actions.skills.firemaking.Firemaking;
@@ -344,7 +345,7 @@ public class ItemOnItemHandler implements PacketHandler {
                 player.getPackets().sendGameMessage(
                         "Nothing interesting happens.");
             }
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info("ItemHandler", "Used:" + itemUsed.getId()
                         + ", With:" + usedWith.getId());
             }

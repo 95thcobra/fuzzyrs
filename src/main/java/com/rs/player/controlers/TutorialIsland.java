@@ -1,5 +1,6 @@
 package com.rs.player.controlers;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.woodcutting.Woodcutting.TreeDefinitions;
 import com.rs.content.dialogues.impl.ItemMessage;
@@ -145,7 +146,7 @@ public final class TutorialIsland extends Controller {
                     .sendIComponentText(
                             372,
                             2,
-                            SettingsManager.getSettings().SERVER_NAME
+                            Server.getInstance().getSettingsManager().getSettings().getServerName()
                                     + " Guide in this room .He is indicated by a flashing");
             player.getPackets()
                     .sendIComponentText(372, 3,

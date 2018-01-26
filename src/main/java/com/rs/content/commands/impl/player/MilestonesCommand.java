@@ -1,5 +1,6 @@
 package com.rs.content.commands.impl.player;
 
+import com.rs.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.core.settings.SettingsManager;
@@ -18,7 +19,7 @@ public class MilestonesCommand implements Command {
             player.getPackets().sendIComponentText(275, i, " ");
         }
         player.getPackets().sendIComponentText(275, 1,
-                SettingsManager.getSettings().SERVER_NAME + " Milestones");
+                Server.getInstance().getSettingsManager().getSettings().getServerName() + " Milestones");
         player.getPackets().sendIComponentText(275, 15,
                 "Requirements for the Completionist Cape:");
         player.getPackets().sendIComponentText(275, 16, "Monsters");

@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.object;
 
+import com.rs.Server;
 import com.rs.core.cache.loaders.ObjectDefinitions;
 import com.rs.core.net.handlers.PacketHandler;
 import com.rs.core.net.handlers.PacketHandlerManager;
@@ -61,7 +62,7 @@ public class ObjectOptionThreeHandler implements PacketHandler {
                             "Nothing interesting happens.");
                     break;
             }
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info("ObjectHandler", "cliked 3 at object id : " + id
                         + ", " + object.getX() + ", " + object.getY()
                         + ", " + object.getPlane() + ", ");

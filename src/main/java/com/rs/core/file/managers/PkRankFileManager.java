@@ -1,5 +1,7 @@
 package com.rs.core.file.managers;
 
+import com.google.gson.reflect.TypeToken;
+import com.rs.Server;
 import com.rs.core.file.GameFileManager;
 import com.rs.core.file.DataFile;
 import com.rs.core.file.impl.PlayerKillingRank;
@@ -27,7 +29,8 @@ public class PkRankFileManager {
         final File file = new File(PATH);
         if (file.exists()) {
             try {
-                pkRanks = new DataFile<ArrayList<PlayerKillingRank>>(file).fromJson();
+                pkRanks = Server.getInstance().getJsonFileManager().load(PATH, new TypeToken<ArrayList<PlayerKillingRank>>() {
+                }.getType());
                 return;
             } catch (final Throwable e) {
                 Logger.handle(e);

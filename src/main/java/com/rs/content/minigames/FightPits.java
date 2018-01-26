@@ -1,5 +1,6 @@
 package com.rs.content.minigames;
 
+import com.rs.Server;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
@@ -126,7 +127,7 @@ public final class FightPits {
                             .startDialogue(SimpleNPCMessage.class, THHAAR_MEJ_KAH,
                                     "Well done in the pit, here take TokKul as reward.");
                     int tokkul = (lobby.size() + arena.size()) * 100;
-                    tokkul *= SettingsManager.getSettings().DROP_RATE; // 10x more
+                    tokkul *= Server.getInstance().getSettingsManager().getSettings().getDropRate(); // 10x more
                     if (!player.getInventory().addItem(6529, tokkul)
                             && type == 1) {
                         World.addGroundItem(new Item(6529, tokkul),

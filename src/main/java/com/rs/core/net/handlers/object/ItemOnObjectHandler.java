@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.object;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.cooking.Cooking;
 import com.rs.content.actions.skills.firemaking.Bonfire;
 import com.rs.content.actions.skills.prayer.GildedAltar;
@@ -115,7 +116,7 @@ public class ItemOnObjectHandler implements PacketHandler {
                                 "Nothing interesting happens.");
                         break;
                 }
-                if (SettingsManager.getSettings().DEBUG) {
+                if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                     System.out.println("Item on object: " + object.getId());
                 }
             }

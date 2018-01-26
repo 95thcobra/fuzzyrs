@@ -1,5 +1,6 @@
 package com.rs.player.content;
 
+import com.rs.Server;
 import com.rs.content.player.PlayerRank;
 import com.rs.core.file.managers.PlayerFilesManager;
 import com.rs.core.net.io.OutputStream;
@@ -343,7 +344,7 @@ public class FriendChatsManager {
                 final int rank = getRank(player.getRank(),
                         player.getUsername());
                 stream.writeByte(rank);
-                stream.writeString(SettingsManager.getSettings().SERVER_NAME);
+                stream.writeString(Server.getInstance().getSettingsManager().getSettings().getServerName());
             }
             dataBlock = new byte[stream.getOffset()];
             stream.setOffset(0);

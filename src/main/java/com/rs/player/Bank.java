@@ -1,5 +1,6 @@
 package com.rs.player;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.prayer.GildedAltar;
 import com.rs.core.cache.loaders.ItemDefinitions;
 import com.rs.core.file.managers.PlayerFilesManager;
@@ -271,7 +272,7 @@ public class Bank implements Serializable {
 		// tab
 		sendBoxInterItems();
 		player.getPackets().sendIComponentText(11, 13,
-				"Bank of " + SettingsManager.getSettings().SERVER_NAME + " - Deposit Box");
+				"Bank of " + Server.getInstance().getSettingsManager().getSettings().getServerName() + " - Deposit Box");
 		player.setCloseInterfacesEvent(() -> {
 			player.getInterfaceManager().sendInventory();
 			player.getInventory().unlockInventoryOptions();

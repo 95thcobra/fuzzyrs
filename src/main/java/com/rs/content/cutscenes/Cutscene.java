@@ -1,5 +1,6 @@
 package com.rs.content.cutscenes;
 
+import com.rs.Server;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
@@ -101,7 +102,7 @@ public abstract class Cutscene {
 							+ widthChunks * 4, +getBaseY() + heightChunks * 4,
 							0));
 					constructingRegion = false;
-					if (SettingsManager.getSettings().DEBUG) {
+					if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
 						Logger.info(this, "Bases: " + getBaseX() + ", "
 								+ getBaseY());
 					}

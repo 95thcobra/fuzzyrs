@@ -1,6 +1,7 @@
 package com.rs.world.task.gametask.impl;
 
 import com.alex.store.Index;
+import com.rs.Server;
 import com.rs.core.cache.Cache;
 import com.rs.core.cache.loaders.ItemDefinitions;
 import com.rs.core.cache.loaders.NPCDefinitions;
@@ -26,7 +27,7 @@ public class CleanMemoryTask extends GameTask {
 
     @Override
     public void run() {
-        boolean force = Runtime.getRuntime().freeMemory() < SettingsManager.getSettings().MIN_FREE_MEM_ALLOWED;
+        boolean force = Runtime.getRuntime().freeMemory() < Server.getInstance().getSettingsManager().getSettings().getMinFreeMemoryAllowed();
         if (force) {
             ItemDefinitions.clearItemsDefinitions();
             NPCDefinitions.clearNPCDefinitions();

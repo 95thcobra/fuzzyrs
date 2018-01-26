@@ -1,5 +1,6 @@
 package com.rs.content.dialogues.impl;
 
+import com.rs.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.core.cache.loaders.NPCDefinitions;
 import com.rs.core.settings.SettingsManager;
@@ -19,7 +20,7 @@ public class QuestGuide extends Dialogue {
                     SEND_2_TEXT_CHAT,
                     new String[]{
                             NPCDefinitions.getNPCDefinitions(npcId).name,
-                            "Welcome to " + SettingsManager.getSettings().SERVER_NAME + "! I'm Ariane. I can and will help you",
+                            "Welcome to " + Server.getInstance().getSettingsManager().getSettings().getServerName() + "! I'm Ariane. I can and will help you",
                             "farther in this worldtask after you've completed the tutorial. Goodluck!",
                             "making money by Thieving or Crafting. For anything",
                             "else, please take a look at the Quest tab or submit a ::ticket!"},

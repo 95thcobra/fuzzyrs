@@ -1,5 +1,6 @@
 package com.rs.content.minigames.rfd;
 
+import com.rs.Server;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.settings.SettingsManager;
@@ -330,7 +331,7 @@ public class RecipeforDisaster extends Controller {
      */
     public void exitCave(final int type) {
         stage = RecipeStages.DESTROYING;
-        final WorldTile outside = new WorldTile(SettingsManager.getSettings().START_PLAYER_LOCATION);
+        final WorldTile outside = new WorldTile(Server.getInstance().getSettingsManager().getSettings().getStartPlayerLocation());
         if (type == 0 || type == 2) {
             player.setLocation(outside);
         } else {

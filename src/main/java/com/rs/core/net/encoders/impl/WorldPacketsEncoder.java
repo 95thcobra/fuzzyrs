@@ -1,5 +1,6 @@
 package com.rs.core.net.encoders.impl;
 
+import com.rs.Server;
 import com.rs.content.clans.ClansManager;
 import com.rs.content.economy.exchange.Offer;
 import com.rs.content.player.PlayerRank;
@@ -674,7 +675,7 @@ public class WorldPacketsEncoder extends Encoder {
 				Utils.formatPlayerNameForProtocol(username)));
 		stream.writeByte(0);
 		if (putOnline) {
-			stream.writeString(SettingsManager.getSettings().SERVER_NAME);
+			stream.writeString(Server.getInstance().getSettingsManager().getSettings().getServerName());
 			stream.writeByte(0);
 		}
 	}

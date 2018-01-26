@@ -1,5 +1,6 @@
 package com.rs.content.dialogues.impl;
 
+import com.rs.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.content.player.PlayerRank;
 import com.rs.core.settings.SettingsManager;
@@ -42,7 +43,7 @@ public class ModOptions extends Dialogue {
                         continue;
                     }
                     staff.setNextWorldTile(new WorldTile(
-                            SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION));
+                            Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation()));
                     staff.getPackets().sendGameMessage(
                             "You been teleported for a staff meeting by "
                                     + player.getDisplayName());

@@ -1,5 +1,6 @@
 package com.rs.core.net.decoders.impl;
 
+import com.rs.Server;
 import com.rs.content.actions.impl.PlayerFollow;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.prayer.GildedAltar;
@@ -145,7 +146,7 @@ public final class WorldPacketsDecoder extends Decoder {
             final int length = stream.getLength();
             /*
              * if (packetId == MINI_WALKING_PACKET) length -= 13;
-			 */
+             */
             final int baseX = stream.readUnsignedShort128();
             final boolean forceRun = stream.readUnsigned128Byte() == 1;
             final int baseY = stream.readUnsignedShort128();
@@ -219,8 +220,7 @@ public final class WorldPacketsDecoder extends Decoder {
             if (!player.hasStarted() || !player.clientHasLoadedMapRegion()
                     || player.isDead())
                 return;
-            @SuppressWarnings("unused")
-            final boolean unknown = stream.readByte() == 1;
+            @SuppressWarnings("unused") final boolean unknown = stream.readByte() == 1;
             final int playerIndex = stream.readUnsignedShortLE128();
             final Player p2 = World.getPlayers().get(playerIndex);
             if (p2 == null || p2.isDead() || p2.hasFinished()
@@ -231,8 +231,7 @@ public final class WorldPacketsDecoder extends Decoder {
             player.stopAll(false);
             player.getActionManager().setAction(new PlayerFollow(p2));
         } else if (packetId == PLAYER_OPTION_4_PACKET) {
-            @SuppressWarnings("unused")
-            final boolean unknown = stream.readByte() == 1;
+            @SuppressWarnings("unused") final boolean unknown = stream.readByte() == 1;
             final int playerIndex = stream.readUnsignedShortLE128();
             final Player p2 = World.getPlayers().get(playerIndex);
             if (p2 == null || p2.isDead() || p2.hasFinished()
@@ -277,8 +276,7 @@ public final class WorldPacketsDecoder extends Decoder {
                     "Sending " + p2.getDisplayName() + " a request...");
             p2.getPackets().sendTradeRequestMessage(player);
         } else if (packetId == PLAYER_OPTION_6_PACKET) {
-            @SuppressWarnings("unused")
-            final boolean unknown = stream.readByte() == 1;
+            @SuppressWarnings("unused") final boolean unknown = stream.readByte() == 1;
             final int playerIndex = stream.readUnsignedShortLE128();
             final Player other = World.getPlayers().get(playerIndex);
             if (other == null || other.isDead() || other.hasFinished()
@@ -376,8 +374,7 @@ public final class WorldPacketsDecoder extends Decoder {
             if (!player.hasStarted() || !player.clientHasLoadedMapRegion()
                     || player.isDead())
                 return;
-            @SuppressWarnings("unused")
-            final boolean unknown = stream.readByte() == 1;
+            @SuppressWarnings("unused") final boolean unknown = stream.readByte() == 1;
             final int playerIndex = stream.readUnsignedShortLE128();
             final Player p2 = World.getPlayers().get(playerIndex);
             if (p2 == null || p2.isDead() || p2.hasFinished()
@@ -494,14 +491,11 @@ public final class WorldPacketsDecoder extends Decoder {
                 return;
             if (player.getLockDelay() > Utils.currentTimeMillis())
                 return;
-            @SuppressWarnings("unused")
-            final int junk1 = stream.readUnsignedShort();
+            @SuppressWarnings("unused") final int junk1 = stream.readUnsignedShort();
             final int playerIndex = stream.readUnsignedShort();
             final int interfaceHash = stream.readIntV2();
-            @SuppressWarnings("unused")
-            final int junk2 = stream.readUnsignedShortLE128();
-            @SuppressWarnings("unused")
-            final boolean unknown = stream.read128Byte() == 1;
+            @SuppressWarnings("unused") final int junk2 = stream.readUnsignedShortLE128();
+            @SuppressWarnings("unused") final boolean unknown = stream.read128Byte() == 1;
             final int interfaceId = interfaceHash >> 16;
             int componentId = interfaceHash - (interfaceId << 16);
             if (Utils.getInterfaceDefinitionsSize() <= interfaceId)
@@ -708,7 +702,7 @@ public final class WorldPacketsDecoder extends Decoder {
                     }
                     break;
             }
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 System.out.println("Spell:" + componentId);
             }
         } else if (packetId == INTERFACE_ON_NPC) {
@@ -717,13 +711,11 @@ public final class WorldPacketsDecoder extends Decoder {
                 return;
             if (player.getLockDelay() > Utils.currentTimeMillis())
                 return;
-            @SuppressWarnings("unused")
-            final boolean unknown = stream.readByte() == 1;
+            @SuppressWarnings("unused") final boolean unknown = stream.readByte() == 1;
             final int interfaceHash = stream.readInt();
             final int npcIndex = stream.readUnsignedShortLE();
             final int interfaceSlot = stream.readUnsignedShortLE128();
-            @SuppressWarnings("unused")
-            final int junk2 = stream.readUnsignedShortLE();
+            @SuppressWarnings("unused") final int junk2 = stream.readUnsignedShortLE();
             final int interfaceId = interfaceHash >> 16;
             int componentId = interfaceHash - (interfaceId << 16);
             if (Utils.getInterfaceDefinitionsSize() <= interfaceId)
@@ -936,7 +928,7 @@ public final class WorldPacketsDecoder extends Decoder {
                     }
                     break;
             }
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 System.out.println("Spell:" + componentId);
             }
         } else if (packetId == NPC_CLICK1_PACKET) {
@@ -1002,7 +994,7 @@ public final class WorldPacketsDecoder extends Decoder {
                 && !player.hasFinished()) {
             final int packetId = stream.readPacket(player);
             if (packetId >= PACKET_SIZES.length || packetId < 0) {
-                if (SettingsManager.getSettings().DEBUG) {
+                if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                     System.out.println("PacketId " + packetId
                             + " has fake packet id.");
                 }
@@ -1017,14 +1009,14 @@ public final class WorldPacketsDecoder extends Decoder {
                 length = stream.readInt();
             } else if (length == -4) {
                 length = stream.getRemaining();
-                if (SettingsManager.getSettings().DEBUG) {
+                if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                     System.out.println("Invalid size for PacketId " + packetId
                             + ". Size guessed to be " + length);
                 }
             }
             if (length > stream.getRemaining()) {
                 length = stream.getRemaining();
-                if (SettingsManager.getSettings().DEBUG) {
+                if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                     System.out.println("PacketId " + packetId
                             + " has fake size. - expected size " + length);
                     // break;
@@ -1033,8 +1025,8 @@ public final class WorldPacketsDecoder extends Decoder {
             }
             /*
              * System.out.println("PacketId " +packetId+
-			 * " has . - expected size " +length);
-			 */
+             * " has . - expected size " +length);
+             */
             final int startOffset = stream.getOffset();
             processPackets(packetId, stream, length);
             stream.setOffset(startOffset + length);
@@ -1058,10 +1050,8 @@ public final class WorldPacketsDecoder extends Decoder {
         } else if (packetId == MAGIC_ON_ITEM_PACKET) {
             final int inventoryInter = stream.readInt() >> 16;
             final int itemId = stream.readShort128();
-            @SuppressWarnings("unused")
-            final int junk = stream.readShort();
-            @SuppressWarnings("unused")
-            final int itemSlot = stream.readShortLE();
+            @SuppressWarnings("unused") final int junk = stream.readShort();
+            @SuppressWarnings("unused") final int itemSlot = stream.readShortLE();
             final int interfaceSet = stream.readIntV1();
             final int spellId = interfaceSet & 0xFFF;
             final int magicInter = interfaceSet >> 16;
@@ -1140,14 +1130,12 @@ public final class WorldPacketsDecoder extends Decoder {
             stream.readUnsignedShort();
         } else if (packetId == IN_OUT_SCREEN_PACKET) {
             // not using this check because not 100% efficient
-            @SuppressWarnings("unused")
-            final boolean inScreen = stream.readByte() == 1;
+            @SuppressWarnings("unused") final boolean inScreen = stream.readByte() == 1;
         } else if (packetId == SCREEN_PACKET) {
             final int displayMode = stream.readUnsignedByte();
             player.setScreenWidth(stream.readUnsignedShort());
             player.setScreenHeight(stream.readUnsignedShort());
-            @SuppressWarnings("unused")
-            final boolean switchScreenMode = stream.readUnsignedByte() == 1;
+            @SuppressWarnings("unused") final boolean switchScreenMode = stream.readUnsignedByte() == 1;
             if (!player.hasStarted() || player.hasFinished()
                     || displayMode == player.getDisplayMode()
                     || !player.getInterfaceManager().containsInterface(742))
@@ -1186,7 +1174,7 @@ public final class WorldPacketsDecoder extends Decoder {
                     || !player.getInterfaceManager().containsInterface(
                     interfaceId))
                 return;
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info(this, "Dialogue: " + interfaceId + ", " + buttonId
                         + ", " + junk);
             }
@@ -1637,16 +1625,16 @@ public final class WorldPacketsDecoder extends Decoder {
                 player.getBank().switchItem(fromSlot, toSlot, fromComponentId,
                         toComponentId);
             }
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 System.out.println("Switch item " + fromInterfaceId + ", "
                         + fromSlot + ", " + toSlot);
             }
         } else if (packetId == DONE_LOADING_REGION_PACKET) {
             /*
              * if(!player.clientHasLoadedMapRegion()) { //load objects and items
-			 * here player.setClientHasLoadedMapRegion(); }
-			 * //player.refreshSpawnedObjects(); //player.refreshSpawnedItems();
-			 */
+             * here player.setClientHasLoadedMapRegion(); }
+             * //player.refreshSpawnedObjects(); //player.refreshSpawnedItems();
+             */
         } else if (packetId == WALKING_PACKET
                 || packetId == PLAYER_OPTION_7_PACKET
                 || packetId == PLAYER_OPTION_8_PACKET
@@ -1730,15 +1718,15 @@ public final class WorldPacketsDecoder extends Decoder {
         } else if (packetId == SEND_FRIEND_QUICK_CHAT_PACKET) {
             /*
              * if (!player.hasStarted()) return; String username =
-			 * stream.readString(); int fileId = stream.readUnsignedShort();
-			 * byte[] data = null; if (length > 3 + username.length()) { data =
-			 * new byte[length - (3 + username.length())];
-			 * stream.readBytes(data); } data =
-			 * Utils.completeQuickMessage(player, fileId, data); Player p2 =
-			 * World.getPlayerByDisplayName(username); if (p2 == null) return;
-			 * player.getFriendsIgnores().sendQuickChatMessage(p2, new
-			 * QuickChatMessage(fileId, data));
-			 */
+             * stream.readString(); int fileId = stream.readUnsignedShort();
+             * byte[] data = null; if (length > 3 + username.length()) { data =
+             * new byte[length - (3 + username.length())];
+             * stream.readBytes(data); } data =
+             * Utils.completeQuickMessage(player, fileId, data); Player p2 =
+             * World.getPlayerByDisplayName(username); if (p2 == null) return;
+             * player.getFriendsIgnores().sendQuickChatMessage(p2, new
+             * QuickChatMessage(fileId, data));
+             */
         } else if (packetId == PUBLIC_QUICK_CHAT_PACKET) {
             if (!player.hasStarted())
                 return;
@@ -1746,8 +1734,7 @@ public final class WorldPacketsDecoder extends Decoder {
                 return;
             player.setLastPublicMessage(Utils.currentTimeMillis() + 300);
             // just tells you which client script created packet
-            @SuppressWarnings("unused")
-            final boolean secondClientScript = stream.readByte() == 1;// script
+            @SuppressWarnings("unused") final boolean secondClientScript = stream.readByte() == 1;// script
             // 5059
             // or 5061
             final int fileId = stream.readUnsignedShort();
@@ -1769,7 +1756,7 @@ public final class WorldPacketsDecoder extends Decoder {
                 // player.sendFriendsChannelQuickMessage(new QuickChatMessage(
                 // fileId, data));
                 player.getPackets().sendGameMessage("Not a chance.");
-            } else if (SettingsManager.getSettings().DEBUG) {
+            } else if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info(this, "Unknown chat type: " + chatType);
             }
         } else if (packetId == CHAT_TYPE_PACKET) {
@@ -1814,18 +1801,17 @@ public final class WorldPacketsDecoder extends Decoder {
             }
             player.logThis(message);
             player.setLastMsg(message);
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info(this, "Chat type: " + chatType);
             }
         } else if (packetId == COMMANDS_PACKET) {
             if (!player.isRunning())
                 return;
             final boolean clientCommand = stream.readUnsignedByte() == 1;
-            @SuppressWarnings("unused")
-            final boolean unknown = stream.readUnsignedByte() == 1;
+            @SuppressWarnings("unused") final boolean unknown = stream.readUnsignedByte() == 1;
             final String command = stream.readString();
             if (!CommandManager.processCommand(player, command, true, clientCommand)
-                    && SettingsManager.getSettings().DEBUG) {
+                    && Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info(this, "Command: " + command);
             }
         } else if (packetId == COLOR_ID_PACKET) {
@@ -1841,16 +1827,12 @@ public final class WorldPacketsDecoder extends Decoder {
         } else if (packetId == REPORT_ABUSE_PACKET) {
             if (!player.hasStarted())
                 return;
-            @SuppressWarnings("unused")
-            final String username = stream.readString();
-            @SuppressWarnings("unused")
-            final int type = stream.readUnsignedByte();
-            @SuppressWarnings("unused")
-            final boolean mute = stream.readUnsignedByte() == 1;
-            @SuppressWarnings("unused")
-            final String unknown2 = stream.readString();
+            @SuppressWarnings("unused") final String username = stream.readString();
+            @SuppressWarnings("unused") final int type = stream.readUnsignedByte();
+            @SuppressWarnings("unused") final boolean mute = stream.readUnsignedByte() == 1;
+            @SuppressWarnings("unused") final String unknown2 = stream.readString();
         } else {
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info(this, "Missing packet " + packetId
                         + ", expected size: " + length + ", actual size: "
                         + PACKET_SIZES[packetId]);

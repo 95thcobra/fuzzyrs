@@ -1,5 +1,6 @@
 package com.rs.core.utils.tools;
 
+import com.rs.Server;
 import com.rs.core.cache.Cache;
 import com.rs.core.cache.loaders.ItemDefinitions;
 import com.rs.core.cache.loaders.NPCDefinitions;
@@ -156,27 +157,14 @@ public class DropEditor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon("./data/tools/icon.png")
                 .getImage());
-        setTitle(SettingsManager.getSettings().SERVER_NAME + " Drop Editor");
+        setTitle(Server.getInstance().getSettingsManager().getSettings().getServerName() + " Drop Editor");
 
         dropsTree.setModel(dropsTreeModel);
         dropsTree
-                .addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-
-                    @Override
-                    public void valueChanged(
-                            final javax.swing.event.TreeSelectionEvent evt) {
-                        dropsTreeValueChanged(evt);
-                    }
-                });
+                .addTreeSelectionListener(this::dropsTreeValueChanged);
         treeScroll.setViewportView(dropsTree);
 
-        searchField.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(final ActionEvent evt) {
-                searchFieldActionPerformed(evt);
-            }
-        });
+        searchField.addActionListener(this::searchFieldActionPerformed);
 
         searchIdLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         searchIdLabel.setText("Search ID:");
@@ -191,14 +179,7 @@ public class DropEditor extends javax.swing.JFrame {
 
         dropTable.setModel(new DefaultTableModel(
                 new Object[][]{}, new String[]{}));
-        testItem.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(final ActionEvent arg0) {
-                testDropRate(arg0);
-
-            }
-        });
+        testItem.addActionListener(this::testDropRate);
         tablePopup.add(testItem);
 
         dropTable.addMouseListener(new MouseListener() {

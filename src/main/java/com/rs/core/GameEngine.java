@@ -7,6 +7,8 @@ import com.rs.player.Player;
 import com.rs.world.World;
 import com.rs.world.npc.NPC;
 import com.rs.world.task.worldtask.WorldTasksManager;
+import lombok.AccessLevel;
+import lombok.Getter;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -15,18 +17,23 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author FuzzyAvacado
  */
-public class RS2GameEngine implements Runnable {
+public class GameEngine implements Runnable {
 
-    private static final ScheduledExecutorService EXECUTOR = Executors.newSingleThreadScheduledExecutor(new DefaultThreadFactory("RS2GameEngine", Thread.MAX_PRIORITY));
+    @Getter(AccessLevel.PRIVATE)
+    private final ScheduledExecutorService executorService;
 
-    public static void init() {
-        EXECUTOR.scheduleAtFixedRate(new RS2GameEngine(), 0, GameConstants.WORLD_CYCLE_TIME, TimeUnit.MILLISECONDS);
-        Logger.info(RS2GameEngine.class, "WorldThread initialized @ " + GameConstants.WORLD_CYCLE_TIME);
+    public GameEngine() {
+        this.executorService = Executors.newSingleThreadScheduledExecutor(new DefaultThreadFactory("GameEngine", Thread.MAX_PRIORITY));
     }
 
-    public static void shutdown() {
-        EXECUTOR.shutdownNow();
-        Logger.info(RS2GameEngine.class, "WorldThread shutdown " + (EXECUTOR.isShutdown() ? "successfully" : "unsuccessfully"));
+    public void init() {
+        getExecutorService().scheduleAtFixedRate(this, 0, GameConstants.WORLD_CYCLE_TIME, TimeUnit.MILLISECONDS);
+        Logger.info(GameEngine.class, "WorldThread initialized @ " + GameConstants.WORLD_CYCLE_TIME);
+    }
+
+    public void shutdown() {
+        getExecutorService().shutdownNow();
+        Logger.info(GameEngine.class, "WorldThread shutdown " + (getExecutorService().isShutdown() ? "successfully" : "unsuccessfully"));
     }
 
     @Override

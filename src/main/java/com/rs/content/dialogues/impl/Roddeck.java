@@ -1,5 +1,6 @@
 package com.rs.content.dialogues.impl;
 
+import com.rs.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.core.cache.loaders.NPCDefinitions;
 import com.rs.core.settings.SettingsManager;
@@ -15,7 +16,7 @@ public class Roddeck extends Dialogue {
                 SEND_1_TEXT_CHAT,
                 new String[]{
                         NPCDefinitions.getNPCDefinitions(npcId).name,
-                        "Hello adventurer, I'd like to welcome you to " + SettingsManager.getSettings().SERVER_NAME + "! If you need some help, I'm your guy."},
+                        "Hello adventurer, I'd like to welcome you to " + Server.getInstance().getSettingsManager().getSettings().getServerName() + "! If you need some help, I'm your guy."},
                 IS_NPC, npcId, 9827);
 
     }
@@ -68,7 +69,7 @@ public class Roddeck extends Dialogue {
                     SEND_2_TEXT_CHAT,
                     new String[]{
                             NPCDefinitions.getNPCDefinitions(npcId).name,
-                            "Don't worry about dying. When you die in " + SettingsManager.getSettings().SERVER_NAME + " you will keep all",
+                            "Don't worry about dying. When you die in " + Server.getInstance().getSettingsManager().getSettings().getServerName() + " you will keep all",
                             "of your items unless you are in the Wilderness or at the Corporeal Beast."},
                     IS_NPC, npcId, 9827);
         } else if (stage == 5) {

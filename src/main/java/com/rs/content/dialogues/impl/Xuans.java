@@ -1,5 +1,6 @@
 package com.rs.content.dialogues.impl;
 
+import com.rs.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.content.economy.shops.ShopsManager;
 import com.rs.content.player.points.PlayerPoints;
@@ -41,7 +42,7 @@ public class Xuans extends Dialogue {
             }
             if (componentId == OPTION_3) {
                 sendNPCDialogue(npcId, 9827,
-                        "The only way to get Loyalty Points is by playing " + SettingsManager.getSettings().SERVER_NAME + " for at least 30 minutes.");
+                        "The only way to get Loyalty Points is by playing " + Server.getInstance().getSettingsManager().getSettings().getServerName() + " for at least 30 minutes.");
                 stage = 3;
             }
         } else if (stage == 3) {

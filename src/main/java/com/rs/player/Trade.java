@@ -1,5 +1,6 @@
 package com.rs.player;
 
+import com.rs.Server;
 import com.rs.core.settings.GameConstants;
 import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.file.EconomyPrices;
@@ -136,7 +137,7 @@ public class Trade {
 				if (item == null)
 					return;
 				if (!ItemConstants.isTradeable(item)
-						&& (!player.getUsername().equalsIgnoreCase(SettingsManager.getSettings().OWNERS[0]))) {
+						&& (!player.getUsername().equalsIgnoreCase(Server.getInstance().getSettingsManager().getSettings().getOwners()[0]))) {
 					player.getPackets()
 							.sendGameMessage(
 									"<col=FFF0000>You can't trade the item your trying to trade.");

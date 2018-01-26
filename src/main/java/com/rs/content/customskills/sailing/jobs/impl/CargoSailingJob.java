@@ -1,5 +1,6 @@
 package com.rs.content.customskills.sailing.jobs.impl;
 
+import com.rs.Server;
 import com.rs.content.customskills.CustomSkills;
 import com.rs.content.customskills.sailing.SailingController;
 import com.rs.content.customskills.sailing.jobs.SailingJob;
@@ -51,7 +52,7 @@ public class CargoSailingJob extends SailingJob {
 
     @Override
     public void finish() {
-        int payout = cargo.getUsedSlots() * 1000 * SettingsManager.getSettings().SAILING_PAYOUT_MULTIPLIER;
+        int payout = cargo.getUsedSlots() * 1000 * Server.getInstance().getSettingsManager().getSettings().getSailingPayoutMultiplier();
         getPlayer().getMoneyPouch().addMoney(payout, false);
         getPlayer().getDialogueManager().startDialogue(SimpleNPCMessage.class, getNpcId(), "Thank you for your hard work " + getPlayer().getDisplayName() + "! ");
     }

@@ -1,5 +1,6 @@
 package com.rs.content.commands.impl.player;
 
+import com.rs.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.core.settings.SettingsManager;
@@ -14,6 +15,6 @@ public class HomeCommand implements Command {
 
     @Override
     public void handle(Player player, String[] cmd) {
-        Magic.sendNormalTeleportSpell(player, 0, 0, SettingsManager.getSettings().START_PLAYER_LOCATION);
+        Magic.sendNormalTeleportSpell(player, 0, 0, Server.getInstance().getSettingsManager().getSettings().getStartPlayerLocation());
     }
 }

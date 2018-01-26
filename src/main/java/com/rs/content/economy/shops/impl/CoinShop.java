@@ -1,5 +1,6 @@
 package com.rs.content.economy.shops.impl;
 
+import com.rs.Server;
 import com.rs.content.economy.shops.Shop;
 import com.rs.content.economy.shops.ShopData;
 import com.rs.content.economy.shops.ShopItem;
@@ -68,7 +69,7 @@ public class CoinShop extends Shop {
 
     @Override
     public void handleSell(Player player, int slotId, int quantity, Item item, int price, int originalId) {
-        int actualPrice = (int) (price * SettingsManager.getSettings().SALES_TAX);
+        int actualPrice = (int) (price * Server.getInstance().getSettingsManager().getSettings().getSalesTax());
         int numberOf = player.getInventory().getItems().getNumberOf(originalId);
         if (quantity > numberOf)
             quantity = numberOf;

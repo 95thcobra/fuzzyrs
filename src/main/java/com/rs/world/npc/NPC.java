@@ -1,5 +1,6 @@
 package com.rs.world.npc;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.herblore.HerbCleaning;
 import com.rs.content.actions.skills.prayer.Burying;
@@ -324,7 +325,7 @@ public class NPC extends Entity implements Serializable {
         }
         if (id == 7909) {
             if (Utils.random(10) == 0) {
-                setNextForceTalk(new ForceTalk("Welcome to " + SettingsManager.getSettings().SERVER_NAME + "! Talk to me for the basics."));
+                setNextForceTalk(new ForceTalk("Welcome to " + Server.getInstance().getSettingsManager().getSettings().getServerName() + "! Talk to me for the basics."));
             }
         }
         if (id == 7909) {
@@ -749,7 +750,7 @@ public class NPC extends Entity implements Serializable {
             }
             if (getId() == 6358) {
                 killer.setNextWorldTile(new WorldTile(
-                        SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION));
+                        Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation()));
                 killer.getInterfaceManager().sendInterface(1244);
                 killer.getPackets().sendIComponentText(1244, 25,
                         "You have completed Grossing Out.");
@@ -833,7 +834,7 @@ public class NPC extends Entity implements Serializable {
             }
             if (getId() == 14256) {
                 killer.setNextWorldTile(new WorldTile(
-                        SettingsManager.getSettings().START_PLAYER_LOCATION));
+                        Server.getInstance().getSettingsManager().getSettings().getStartPlayerLocation()));
                 killer.getInventory().addItem(21511, 1);
             }
             if (getId() == 12878) {
@@ -906,7 +907,7 @@ public class NPC extends Entity implements Serializable {
                 if (drop.getRate() == 100) {
                     sendDrop(killer, drop);
                 } else {
-                    if ((Utils.getRandomDouble(99) + 1) <= drop.getRate() * SettingsManager.getSettings().DROP_RATE) {
+                    if ((Utils.getRandomDouble(99) + 1) <= drop.getRate() * Server.getInstance().getSettingsManager().getSettings().getDropRate()) {
                         possibleDrops[possibleDropsCount++] = drop;
                     }
                 }
@@ -926,9 +927,9 @@ public class NPC extends Entity implements Serializable {
                 .getItemDefinitions(drop.getItemId()).getName().toLowerCase();
         final Item item = ItemDefinitions.getItemDefinitions(drop.getItemId())
                 .isStackable() ? new Item(drop.getItemId(),
-                (drop.getMinAmount() * SettingsManager.getSettings().DROP_RATE)
+                (drop.getMinAmount() * Server.getInstance().getSettingsManager().getSettings().getDropRate())
                         + Utils.getRandom(drop.getExtraAmount()
-                        * SettingsManager.getSettings().DROP_RATE)) : new Item(
+                        * Server.getInstance().getSettingsManager().getSettings().getDropRate())) : new Item(
                 drop.getItemId(), drop.getMinAmount()
                 + Utils.getRandom(drop.getExtraAmount()));
         if (player.getInventory().containsItem(18337, 1)// Bonecrusher
@@ -1246,7 +1247,7 @@ public class NPC extends Entity implements Serializable {
         final int size = getSize();
         final Item dropItem = new Item(item.getId(), Utils.random(item
                 .getDefinitions().isStackable() ? item.getAmount()
-                * SettingsManager.getSettings().DROP_RATE : item.getAmount()) + 1);
+                * Server.getInstance().getSettingsManager().getSettings().getDropRate() : item.getAmount()) + 1);
 
         World.addGroundItem(dropItem, new WorldTile(getCoordFaceX(size),
                 getCoordFaceY(size), getPlane()), player, false, 180, true);
@@ -1262,7 +1263,7 @@ public class NPC extends Entity implements Serializable {
         final int size = getSize();
         final Item dropItem = new Item(item.getId(), Utils.random(item
                 .getDefinitions().isStackable() ? item.getAmount()
-                * SettingsManager.getSettings().DROP_RATE : item.getAmount()) + 1);
+                * Server.getInstance().getSettingsManager().getSettings().getDropRate() : item.getAmount()) + 1);
 
         World.addGroundItem(dropItem, new WorldTile(getCoordFaceX(size),
                 getCoordFaceY(size), getPlane()), player, false, 180, true);
@@ -1279,7 +1280,7 @@ public class NPC extends Entity implements Serializable {
         final int size = getSize();
         final Item dropItem = new Item(item.getId(), Utils.random(item
                 .getDefinitions().isStackable() ? item.getAmount()
-                * SettingsManager.getSettings().DROP_RATE : item.getAmount()) + 1);
+                * Server.getInstance().getSettingsManager().getSettings().getDropRate() : item.getAmount()) + 1);
 
         World.addGroundItem(dropItem, new WorldTile(getCoordFaceX(size),
                 getCoordFaceY(size), getPlane()), player, false, 180, true);
@@ -1296,7 +1297,7 @@ public class NPC extends Entity implements Serializable {
         final int size = getSize();
         final Item dropItem = new Item(item.getId(), Utils.random(item
                 .getDefinitions().isStackable() ? item.getAmount()
-                * SettingsManager.getSettings().DROP_RATE : item.getAmount()) + 1);
+                * Server.getInstance().getSettingsManager().getSettings().getDropRate() : item.getAmount()) + 1);
 
         World.addGroundItem(dropItem, new WorldTile(getCoordFaceX(size),
                 getCoordFaceY(size), getPlane()), player, false, 180, true);

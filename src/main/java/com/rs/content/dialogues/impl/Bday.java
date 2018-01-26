@@ -1,5 +1,6 @@
 package com.rs.content.dialogues.impl;
 
+import com.rs.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.core.cache.loaders.NPCDefinitions;
 import com.rs.core.settings.SettingsManager;
@@ -14,7 +15,7 @@ public class Bday extends Dialogue {
 
     @Override
     public void start() {
-        if (SettingsManager.getSettings().ECONOMY) {
+        if (Server.getInstance().getSettingsManager().getSettings().isEconomy()) {
             player.getPackets().sendGameMessage(
                     "Mr.Ex is in no mood to talk to you.");
             end();
@@ -25,7 +26,7 @@ public class Bday extends Dialogue {
                 SEND_2_TEXT_CHAT,
                 new String[]{
                         NPCDefinitions.getNPCDefinitions(npcId).name,
-                        "Hello Adventurer, " + SettingsManager.getSettings().SERVER_NAME + " is back on the track and we",
+                        "Hello Adventurer, " + Server.getInstance().getSettingsManager().getSettings().getServerName() + " is back on the track and we",
                         " like to celebrate this, let's keep a party!"},
                 IS_NPC, npcId, 9827);
     }

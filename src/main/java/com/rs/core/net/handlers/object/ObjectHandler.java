@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.object;
 
+import com.rs.Server;
 import com.rs.content.player.PlayerRank;
 import com.rs.core.cache.loaders.ObjectDefinitions;
 import com.rs.core.net.handlers.PacketHandlerManager;
@@ -100,7 +101,7 @@ public final class ObjectHandler {
         }
         player.getPackets().sendGameMessage(
                 "It's an " + object.getDefinitions().name + ".");
-        if (SettingsManager.getSettings().DEBUG)
+        if (Server.getInstance().getSettingsManager().getSettings().isDebug())
             Logger.info("ObjectHandler", "examined object id : " + object.getId() + ", " + object.getX() + ", " + object.getY() + ", " + object.getPlane() + ", " + object.getType() + ", " + object.getRotation() + ", " + object.getDefinitions().name);
     }
 

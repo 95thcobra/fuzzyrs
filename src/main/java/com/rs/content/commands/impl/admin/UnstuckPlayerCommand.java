@@ -1,5 +1,6 @@
 package com.rs.content.commands.impl.admin;
 
+import com.rs.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.content.player.PlayerRank;
@@ -14,6 +15,6 @@ public class UnstuckPlayerCommand implements Command {
 
     @Override
     public void handle(Player player, String[] cmd) {
-        player.setNextWorldTile(SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION);
+        player.setNextWorldTile(Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation());
     }
 }

@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.object;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.firemaking.Bonfire;
 import com.rs.core.cache.loaders.ObjectDefinitions;
 import com.rs.core.net.handlers.PacketHandler;
@@ -36,7 +37,7 @@ public class ObjectOptionFiveHandler implements PacketHandler {
                             "Nothing interesting happens.");
                     break;
             }
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info("ObjectHandler", "cliked 5 at object id : " + id
                         + ", " + object.getX() + ", " + object.getY()
                         + ", " + object.getPlane() + ", ");

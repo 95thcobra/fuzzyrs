@@ -1,5 +1,6 @@
 package com.rs.world.task.gametask.impl;
 
+import com.rs.Server;
 import com.rs.content.customskills.CustomSkills;
 import com.rs.content.player.points.PlayerPoints;
 import com.rs.core.cores.ServerOnlineTime;
@@ -31,7 +32,7 @@ public class QuestTabUpdateTask extends GameTask {
         int pHours = player.time / 60;
         int pDays = pHours / 24;
         int pMinutes = player.time % 60;
-        player.getPackets().sendIComponentText(930, 10, "<col=" + Color.MAGENTA.hashCode() + ">" + SettingsManager.getSettings().SERVER_NAME);
+        player.getPackets().sendIComponentText(930, 10, "<col=" + Color.MAGENTA.hashCode() + ">" + Server.getInstance().getSettingsManager().getSettings().getServerName());
         INFORMATION[0] = "Players online:<col=9ECBFF> " + playercount;
         INFORMATION[2] = "Server Online:";
         INFORMATION[3] = "<col=9ECBFF>Days: " + ServerOnlineTime.getDays() + " Hours: " + ServerOnlineTime.getHours() + " Minutes: " + ServerOnlineTime.getMinutes();

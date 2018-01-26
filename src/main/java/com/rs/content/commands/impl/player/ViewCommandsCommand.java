@@ -1,5 +1,6 @@
 package com.rs.content.commands.impl.player;
 
+import com.rs.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.content.commands.CommandManager;
@@ -22,7 +23,7 @@ public class ViewCommandsCommand implements Command {
             player.getPackets().sendIComponentText(275, i, " ");
         }
         int counter = 11;
-        player.getPackets().sendIComponentText(275, 1, SettingsManager.getSettings().SERVER_NAME + " Commands");
+        player.getPackets().sendIComponentText(275, 1, Server.getInstance().getSettingsManager().getSettings().getServerName() + " Commands");
         player.getPackets().sendIComponentText(275, 10, "Commands");
         List<String> commandNames;
         for (int i = player.getRank().ordinal(); i >= 0; i--) {

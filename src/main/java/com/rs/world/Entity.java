@@ -1,5 +1,6 @@
 package com.rs.world;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.core.cache.loaders.AnimationDefinitions;
 import com.rs.core.cache.loaders.ObjectDefinitions;
@@ -214,7 +215,7 @@ public abstract class Entity extends WorldTile {
 						&& player.getEquipment().getRingId() == 11090
 						&& player.getHitpoints() <= player.getMaxHitpoints() * 0.1) {
 					Magic.sendNormalTeleportSpell(player, 1, 0,
-							SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION);
+							Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation());
 					player.getEquipment().deleteItem(11090, 1);
 					player.getPackets()
 					.sendGameMessage(

@@ -120,6 +120,7 @@ public class CommandManager {
         add(SpawnNpcCommand.class);
         add(SpawnObjectCommand.class);
         add(SpecialAttackCommand.class);
+        add(SuperSpecialAttackCommand.class);
         add(StaffMeetingCommand.class);
         add(StartSeaFightCommand.class);
         add(HomeCommand.class);

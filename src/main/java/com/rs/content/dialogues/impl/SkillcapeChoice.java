@@ -1,5 +1,6 @@
 package com.rs.content.dialogues.impl;
 
+import com.rs.Server;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.content.economy.shops.ShopsManager;
 import com.rs.core.settings.SettingsManager;
@@ -10,7 +11,7 @@ public class SkillcapeChoice extends Dialogue {
 
     @Override
     public void start() {
-        if (SettingsManager.getSettings().ECONOMY) {
+        if (Server.getInstance().getSettingsManager().getSettings().isEconomy()) {
             player.getPackets().sendGameMessage(
                     "Mr.Ex is in no mood to talk to you.");
             end();

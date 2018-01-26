@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.button;
 
+import com.rs.Server;
 import com.rs.content.actions.impl.FightPitsViewingOrb;
 import com.rs.content.actions.impl.HomeTeleport;
 import com.rs.content.actions.impl.Rest;
@@ -308,12 +309,12 @@ public class ButtonHandler {
         if (interfaceId == 1066) {
             if (componentId == 1) {
                 player.getPackets().sendOpenURL(
-                        SettingsManager.getSettings().WEBSITE_LINK);
+                        Server.getInstance().getSettingsManager().getSettings().getWebsiteLink());
                 player.getInterfaceManager().closeScreenInterface();
             }
             if (componentId == 27) {
                 player.getPackets().sendOpenURL(
-                        SettingsManager.getSettings().FORUM_LINK);
+                        Server.getInstance().getSettingsManager().getSettings().getForumLink());
                 player.getInterfaceManager().closeScreenInterface();
             }
         }
@@ -682,7 +683,7 @@ public class ButtonHandler {
         } else if (interfaceId == 1019) {
             if (componentId == 16) {
                 player.getPackets().sendOpenURL(
-                        SettingsManager.getSettings().WEBSITE_LINK);
+                        Server.getInstance().getSettingsManager().getSettings().getWebsiteLink());
             }
 
             if (componentId == 18) {
@@ -747,7 +748,7 @@ public class ButtonHandler {
             }
         } else if (interfaceId == 275) {
             if (componentId == 14) {
-                player.getPackets().sendOpenURL(SettingsManager.getSettings().WEBSITE_LINK);
+                player.getPackets().sendOpenURL(Server.getInstance().getSettingsManager().getSettings().getWebsiteLink());
             }
         } else if ((interfaceId == 590 && componentId == 8)
                 || interfaceId == 464) {
@@ -2116,7 +2117,7 @@ public class ButtonHandler {
                 player.closeInterfaces();
             }
         }
-        if (SettingsManager.getSettings().DEBUG) {
+        if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
             Logger.info("ButtonHandler", "InterfaceId " + interfaceId
                     + ", componentId " + componentId + ", slotId " + slotId
                     + ", slotId2 " + slotId2 + ", PacketId: " + packetId);
@@ -2548,7 +2549,7 @@ public class ButtonHandler {
         }
         // Left Side Page
         player.getInterfaceManager().sendInterface(960);
-        player.getPackets().sendIComponentText(960, 69, SettingsManager.getSettings().SERVER_NAME); // Title
+        player.getPackets().sendIComponentText(960, 69, Server.getInstance().getSettingsManager().getSettings().getServerName()); // Title
         player.getPackets().sendIComponentText(960, 49, "<col=00FF00>");
         player.getPackets().sendIComponentText(960, 56, "");
         player.getPackets().sendIComponentText(960, 61, "");
@@ -2588,7 +2589,7 @@ public class ButtonHandler {
     }
 
     public static void sendCustomText506(final Player player) {
-        player.getPackets().sendIComponentText(506, 0, SettingsManager.getSettings().SERVER_NAME);
+        player.getPackets().sendIComponentText(506, 0, Server.getInstance().getSettingsManager().getSettings().getServerName());
         player.getPackets().sendIComponentText(506, 2, "Commands");
         player.getPackets().sendIComponentText(506, 12, "Training Teleports");
         player.getPackets().sendIComponentText(506, 8, "Boss      Teleports");

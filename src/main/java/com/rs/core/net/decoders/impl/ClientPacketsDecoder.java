@@ -1,5 +1,6 @@
 package com.rs.core.net.decoders.impl;
 
+import com.rs.Server;
 import com.rs.core.net.Session;
 import com.rs.core.net.decoders.Decoder;
 import com.rs.core.net.io.InputStream;
@@ -25,7 +26,7 @@ public final class ClientPacketsDecoder extends Decoder {
 			decodeGrab(stream);
 			break;
 		default:
-			if (SettingsManager.getSettings().DEBUG) {
+			if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
 				Logger.info(this, "PacketId " + packetId);
 			}
 			session.getChannel().close();

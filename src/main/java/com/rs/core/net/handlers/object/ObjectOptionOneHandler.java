@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.object;
 
+import com.rs.Server;
 import com.rs.content.CryptHandler;
 import com.rs.content.WhirlPoolHandler;
 import com.rs.content.actions.impl.CowMilkingAction;
@@ -632,9 +633,9 @@ public class ObjectOptionOneHandler implements PacketHandler {
                     } else if (objectId == 46500 && object.getX() == 3351
                             && object.getY() == 3415) { // zaros portal
                         player.useStairs(-1, new WorldTile(
-                                        SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION.getX(),
-                                        SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION.getY(),
-                                        SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION.getPlane()), 2,
+                                        Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation().getX(),
+                                        Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation().getY(),
+                                        Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation().getPlane()), 2,
                                 3, "You found your way back to home.");
                         player.addWalkSteps(3351, 3415, -1, false);
                     } else if (objectId == 9293) {
@@ -1758,7 +1759,7 @@ public class ObjectOptionOneHandler implements PacketHandler {
                     break;
 
             }
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info("ObjectHandler", "clicked 1 at object id : " + objectId + ", " + object.getX() + ", " + object.getY() + ", " + object.getPlane() + ", " + object.getType() + ", " + object.getRotation() + ", " + object.getDefinitions().name);
             }
         }, objectDef.getSizeX(), Wilderness.isDitch(objectId) ? 4 : objectDef.getSizeY(), object.getRotation()));

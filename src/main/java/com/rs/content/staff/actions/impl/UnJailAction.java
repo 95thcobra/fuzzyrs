@@ -1,5 +1,6 @@
 package com.rs.content.staff.actions.impl;
 
+import com.rs.Server;
 import com.rs.content.player.PlayerRank;
 import com.rs.content.staff.actions.StaffAction;
 import com.rs.core.settings.SettingsManager;
@@ -18,7 +19,7 @@ public class UnJailAction implements StaffAction {
         if (target != null) {
             target.setJailed(0);
             JailController.stopControler(target);
-            target.setNextWorldTile(SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION);
+            target.setNextWorldTile(Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation());
             target.getPackets()
                     .sendGameMessage("You've been unjailed.");
             player.getPackets().sendGameMessage(

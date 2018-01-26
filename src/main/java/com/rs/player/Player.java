@@ -1,5 +1,6 @@
 package com.rs.player;
 
+import com.rs.Server;
 import com.rs.content.actions.ActionManager;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.dungeoneering.dungeon.Dungeon;
@@ -339,8 +340,8 @@ public class Player extends Entity {
 
     // creates Player and saved classes
     public Player(final String password) {
-        super(SettingsManager.getSettings().START_PLAYER_LOCATION);
-        setHitpoints(SettingsManager.getSettings().START_PLAYER_HITPOINTS);
+        super(Server.getInstance().getSettingsManager().getSettings().getStartPlayerLocation());
+        setHitpoints(Server.getInstance().getSettingsManager().getSettings().getStartPlayerHitponts());
         this.password = password;
         appearance = new Appearance();
         inventory = new Inventory();
@@ -494,13 +495,13 @@ public class Player extends Entity {
         switchItemCache = Collections.synchronizedList(new ArrayList<>());
         initEntity();
         packetsDecoderPing = Utils.currentTimeMillis();
-        if (username.equalsIgnoreCase(SettingsManager.getSettings().OWNERS[0])) {
+        if (username.equalsIgnoreCase(Server.getInstance().getSettingsManager().getSettings().getOwners()[0])) {
             setRank(PlayerRank.OWNER_AND_DEVELOPER);
             getRank().setDonateRank(PlayerRank.DonateRank.VIP);
         }
         World.addPlayer(this);
         World.updateEntityRegion(this);
-        if (SettingsManager.getSettings().DEBUG) {
+        if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
             Logger.info(this, "Initiated player: " + username + ", pass: " + password);
         }
 
@@ -1002,7 +1003,7 @@ public class Player extends Entity {
         for (int i = 0; i < 150; i++) {// Unlocks emotes buttons
             getPackets().sendIComponentSettings(590, i, 0, 190, 2150);
         }
-        //getPackets().sendIComponentText(550, 18, "Current online " + SettingsManager.getSettings().SERVER_NAME + ": <col=ff0000>" + World.getPlayers().size() + "</col>");
+        //getPackets().sendIComponentText(550, 18, "Current online " + Server.getInstance().getSettingsManager().getSettings().getServerName() + ": <col=ff0000>" + World.getPlayers().size() + "</col>");
         hasEnteredPin = false;
         NewsBoard.display(this, completed);
         if (reseted == 1) {
@@ -1013,7 +1014,7 @@ public class Player extends Entity {
             setNextAnimation(new Animation(1552));
             World.sendGlobalMessage("<col=800000><img=1>Everyone welcome</col> <col=FF0000>"
                     + getDisplayName() + "</col><col=800000> to "
-                    + SettingsManager.getSettings().SERVER_NAME);
+                    + Server.getInstance().getSettingsManager().getSettings().getServerName());
             chooseChar = 1;
             starter = 1;
         }
@@ -1374,7 +1375,7 @@ public class Player extends Entity {
         }
         World.updateEntityRegion(this);
         World.removePlayer(this);
-        if (SettingsManager.getSettings().DEBUG) {
+        if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
             Logger.info(this, "Finished Player: " + username + ", pass: " + password);
         }
     }
@@ -2419,7 +2420,7 @@ public class Player extends Entity {
                     equipment.init();
                     inventory.init();
                     reset();
-                    setNextWorldTile(new WorldTile(SettingsManager.getSettings().RESPAWN_PLAYER_LOCATION));
+                    setNextWorldTile(new WorldTile(Server.getInstance().getSettingsManager().getSettings().getRespawnPlayerLocation()));
                     setNextAnimation(new Animation(-1));
                 } else if (loop == 4) {
                     getPackets().sendMusicEffect(90);

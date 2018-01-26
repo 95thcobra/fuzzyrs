@@ -1,5 +1,6 @@
 package com.rs.content.commands.impl.player;
 
+import com.rs.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.core.settings.SettingsManager;
@@ -13,6 +14,6 @@ public class OpenWebsiteCommand implements Command {
 
     @Override
     public void handle(Player player, String[] cmd) {
-        player.getPackets().sendOpenURL(SettingsManager.getSettings().VOTE_LINK);
+        player.getPackets().sendOpenURL(Server.getInstance().getSettingsManager().getSettings().getVoteLink());
     }
 }

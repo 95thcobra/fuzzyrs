@@ -1,5 +1,6 @@
 package com.rs.content.economy.shops;
 
+import com.rs.Server;
 import com.rs.core.cache.loaders.ItemDefinitions;
 import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.item.ItemExamines;
@@ -99,7 +100,7 @@ public abstract class Shop {
                     "You can't sell this item to this shop.");
             return;
         }
-        int price = (int) (SettingsManager.getSettings().SALES_TAX * (shopData.getShopItem(item.getId()) != null ? shopData.getShopItem(item.getId()).getPrice() : item.getDefinitions().getGEPrice()));
+        int price = (int) (Server.getInstance().getSettingsManager().getSettings().getSalesTax() * (shopData.getShopItem(item.getId()) != null ? shopData.getShopItem(item.getId()).getPrice() : item.getDefinitions().getGEPrice()));
         player.getPackets().sendGameMessage(item.getDefinitions().getName() + ": " + shopData.getName() + " will buy for: "
                 + price + " " + shopData.getCurrency().toString() + ".");
     }
@@ -235,7 +236,7 @@ public abstract class Shop {
             if (item.getDefinitions().isWearItem()) {
                 player.getPackets().sendIComponentText(SHOP_INTERFACE_ID, 44, "It is " + item.getDefinitions().getEquipmentType() + ".");
             }
-            int price = (int) (SettingsManager.getSettings().SALES_TAX * (shopData.getShopItem(item.getId()) != null ? shopData.getShopItem(item.getId()).getPrice() : item.getDefinitions().getGEPrice()));
+            int price = (int) (Server.getInstance().getSettingsManager().getSettings().getSalesTax() * (shopData.getShopItem(item.getId()) != null ? shopData.getShopItem(item.getId()).getPrice() : item.getDefinitions().getGEPrice()));
             player.getPackets().sendGameMessage(item.getDefinitions().getName() + ": " + shopData.getName() + " will buy for: " + price + " "
                     + shopData.getCurrency().toString()
                             + ".");

@@ -1,5 +1,6 @@
 package com.rs.world;
 
+import com.rs.Server;
 import com.rs.core.cache.loaders.ObjectDefinitions;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.settings.SettingsManager;
@@ -111,7 +112,7 @@ public class DynamicRegion extends Region {
 				realChunkY / 8);
 		final Region region = World.getRegion(realRegionId, true);
 		if (region instanceof DynamicRegion) {
-			if (SettingsManager.getSettings().DEBUG) {
+			if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
 				Logger.info(this,
 						"YOU CANT MAKE A REAL MAP AREA INTO A DYNAMIC REGION!, IT MAY DEADLOCK!");
 			}
@@ -150,7 +151,7 @@ public class DynamicRegion extends Region {
 		final int realRegionId = (((realChunkX / 8) << 8) + (realChunkY / 8));
 		final Region region = World.getRegion(realRegionId, true);
 		if (region instanceof DynamicRegion) {
-			if (SettingsManager.getSettings().DEBUG) {
+			if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
 				Logger.info(this,
 						"YOU CANT MAKE A REAL MAP AREA INTO A DYNAMIC REGION!, IT MAY DEADLOCK!");
 			}
@@ -196,7 +197,7 @@ public class DynamicRegion extends Region {
 		final int realRegionId = (((realChunkX / 8) << 8) + (realChunkY / 8));
 		final Region region = World.getRegion(realRegionId, true);
 		if (region instanceof DynamicRegion) {
-			if (SettingsManager.getSettings().DEBUG) {
+			if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
 				Logger.info(this,
 						"YOU CANT MAKE A REAL MAP AREA INTO A DYNAMIC REGION!, IT MAY DEADLOCK!");
 			}

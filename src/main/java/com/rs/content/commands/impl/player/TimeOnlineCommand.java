@@ -1,5 +1,6 @@
 package com.rs.content.commands.impl.player;
 
+import com.rs.Server;
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.core.settings.SettingsManager;
@@ -30,6 +31,6 @@ public class TimeOnlineCommand implements Command {
         player.getPackets().sendIComponentText(1245, 22, " ");
         player.getPackets().sendIComponentText(1245, 23, " ");
         player.setNextForceTalk(new ForceTalk("I've spent a total of "
-                + player.time + " on " + SettingsManager.getSettings().SERVER_NAME));
+                + player.time + " on " + Server.getInstance().getSettingsManager().getSettings().getServerName()));
     }
 }

@@ -1,5 +1,6 @@
 package com.rs.content.minigames.soulwars;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.summoning.Summoning;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.content.player.points.PlayerPoints;
@@ -333,7 +334,7 @@ public final class SoulWarsManager {
         final ArrayList<Player> blue = ((LobbyTask) tasks
                 .get(PlayerType.INSIDE_LOBBY)).getPlayers(Teams.BLUE), red = ((LobbyTask) tasks
                 .get(PlayerType.INSIDE_LOBBY)).getPlayers(Teams.RED);
-        if (SettingsManager.getSettings().DEBUG) {
+        if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
             for (Player player : blue) {
                 addPlayerToGame(player, Teams.BLUE);
             }

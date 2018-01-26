@@ -1,5 +1,6 @@
 package com.rs.content.actions.skills.crafting;
 
+import com.rs.Server;
 import com.rs.content.actions.Action;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.impl.LeatherCraftingD;
@@ -128,7 +129,7 @@ public class LeatherCrafting extends Action {
 				data.getLeatherAmount());
 		player.getInventory().addItem(data.getFinalProduct(), 1);
 		player.getSkills().addXp(Skills.CRAFTING,
-				data.getExperience() * SettingsManager.getSettings().SKILLING_XP_RATE);
+				data.getExperience() * Server.getInstance().getSettingsManager().getSettings().getSkillingXpRate());
 		player.getPackets().sendGameMessage(
 				"You make a " + data.getName().toLowerCase() + ".");
 		quantity--;

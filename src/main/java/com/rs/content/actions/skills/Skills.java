@@ -1,5 +1,6 @@
 package com.rs.content.actions.skills;
 
+import com.rs.Server;
 import com.rs.content.dialogues.impl.LevelUp;
 import com.rs.core.settings.SettingsManager;
 import com.rs.player.Player;
@@ -453,9 +454,9 @@ public final class Skills implements Serializable {
 		}
 		if (skill != ATTACK && skill != DEFENCE && skill != STRENGTH
 				&& skill != MAGIC && skill != RANGE && skill != HITPOINTS) {
-			exp *= SettingsManager.getSettings().SKILLING_XP_RATE;
+			exp *= Server.getInstance().getSettingsManager().getSettings().getSkillingXpRate();
 		} else {
-			exp *= SettingsManager.getSettings().COMBAT_XP_RATE;
+			exp *= Server.getInstance().getSettingsManager().getSettings().getCombatXpRate();
 		}
 		if (player.getAuraManager().usingWisdom()) {
 			exp *= 1.025;

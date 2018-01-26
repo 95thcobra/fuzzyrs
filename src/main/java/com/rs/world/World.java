@@ -1,6 +1,6 @@
 package com.rs.world;
 
-import com.rs.RS2Launcher;
+import com.rs.Server;
 import com.rs.content.actions.skills.hunter.BoxAction;
 import com.rs.content.actions.skills.mining.LivingRockCavern;
 import com.rs.content.economy.exchange.GrandExchange;
@@ -15,7 +15,6 @@ import com.rs.core.cores.CoresManager;
 import com.rs.core.file.managers.IPBanFileManager;
 import com.rs.core.file.managers.PkRankFileManager;
 import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.SettingsManager;
 import com.rs.core.utils.Logger;
 import com.rs.core.utils.Utils;
 import com.rs.player.Player;
@@ -822,9 +821,9 @@ public final class World {
                 PkRankFileManager.save();
                 GrandExchange.save();
                 if (restart) {
-					RS2Launcher.restart();
+					Server.getInstance().restart();
 				} else {
-					RS2Launcher.shutdown();
+					Server.getInstance().stop();
 				}
             } catch (final Throwable e) {
                 Logger.handle(e);

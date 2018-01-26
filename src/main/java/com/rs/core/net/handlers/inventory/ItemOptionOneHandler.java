@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.inventory;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.fletching.Fletching;
 import com.rs.content.actions.skills.herblore.HerbCleaning;
@@ -597,7 +598,7 @@ public class ItemOptionOneHandler implements PacketHandler {
             player.getDialogueManager().startDialogue(SimplePlayerMessage.class,
                     "Ugh, this is inedible.");
         }
-        if (SettingsManager.getSettings().DEBUG) {
+        if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
             Logger.info("ItemHandler", "Item Select:" + itemId + ", Slot Id:"
                     + slotId);
         }

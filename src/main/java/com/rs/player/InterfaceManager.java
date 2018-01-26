@@ -1,5 +1,6 @@
 package com.rs.player;
 
+import com.rs.Server;
 import com.rs.content.player.points.PlayerPoints;
 import com.rs.core.settings.SettingsManager;
 import com.rs.world.task.gametask.impl.QuestTabUpdateTask;
@@ -256,8 +257,8 @@ public class InterfaceManager {
 		player.getPackets().sendIComponentText(551, 69, "Loyalty Points");
 		player.getPackets().sendIComponentText(551, 70,
 				"" + player.getPlayerPoints().getPoints(PlayerPoints.LOYALTY_POINTS) + "");
-		player.getPackets().sendIComponentText(551, 6, SettingsManager.getSettings().SERVER_NAME);
-		player.getPackets().sendIComponentText(551, 22, SettingsManager.getSettings().SERVER_NAME);
+		player.getPackets().sendIComponentText(551, 6, Server.getInstance().getSettingsManager().getSettings().getServerName());
+		player.getPackets().sendIComponentText(551, 22, Server.getInstance().getSettingsManager().getSettings().getServerName());
 	}
 
 	public void sendSkills() {

@@ -1,5 +1,7 @@
 package com.rs.core.file.managers;
 
+import com.google.gson.reflect.TypeToken;
+import com.rs.Server;
 import com.rs.core.file.GameFileManager;
 import com.rs.core.file.DataFile;
 import com.rs.core.settings.GameConstants;
@@ -26,9 +28,9 @@ public class DisplayNamesFileManager {
         final File file = new File(PATH);
         if (file.exists()) {
             try {
-                cachedNames = new DataFile<ArrayList<String>>(file).fromJson();
+                cachedNames = Server.getInstance().getJsonFileManager().load(PATH, new TypeToken<ArrayList<String>>() {}.getType());
                 return;
-            } catch (FileNotFoundException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }

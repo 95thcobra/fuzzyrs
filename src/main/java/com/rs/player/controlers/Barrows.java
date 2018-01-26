@@ -1,5 +1,6 @@
 package com.rs.player.controlers;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.impl.BarrowsD;
 import com.rs.core.settings.SettingsManager;
@@ -126,7 +127,7 @@ public final class Barrows extends Controller {
 	public void drop(final Item item) {
 		final Item dropItem = new Item(item.getId(), Utils.random(item
 				.getDefinitions().isStackable() ? item.getAmount()
-				* SettingsManager.getSettings().DROP_RATE : item.getAmount()) + 1);
+				* Server.getInstance().getSettingsManager().getSettings().getDropRate() : item.getAmount()) + 1);
 		if (noSpaceOnInv && player.getInventory().addItem(dropItem))
 			return;
 		noSpaceOnInv = true;

@@ -1,5 +1,6 @@
 package com.rs.core.net.handlers.object;
 
+import com.rs.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.crafting.FlaxCrafting;
 import com.rs.content.actions.skills.thieving.Thieving;
@@ -276,7 +277,7 @@ public class ObjectOptionTwoHandler implements PacketHandler {
                 player.getPackets().sendGameMessage(THIEVING_MESSAGE);
                 player.setNextAnimation(THIEVING_ANIMATION);
             }
-            if (SettingsManager.getSettings().DEBUG) {
+            if (Server.getInstance().getSettingsManager().getSettings().isDebug()) {
                 Logger.info("ObjectHandler", "clicked 2 at object id : "
                         + id + ", " + object.getX() + ", " + object.getY()
                         + ", " + object.getPlane());

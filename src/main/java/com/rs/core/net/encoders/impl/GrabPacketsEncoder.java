@@ -1,5 +1,6 @@
 package com.rs.core.net.encoders.impl;
 
+import com.rs.Server;
 import com.rs.core.cache.Cache;
 import com.rs.core.net.Session;
 import com.rs.core.net.encoders.Encoder;
@@ -78,7 +79,7 @@ public final class GrabPacketsEncoder extends Encoder {
         int amount = 1;
         if (getRequests().containsKey(indexId + (containerId << 8))) {
             amount = getRequests().get(indexId + (containerId << 8));
-            if (++amount > SettingsManager.getSettings().MAX_CONNECTIONS * 5) {
+            if (++amount > Server.getInstance().getSettingsManager().getSettings().getMaxConnections() * 5) {
                 Logger.info(this.getClass(), "Multiple requests for index " + indexId + " from " + session.getIP() + "!");
                 return;
             }
