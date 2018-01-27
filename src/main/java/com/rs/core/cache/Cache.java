@@ -3,8 +3,8 @@ package com.rs.core.cache;
 import com.alex.io.OutputStream;
 import com.alex.store.Store;
 import com.alex.util.whirlpool.Whirlpool;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Utils;
+import com.rs.server.GameConstants;
+import com.rs.utils.Utils;
 
 import java.io.IOException;
 

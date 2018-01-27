@@ -1,12 +1,12 @@
 package com.rs.content.web.impl;
 
 import com.rs.content.web.Database;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
 
 import java.sql.PreparedStatement;
 

@@ -1,6 +1,6 @@
 package com.rs.world.npc.qbd;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 
 import java.util.Iterator;

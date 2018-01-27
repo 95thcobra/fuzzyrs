@@ -2,8 +2,8 @@ package com.rs.content.economy.shops;
 
 import com.rs.server.Server;
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.utils.item.ItemExamines;
-import com.rs.core.utils.item.ItemSetsKeyGenerator;
+import com.rs.utils.item.ItemExamines;
+import com.rs.utils.item.ItemSetsKeyGenerator;
 import com.rs.player.Player;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemConstants;

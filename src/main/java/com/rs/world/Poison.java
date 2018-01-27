@@ -1,6 +1,7 @@
 package com.rs.world;
 
-import com.rs.core.utils.Utils;
+import com.rs.entity.Entity;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 
 import java.io.Serializable;

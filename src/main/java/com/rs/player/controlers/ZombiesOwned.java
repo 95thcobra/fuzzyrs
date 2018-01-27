@@ -5,16 +5,17 @@ import com.rs.content.actions.skills.summoning.Summoning;
 import com.rs.content.actions.skills.summoning.pet.Pets;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.*;
 import com.rs.world.item.Item;
 import com.rs.world.npc.fightcaves.FightCavesNPC;
 import com.rs.world.npc.fightcaves.TzKekCaves;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
+import com.rs.world.region.RegionBuilder;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -185,7 +186,7 @@ public class ZombiesOwned extends Controller {
 					 * lets stress less the worldthread, also fastexecutor used
 					 * for mini stuff
 					 */
-                    GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 6, TimeUnit.SECONDS) {
+                    Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 6, TimeUnit.SECONDS) {
                         @Override
                         public void run() {
                             if (stage != Stages.RUNNING)
@@ -272,7 +273,7 @@ public class ZombiesOwned extends Controller {
             player.getDialogueManager().startDialogue(SimpleNPCMessage.class,
                     THHAAR_MEJ_JAL, "Watch out. Their master is coming!");
         }
-        GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 600, TimeUnit.MILLISECONDS) {
+        Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 600, TimeUnit.MILLISECONDS) {
             @Override
             public void run() {
                 if (stage != Stages.RUNNING)

@@ -1,8 +1,7 @@
 package com.rs.server.file.impl;
 
 import com.rs.content.clans.Clan;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.server.GameFileConstants;
 import com.rs.server.file.JsonFileManager;
 import lombok.AccessLevel;

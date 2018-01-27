@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.rs.core.cache.Cache;
-import com.rs.core.net.io.InputStream;
+import com.rs.server.net.io.InputStream;
 
 public class GraphicDefinitions {
 

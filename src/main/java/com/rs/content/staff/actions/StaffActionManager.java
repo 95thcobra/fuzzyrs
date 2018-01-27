@@ -1,7 +1,7 @@
 package com.rs.content.staff.actions;
 
 import com.rs.content.staff.actions.impl.*;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 
 import java.io.IOException;
 import java.util.HashMap;

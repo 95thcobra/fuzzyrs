@@ -1,7 +1,7 @@
 package com.rs.player;
 
-import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.decoders.impl.WorldPacketsDecoder;
+import com.rs.utils.Utils;
 import com.rs.player.content.FriendChatsManager;
 import com.rs.world.World;
 

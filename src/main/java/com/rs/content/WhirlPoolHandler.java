@@ -1,12 +1,13 @@
 package com.rs.content;
 
 import com.rs.player.Player;
+import com.rs.server.Server;
 import com.rs.world.Animation;
 import com.rs.world.ForceMovement;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +22,7 @@ public class WhirlPoolHandler {
             player.lock(11); //You need this unless you want to be able to do funny looking glitches.
             player.addWalkSteps(player.getX(), 3515, 0, false); //makes the player run to the correct spot (real runescape spot is 3516)
 
-            GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.FIXED_RATE, 0, 600, TimeUnit.MILLISECONDS) {
+            Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.FIXED_RATE, 0, 600, TimeUnit.MILLISECONDS) {
                 int step = 0;
                 @Override
                 public void run() {

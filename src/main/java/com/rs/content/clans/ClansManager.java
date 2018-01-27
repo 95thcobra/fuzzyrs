@@ -6,9 +6,9 @@ import com.rs.content.dialogues.impl.ClanMotto;
 import com.rs.content.dialogues.impl.LeaveClan;
 import com.rs.content.minigames.clanwars.ClanWars;
 import com.rs.core.cache.loaders.ClientScriptMap;
-import com.rs.server.file.impl.ClanFilesManager;
-import com.rs.core.net.io.OutputStream;
-import com.rs.core.utils.Utils;
+import com.rs.server.Server;
+import com.rs.server.net.io.OutputStream;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.QuickChatMessage;
 import com.rs.server.file.impl.PlayerFileManager;
@@ -340,12 +340,12 @@ public class ClansManager {
 		if (player.getClanManager() != null)
 			return;
 		synchronized (cachedClans) {
-			if (ClanFilesManager.containsClan(clanName)) {
+			if (Server.getInstance().getClanFilesManager().containsClan(clanName)) {
 				player.getPackets().sendGameMessage("The clan name you tried already exists.");
 				return;
 			}
 			Clan clan = new Clan(clanName, player);
-			ClanFilesManager.saveClan(clan);
+			Server.getInstance().getClanFilesManager().saveClan(clan);
 			linkClanMember(player, clanName);
 		}
 	}
@@ -380,11 +380,11 @@ public class ClansManager {
 			manager = cachedClans.get(clanName); // grabs clan
 			boolean created = manager != null;
 			if (!created) { // not loaded
-				if (!ClanFilesManager.containsClan(clanName)) {
+				if (!Server.getInstance().getClanFilesManager().containsClan(clanName)) {
 					player.getPackets().sendIComponentText(1110, 70, "Could not find a clan named " + clanName + ". Please check the name and try again.");
 					return false;
 				}
-				Clan clan = ClanFilesManager.loadClan(clanName);
+				Clan clan = Server.getInstance().getClanFilesManager().loadClan(clanName);
 				if (clan == null)
 					return false;
 				clan.init(clanName);
@@ -735,7 +735,7 @@ public class ClansManager {
 				}
 				if (clan.getMembers().isEmpty()) {
 					kickAllChannelPlayers();
-					ClanFilesManager.deleteClan(clan);
+					Server.getInstance().getClanFilesManager().deleteClan(clan);
 				} else {
 					if (mate.getRank() == Clan.LEADER) {
 						ClanMember newLeader = getHighestRank();
@@ -1181,7 +1181,7 @@ public class ClansManager {
 	 */
 	private void destroyIfEmpty() {
 		if (empty()) {
-			ClanFilesManager.saveClan(clan);
+			Server.getInstance().getClanFilesManager().saveClan(clan);
 			cachedClans.remove(clan.getClanName());
 		}
 	}

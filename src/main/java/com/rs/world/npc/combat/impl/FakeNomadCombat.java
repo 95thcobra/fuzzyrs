@@ -1,14 +1,14 @@
 package com.rs.world.npc.combat.impl;
 
 import com.rs.world.Animation;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.Graphics;
 import com.rs.world.World;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.combat.CombatScript;
 import com.rs.world.npc.combat.NPCCombatDefinitions;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class FakeNomadCombat extends CombatScript {
 

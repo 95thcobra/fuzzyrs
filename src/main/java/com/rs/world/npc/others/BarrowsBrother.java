@@ -1,8 +1,8 @@
 package com.rs.world.npc.others;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.controlers.Barrows;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.WorldTile;
 import com.rs.world.npc.NPC;
 

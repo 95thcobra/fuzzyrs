@@ -2,14 +2,14 @@ package com.rs.player.controlers;
 
 import com.rs.server.Server;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.player.Player;
 import com.rs.player.content.FadingScreen;
 import com.rs.world.Animation;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class ZombieMinigame extends Controller {
 	private boolean logoutAtEnd;

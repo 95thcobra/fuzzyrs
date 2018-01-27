@@ -1,7 +1,7 @@
 package com.rs.server.file.impl;
 
 import com.google.gson.reflect.TypeToken;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.player.Player;
 import com.rs.server.Server;
 import com.rs.server.file.JsonFileManager;

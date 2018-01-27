@@ -1,6 +1,6 @@
 package com.rs.player.controlers.trollinvasion;
 
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.combat.CombatScript;
 import com.rs.world.npc.combat.NPCCombatDefinitions;

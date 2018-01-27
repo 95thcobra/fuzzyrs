@@ -1,15 +1,15 @@
 package com.rs.world.npc.godwars;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.Animation;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.World;
 import com.rs.world.WorldTile;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.combat.NPCCombatDefinitions;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.rs.content.minigames.creations;
 
-import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
+import com.rs.server.net.decoders.impl.WorldPacketsDecoder;
 import com.rs.player.content.Magic;
 import com.rs.player.controlers.Controller;
 import com.rs.world.WorldObject;

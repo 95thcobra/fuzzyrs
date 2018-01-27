@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.rs.core.cache.Cache;
 import com.rs.content.actions.skills.dungeoneering.dungeon.DungeonUtils;
-import com.rs.core.net.io.InputStream;
+import com.rs.server.net.io.InputStream;
 
 @SuppressWarnings("unused")
 public class ObjectDefinitions {

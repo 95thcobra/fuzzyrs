@@ -1,6 +1,6 @@
 package com.rs.content.clans;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 
 import java.io.Serializable;
 

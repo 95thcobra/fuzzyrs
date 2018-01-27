@@ -3,7 +3,7 @@ package com.rs.player;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.minigames.clanwars.ClanWars;
 import com.rs.content.minigames.clanwars.ClanWars.Rules;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.combat.CombatDefinitions;
 import com.rs.world.Animation;
 import com.rs.world.Graphics;

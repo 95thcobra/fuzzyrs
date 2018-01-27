@@ -3,16 +3,17 @@ package com.rs.player.controlers;
 import com.rs.server.Server;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.*;
 import com.rs.world.item.Item;
 import com.rs.world.npc.impossiblejad.ImpossibleJadNPC;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
+import com.rs.world.region.RegionBuilder;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -129,7 +130,7 @@ public class ImpossibleJad extends Controller {
 					 * lets stress less the worldthread, also fastexecutor used
 					 * for mini stuff
 					 */
-					GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 6, TimeUnit.SECONDS) {
+					Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 6, TimeUnit.SECONDS) {
 						@Override
 						public void run() {
 							if (stage != Stages.RUNNING)
@@ -215,7 +216,7 @@ public class ImpossibleJad extends Controller {
 					THHAAR_MEJ_JAL,
 					"Good luck! You wont complete this mohahaha!");
 		}
-		GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 600, TimeUnit.MILLISECONDS) {
+		Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 600, TimeUnit.MILLISECONDS) {
 			@Override
 			public void run() {
 				try {

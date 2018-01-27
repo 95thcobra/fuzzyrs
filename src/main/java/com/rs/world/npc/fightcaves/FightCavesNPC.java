@@ -1,7 +1,7 @@
 package com.rs.world.npc.fightcaves;
 
 import com.rs.player.Player;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.Graphics;
 import com.rs.world.World;
 import com.rs.world.WorldTile;

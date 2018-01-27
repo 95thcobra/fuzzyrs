@@ -1,18 +1,19 @@
 package com.rs.content.minigames;
 
 import com.rs.content.actions.skills.Skills;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.controlers.Controller;
+import com.rs.server.Server;
 import com.rs.world.Animation;
 import com.rs.world.ForceMovement;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,7 @@ public final class BrimhavenAgility extends Controller {
 
 	private static void startGame() {
 		// starts at 0 so that it selects a taggedDispenser
-		GameTaskManager.scheduleTask(
+		Server.getInstance().getGameTaskManager().scheduleTask(
 				currentGame = new PlayingGame(GameTask.ExecutionType.FIXED_RATE, 0, 60, TimeUnit.SECONDS));
 		/*GameTaskManager.scheduleTask(
 				bladesManager = new BladesManager(GameTask.ExecutionType.FIXED_RATE, 5000, 5000, TimeUnit.MILLISECONDS)); // TODO right

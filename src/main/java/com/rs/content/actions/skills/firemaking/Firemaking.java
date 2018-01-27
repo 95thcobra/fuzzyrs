@@ -4,8 +4,8 @@ import com.rs.content.actions.Action;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.minigames.duel.DuelArena;
 import com.rs.content.minigames.duel.DuelController;
-import com.rs.core.net.handlers.inventory.InventoryOptionsHandler;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.handlers.inventory.InventoryOptionsHandler;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.Animation;
 import com.rs.world.World;
@@ -14,8 +14,8 @@ import com.rs.world.WorldTile;
 import com.rs.world.item.FloorItem;
 import com.rs.world.item.Item;
 import com.rs.world.npc.familiar.Familiar;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class Firemaking extends Action {
 

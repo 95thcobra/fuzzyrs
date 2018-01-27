@@ -2,8 +2,8 @@ package com.rs.server.file.impl;
 
 import com.google.gson.reflect.TypeToken;
 import com.rs.core.file.impl.DominionTowerRank;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.player.DominionTower;
 import com.rs.player.Player;
 import com.rs.server.file.JsonFileManager;

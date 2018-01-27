@@ -5,8 +5,8 @@ import com.rs.core.cache.loaders.ClientScriptMap;
 import com.rs.core.cache.loaders.ItemDefinitions;
 import com.rs.core.cache.loaders.ItemsEquipIds;
 import com.rs.core.cache.loaders.NPCDefinitions;
-import com.rs.core.net.io.OutputStream;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.io.OutputStream;
+import com.rs.utils.Utils;
 import com.rs.world.World;
 import com.rs.world.item.Item;
 

@@ -1,14 +1,15 @@
 package com.rs.player.controlers;
 
+import com.rs.entity.Entity;
 import com.rs.server.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.thieving.Thieving;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.*;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class Wilderness extends Controller {
 

@@ -1,10 +1,10 @@
 package com.rs.content.items;
 
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
-import com.rs.core.utils.file.FileUtilities;
+import com.rs.server.GameConstants;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
+import com.rs.utils.file.FileUtilities;
 import com.rs.player.Player;
 import com.rs.world.item.Item;
 

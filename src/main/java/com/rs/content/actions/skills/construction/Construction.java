@@ -1,8 +1,8 @@
 package com.rs.content.actions.skills.construction;
 
 import com.rs.content.actions.skills.Skills;
-import com.rs.core.net.io.InputStream;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.io.InputStream;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.Animation;
 

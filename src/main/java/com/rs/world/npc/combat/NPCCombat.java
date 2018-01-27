@@ -1,7 +1,8 @@
 package com.rs.world.npc.combat;
 
 import com.rs.core.file.data.map.MapAreas;
-import com.rs.core.utils.Utils;
+import com.rs.entity.Entity;
+import com.rs.utils.Utils;
 import com.rs.player.combat.Combat;
 import com.rs.world.*;
 import com.rs.world.npc.NPC;

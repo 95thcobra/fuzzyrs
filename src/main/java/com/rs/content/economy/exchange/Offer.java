@@ -2,7 +2,7 @@ package com.rs.content.economy.exchange;
 
 import com.rs.core.cache.loaders.ClientScriptMap;
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemsContainer;

@@ -2,8 +2,8 @@ package com.rs.content.minigames.soulwars;
 
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.player.points.PlayerPoints;
-import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.decoders.impl.WorldPacketsDecoder;
+import com.rs.utils.Utils;
 import com.rs.player.controlers.Controller;
 import com.rs.world.World;
 import com.rs.world.WorldObject;

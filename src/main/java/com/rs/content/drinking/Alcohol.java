@@ -4,11 +4,11 @@ package com.rs.content.drinking;
  * @author John (FuzzyAvacado) on 1/6/2016.
  */
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
+import com.rs.server.Server;
 import com.rs.world.Animation;
 import com.rs.world.item.Item;
-import com.rs.world.task.gametask.GameTaskManager;
 
 /**
  * Gets a Player drunk.
@@ -63,19 +63,19 @@ public class Alcohol {
         switch (player.getAlcoholIntake()) {
             case DRUNK:
                 player.sendMessage("You start to feel a bit dizzy...");
-                GameTaskManager.scheduleTask(new DrunkGameTask(player));
+                Server.getInstance().getGameTaskManager().scheduleTask(new DrunkGameTask(player));
                 break;
 
             case POISONING:
                 player.sendMessage("You start to feel horrible. What if...no...maybe...you have alcohol poisoning?");
                 player.getPoison().makePoisoned(50);
-                GameTaskManager.scheduleTask(new DrunkGameTask(player));
+                Server.getInstance().getGameTaskManager().scheduleTask(new DrunkGameTask(player));
                 break;
 
             case DEATH:
                 player.sendMessage("Your liver starts to shut down...you moron.");
                 player.getPoison().makePoisoned(200);
-                GameTaskManager.scheduleTask(new DrunkGameTask(player));
+                Server.getInstance().getGameTaskManager().scheduleTask(new DrunkGameTask(player));
                 break;
         }
         player.getAppearance().setRenderEmote(290);

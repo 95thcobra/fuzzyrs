@@ -1,5 +1,7 @@
 package com.rs.world;
 
+import com.rs.entity.Entity;
+import com.rs.entity.EntityList;
 import com.rs.server.Server;
 import com.rs.content.actions.skills.hunter.BoxAction;
 import com.rs.content.actions.skills.mining.LivingRockCavern;
@@ -12,15 +14,14 @@ import com.rs.content.minigames.duel.DuelController;
 import com.rs.content.minigames.soulwars.SoulWarsManager;
 import com.rs.content.player.PlayerRank;
 import com.rs.core.cores.CoresManager;
-import com.rs.server.file.impl.IPBanFileManager;
-import com.rs.core.file.managers.PkRankFileManager;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.server.GameConstants;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.content.DwarfCannon;
 import com.rs.player.content.ShootingStar;
 import com.rs.player.controlers.Wilderness;
+import com.rs.server.file.impl.PlayerFileManager;
 import com.rs.world.item.FloorItem;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemConstants;
@@ -45,9 +46,9 @@ import com.rs.world.npc.others.*;
 import com.rs.world.npc.slayer.GanodermicBeast;
 import com.rs.world.npc.slayer.Strykewyrm;
 import com.rs.world.npc.sorgar.Elemental;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
+import com.rs.world.region.Region;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -92,7 +93,7 @@ public final class World {
 	public static void init() {
 		soulWarsManager = new SoulWarsManager();
 		soulWarsManager.start();
-		GameTaskManager.init();
+		Server.getInstance().getGameTaskManager().init();
 		LivingRockCavern.init();
 	}
 
@@ -809,7 +810,7 @@ public final class World {
 			}
 			player.getPackets().sendSystemUpdate(delay);
 		}
-		CoresManager.SLOW_EXECUTOR.schedule((Runnable) () -> {
+		CoresManager.SLOW_EXECUTOR.schedule(() -> {
 			try {
                 for (final Player player : World.getPlayers()) {
                     if (player == null || !player.hasStarted()) {
@@ -817,8 +818,8 @@ public final class World {
                     }
                     player.realFinish();
                 }
-                IPBanFileManager.save();
-                PkRankFileManager.save();
+				Server.getInstance().getIpBanFileManager().save();
+				Server.getInstance().getPkRankFileManager().save();
                 GrandExchange.save();
                 if (restart) {
 					Server.getInstance().restart();

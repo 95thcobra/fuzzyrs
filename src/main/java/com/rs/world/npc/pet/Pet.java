@@ -2,7 +2,7 @@ package com.rs.world.npc.pet;
 
 import com.rs.content.actions.skills.summoning.pet.PetDetails;
 import com.rs.content.actions.skills.summoning.pet.Pets;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.World;
 import com.rs.world.WorldTile;

@@ -2,8 +2,8 @@ package com.rs.content.staff.actions.impl;
 
 import com.rs.content.player.PlayerRank;
 import com.rs.content.staff.actions.StaffAction;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Utils;
+import com.rs.server.GameConstants;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.server.Server;
 

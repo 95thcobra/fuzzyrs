@@ -2,7 +2,7 @@ package com.rs.world.npc.fightpits;
 
 import com.rs.content.minigames.FightPits;
 import com.rs.player.Player;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.Graphics;
 import com.rs.world.WorldTile;
 import com.rs.world.npc.NPC;

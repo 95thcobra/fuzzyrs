@@ -4,7 +4,7 @@ package com.rs.content.minigames.cagegame;
  * @author John (FuzzyAvacado) on 1/7/2016.
  */
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Equipment;
 import com.rs.player.Player;
 import com.rs.world.WorldTile;

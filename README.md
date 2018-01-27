@@ -4,7 +4,6 @@ Runescape private server revision 718.
 # TODO
 
 * Fix Nomad attack animation
-* Clean up region after sailing
 * Fix Nomad ending. Something happens to character not allowing them to move.
 * Fix Overload timer in middle of screen
 
@@ -23,12 +22,12 @@ Runescape private server revision 718.
 
 
 # DONE
-
+* [FIXED] Clean up region after sailing
 * [FIXED] Fix StackOverFlow thrown when Nomad is finished
     *
 	    ```
     	java.lang.StackOverflowError
-    	at com.rs.world.Entity.setForceMultiArea(Entity.java:1271)
+    	at com.rs.entity.Entity.setForceMultiArea(Entity.java:1271)
     	at com.rs.player.controlers.NomadsRequiem.leave(NomadsRequiem.java:275)
     	at com.rs.player.controlers.NomadsRequiem.forceClose(NomadsRequiem.java:248)
     	at com.rs.player.ControllerManager.forceStop(ControllerManager.java:235)

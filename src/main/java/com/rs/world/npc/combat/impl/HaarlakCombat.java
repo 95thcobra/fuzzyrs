@@ -1,6 +1,7 @@
 package com.rs.world.npc.combat.impl;
 
-import com.rs.core.utils.Utils;
+import com.rs.entity.Entity;
+import com.rs.utils.Utils;
 import com.rs.world.*;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.combat.CombatScript;

@@ -1,12 +1,13 @@
 package com.rs.content.minigames.soulwars;
 
 import com.rs.content.actions.skills.Skills;
+import com.rs.entity.Entity;
 import com.rs.player.Player;
 import com.rs.world.*;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.combat.NPCCombatDefinitions;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.ArrayList;
 

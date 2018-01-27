@@ -4,7 +4,7 @@ import com.rs.content.actions.skills.dungeoneering.rooms.Room;
 import com.rs.content.actions.skills.dungeoneering.rooms.RoomReference;
 import com.rs.content.actions.skills.dungeoneering.rooms.impl.BossRoom;
 import com.rs.content.actions.skills.dungeoneering.rooms.impl.HandledRoom;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 
 import java.util.ArrayList;
 

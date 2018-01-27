@@ -7,15 +7,18 @@ import com.rs.content.customskills.sailing.ships.PlayerShip;
 import com.rs.content.customskills.sailing.ships.ShipStorage;
 import com.rs.content.customskills.sailing.ships.Ships;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
-import com.rs.core.net.handlers.button.ButtonHandler;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.decoders.impl.WorldPacketsDecoder;
+import com.rs.server.net.handlers.button.ButtonHandler;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.player.Bank;
 import com.rs.player.content.FadingScreen;
 import com.rs.player.controlers.Controller;
 import com.rs.world.*;
 import com.rs.world.npc.NPC;
+import com.rs.world.region.RegionBuilder;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author John (FuzzyAvacado) on 12/17/2015.
@@ -134,6 +137,7 @@ public class SailingController extends Controller {
                             player.getInterfaceManager().sendInterfaces();
                             ButtonHandler.sendCustomText506(player);
                         });
+                        RegionBuilder.destroyMap(regionBase[0], regionBase[1], 8, 8);
                     } catch (final Throwable e) {
                         Logger.handle(e);
                     }
@@ -284,7 +288,7 @@ public class SailingController extends Controller {
 
     /*
      * return remove controller
-	 */
+     */
     @Override
     public boolean login() {
         start();

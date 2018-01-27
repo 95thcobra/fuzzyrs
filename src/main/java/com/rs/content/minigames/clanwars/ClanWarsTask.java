@@ -1,10 +1,10 @@
 package com.rs.content.minigames.clanwars;
 
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.player.Player;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
 
 import java.util.concurrent.TimeUnit;
 

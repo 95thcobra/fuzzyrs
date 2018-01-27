@@ -6,11 +6,11 @@ import com.rs.player.content.Foods.Food;
 import com.rs.player.content.Pots.Pot;
 import com.rs.player.controlers.Controller;
 import com.rs.world.Animation;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 /**
  * A controler subclass handling players in the clan wars activity.

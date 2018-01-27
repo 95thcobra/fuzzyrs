@@ -7,7 +7,7 @@ import com.rs.content.actions.skills.dungeoneering.rooms.impl.HandledRoom;
 import com.rs.content.actions.skills.dungeoneering.rooms.impl.NormalRoom;
 import com.rs.content.actions.skills.dungeoneering.rooms.impl.StartRoom;
 import com.rs.core.cache.loaders.NPCDefinitions;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.World;
 

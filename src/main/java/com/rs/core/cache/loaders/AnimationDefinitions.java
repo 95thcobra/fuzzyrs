@@ -3,7 +3,7 @@ package com.rs.core.cache.loaders;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.rs.core.cache.Cache;
-import com.rs.core.net.io.InputStream;
+import com.rs.server.net.io.InputStream;
 
 public class AnimationDefinitions {
 

@@ -1,5 +1,6 @@
 package com.rs.player;
 
+import com.rs.entity.Entity;
 import com.rs.server.Server;
 import com.rs.content.actions.ActionManager;
 import com.rs.content.actions.skills.Skills;
@@ -28,16 +29,15 @@ import com.rs.content.potiontimers.PotionTimerInterface;
 import com.rs.content.potiontimers.PotionType;
 import com.rs.content.web.impl.HighScores;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.file.managers.PkRankFileManager;
-import com.rs.core.net.Session;
-import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
-import com.rs.core.net.encoders.impl.WorldPacketsEncoder;
-import com.rs.core.net.handlers.button.ButtonHandler;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.MachineInformation;
-import com.rs.core.utils.Utils;
-import com.rs.core.utils.net.IsaacKeyPair;
+import com.rs.server.net.Session;
+import com.rs.server.net.decoders.impl.WorldPacketsDecoder;
+import com.rs.server.net.encoders.impl.WorldPacketsEncoder;
+import com.rs.server.net.handlers.button.ButtonHandler;
+import com.rs.server.GameConstants;
+import com.rs.utils.Logger;
+import com.rs.utils.MachineInformation;
+import com.rs.utils.Utils;
+import com.rs.utils.net.IsaacKeyPair;
 import com.rs.player.combat.CombatDefinitions;
 import com.rs.player.combat.PlayerCombat;
 import com.rs.player.content.*;
@@ -52,10 +52,9 @@ import com.rs.world.npc.NPC;
 import com.rs.world.npc.familiar.Familiar;
 import com.rs.world.npc.godwars.zaros.Nex;
 import com.rs.world.npc.pet.Pet;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.impl.LoyaltyPointsTask;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.impl.LoyaltyPointsTask;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -321,7 +320,7 @@ public class Player extends Entity {
     // creates Player and saved classes
     public Player(final String password) {
         super(Server.getInstance().getSettingsManager().getSettings().getStartPlayerLocation());
-        setHitpoints(Server.getInstance().getSettingsManager().getSettings().getStartPlayerHitponts());
+        setHitpoints(Server.getInstance().getSettingsManager().getSettings().getStartPlayerHitpoints());
         this.password = password;
         appearance = new Appearance();
         inventory = new Inventory();
@@ -1043,8 +1042,8 @@ public class Player extends Entity {
         OwnedObjectManager.linkKeys(this);
         Notes.unlock(this);
         getSpinsManager().addSpins();
-        GameTaskManager.scheduleTask(loyaltyPointsTask);
-        GameTaskManager.scheduleTask(timeOnlineTask);
+        Server.getInstance().getGameTaskManager().scheduleTask(loyaltyPointsTask);
+        Server.getInstance().getGameTaskManager().scheduleTask(timeOnlineTask);
         if (SoulWarsAreaController.isInArea(this)) {
             getControllerManager().startController(SoulWarsAreaController.class);
         }
@@ -1351,7 +1350,7 @@ public class Player extends Entity {
         session.setDecoder(-1);
         Server.getInstance().getPlayerFileManager().save(this);
         if (!getRank().isMinimumRank(PlayerRank.ADMIN)) {
-            GameTaskManager.scheduleTask(new HighScores(this));
+            Server.getInstance().getGameTaskManager().scheduleTask(new HighScores(this));
         }
         World.updateEntityRegion(this);
         World.removePlayer(this);
@@ -2592,7 +2591,7 @@ public class Player extends Entity {
 
     public void increaseKillCount(final Player killed) {
         killed.deathCount++;
-        PkRankFileManager.checkRank(killed);
+        Server.getInstance().getPkRankFileManager().checkRank(killed);
         if (killed.getSession().getIP().equals(getSession().getIP()))
             return;
         if (killed.getUsername().equals(getLastKilled()))
@@ -2634,7 +2633,7 @@ public class Player extends Entity {
                             + killed.getDisplayName() + ".");
         }
 
-        PkRankFileManager.checkRank(this);
+        Server.getInstance().getPkRankFileManager().checkRank(this);
     }
 
     public void sendRandomJail(final Player p) {

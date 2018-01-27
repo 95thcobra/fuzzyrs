@@ -1,10 +1,10 @@
 package com.rs.player;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.Iterator;
 import java.util.Map;

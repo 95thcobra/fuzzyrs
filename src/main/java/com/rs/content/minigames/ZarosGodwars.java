@@ -1,13 +1,14 @@
 package com.rs.content.minigames;
 
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Utils;
+import com.rs.entity.Entity;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.*;
 import com.rs.world.npc.godwars.zaros.Nex;
 import com.rs.world.npc.godwars.zaros.NexMinion;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.ArrayList;
 import java.util.Collections;

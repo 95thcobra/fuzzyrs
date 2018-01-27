@@ -5,13 +5,13 @@ package com.rs.content.minigames.cagegame;
  */
 
 import com.rs.content.dialogues.types.SimpleMessage;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.controlers.Controller;
 import com.rs.world.Animation;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.WorldTile;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 /**
  * @author Tyler

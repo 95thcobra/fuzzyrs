@@ -4,7 +4,7 @@ import com.rs.server.Server;
 import com.rs.content.actions.skills.summoning.Summoning;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.content.player.points.PlayerPoints;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Equipment;
 import com.rs.player.Player;
 import com.rs.player.content.Foods;
@@ -12,8 +12,7 @@ import com.rs.world.World;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
 import com.rs.world.item.Item;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -405,7 +404,7 @@ public final class SoulWarsManager {
 
     private void startTask(PlayerType type, GameTask task) {
         tasks.put(type, task);
-        GameTaskManager.scheduleTask(task);
+        Server.getInstance().getGameTaskManager().scheduleTask(task);
     }
 
     public HashMap<PlayerType, GameTask> getTasks() {

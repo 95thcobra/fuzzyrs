@@ -1,6 +1,6 @@
 package com.rs.player.content;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemsContainer;

@@ -3,9 +3,10 @@ package com.rs.content.minigames.duel;
 import com.rs.content.dialogues.impl.ForfeitDialouge;
 import com.rs.content.dialogues.types.SimpleMessage;
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
-import com.rs.core.net.handlers.button.ButtonHandler;
-import com.rs.core.utils.Utils;
+import com.rs.entity.Entity;
+import com.rs.server.net.decoders.impl.WorldPacketsDecoder;
+import com.rs.server.net.handlers.button.ButtonHandler;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.combat.PlayerCombat;
 import com.rs.player.content.Foods.Food;
@@ -14,8 +15,8 @@ import com.rs.player.controlers.Controller;
 import com.rs.world.*;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemConstants;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class DuelArena extends Controller {
 

@@ -1,6 +1,6 @@
 package com.rs.player.content;
 
-import com.rs.core.net.encoders.impl.WorldPacketsEncoder;
+import com.rs.server.net.encoders.impl.WorldPacketsEncoder;
 import com.rs.player.Player;
 
 import java.io.Serializable;

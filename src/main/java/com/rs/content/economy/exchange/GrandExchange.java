@@ -1,8 +1,8 @@
 package com.rs.content.economy.exchange;
 
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.server.file.impl.GrandExchangeFileManager;
-import com.rs.core.utils.Utils;
+import com.rs.server.Server;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 
 import java.util.ArrayList;
@@ -21,8 +21,8 @@ public class GrandExchange {
     private static boolean edited;
 
     public static void init() {
-        OFFERS = GrandExchangeFileManager.loadGEOffers();
-        setOFFERS_TRACK(GrandExchangeFileManager.loadGEHistory());
+        OFFERS = Server.getInstance().getGrandExchangeFileManager().loadGEOffers();
+        setOFFERS_TRACK(Server.getInstance().getGrandExchangeFileManager().loadGEHistory());
     }
 
     public static void removeOffers(Player player) {
@@ -44,7 +44,7 @@ public class GrandExchange {
     }
 
     public static void removeAllOffers() {
-        GrandExchangeFileManager.deleteOffers();
+        Server.getInstance().getGrandExchangeFileManager().deleteOffers();
         OFFERS.clear();
     }
 
@@ -151,8 +151,8 @@ public class GrandExchange {
     public static void save() {
         if (!edited)
             return;
-        GrandExchangeFileManager.saveGEOffers(OFFERS);
-        GrandExchangeFileManager.saveGEHistory(getOFFERS_TRACK());
+        Server.getInstance().getGrandExchangeFileManager().saveGEOffers(OFFERS);
+        Server.getInstance().getGrandExchangeFileManager().saveGEHistory(getOFFERS_TRACK());
         edited = false;
     }
 

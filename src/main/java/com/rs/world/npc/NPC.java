@@ -1,5 +1,6 @@
 package com.rs.world.npc;
 
+import com.rs.entity.Entity;
 import com.rs.server.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.actions.skills.herblore.HerbCleaning;
@@ -13,9 +14,9 @@ import com.rs.core.file.data.npc.NPCBonusesFileManager;
 import com.rs.core.file.data.npc.NPCCombatDefinitionsFileManager;
 import com.rs.core.file.data.npc.NPCDropsFileManager;
 import com.rs.core.file.data.npc.NPCNameFileManager;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.server.GameConstants;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.content.FriendChatsManager;
 import com.rs.player.controlers.Wilderness;
@@ -25,8 +26,8 @@ import com.rs.world.item.Item;
 import com.rs.world.npc.combat.NPCCombat;
 import com.rs.world.npc.combat.NPCCombatDefinitions;
 import com.rs.world.npc.familiar.Familiar;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;

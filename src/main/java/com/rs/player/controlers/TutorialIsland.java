@@ -8,7 +8,7 @@ import com.rs.content.dialogues.impl.MasterChef;
 import com.rs.content.dialogues.impl.RuneScapeGuide;
 import com.rs.content.dialogues.impl.SurvivalExpert;
 import com.rs.content.dialogues.types.SimpleMessage;
-import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
+import com.rs.server.net.decoders.impl.WorldPacketsDecoder;
 import com.rs.player.Inventory;
 import com.rs.world.World;
 import com.rs.world.WorldObject;

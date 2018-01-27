@@ -1,12 +1,13 @@
 package com.rs.world.npc.sorgar;
 
+import com.rs.entity.Entity;
 import com.rs.player.Player;
 import com.rs.player.content.FadingScreen;
 import com.rs.player.controlers.SorceressGarden;
 import com.rs.world.*;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.ArrayList;
 import java.util.List;

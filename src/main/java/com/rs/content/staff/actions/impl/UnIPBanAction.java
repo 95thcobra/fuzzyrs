@@ -2,8 +2,7 @@ package com.rs.content.staff.actions.impl;
 
 import com.rs.content.player.PlayerRank;
 import com.rs.content.staff.actions.StaffAction;
-import com.rs.server.file.impl.IPBanFileManager;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.server.Server;
 import com.rs.server.file.impl.PlayerFileManager;

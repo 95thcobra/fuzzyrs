@@ -1,7 +1,7 @@
 package com.rs.player;
 
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.world.Animation;
 import com.rs.world.Graphics;
 import com.rs.world.World;

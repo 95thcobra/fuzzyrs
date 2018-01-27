@@ -3,13 +3,13 @@ package com.rs.player;
 import com.rs.content.dialogues.types.SimpleMessage;
 import com.rs.content.player.PlayerRank;
 import com.rs.core.cache.loaders.NPCDefinitions;
-import com.rs.core.net.decoders.impl.WorldPacketsDecoder;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.decoders.impl.WorldPacketsDecoder;
+import com.rs.server.GameConstants;
+import com.rs.utils.Utils;
 import com.rs.world.*;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -2,7 +2,7 @@ package com.rs.player.combat;
 
 import com.rs.content.actions.skills.Skills;
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.utils.item.ItemBonuses;
+import com.rs.utils.item.ItemBonuses;
 import com.rs.player.Player;
 import com.rs.world.item.Item;
 

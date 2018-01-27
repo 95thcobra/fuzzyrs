@@ -4,8 +4,8 @@ import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
 import com.rs.content.player.PlayerRank;
 import com.rs.player.Player;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 /**
  * @author FuzzyAvacado

@@ -1,7 +1,7 @@
 package com.rs.player;
 
 import com.rs.content.actions.skills.Skills;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 
 import java.io.Serializable;
 import java.util.ArrayList;

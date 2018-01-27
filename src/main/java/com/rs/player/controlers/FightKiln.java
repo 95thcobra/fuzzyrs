@@ -5,11 +5,12 @@ import com.rs.content.dialogues.impl.FightKilnDialogue;
 import com.rs.content.dialogues.impl.TokHaarHok;
 import com.rs.core.cache.loaders.NPCDefinitions;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.content.FadingScreen;
 import com.rs.content.cutscenes.Cutscene;
+import com.rs.server.Server;
 import com.rs.world.*;
 import com.rs.world.item.Item;
 import com.rs.world.npc.NPC;
@@ -17,10 +18,11 @@ import com.rs.world.npc.familiar.Familiar;
 import com.rs.world.npc.fightkiln.FightKilnNPC;
 import com.rs.world.npc.fightkiln.HarAken;
 import com.rs.world.npc.fightkiln.TokHaarKetDill;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
+import com.rs.world.region.RegionBuilder;
 
 import java.util.concurrent.TimeUnit;
 
@@ -195,7 +197,7 @@ public class FightKiln extends Controller {
                     .sendGameMessage(
                             "<col=7E2217>The power of the crystal improves your Strength prowess, at the expense of your Defence, Ranged and Magical ability.");
         }
-        GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.FIXED_DELAY, 0, 30, TimeUnit.SECONDS) {
+        Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.FIXED_DELAY, 0, 30, TimeUnit.SECONDS) {
 
             private int count;
 
@@ -434,7 +436,7 @@ public class FightKiln extends Controller {
                                             getWorldTile(45, 26), kiln);
                                     harAken.spawn();
                                     harAken.sendDeath(player);
-                                    GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 5, TimeUnit.SECONDS) {
+                                    Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 5, TimeUnit.SECONDS) {
                                         @Override
                                         public void run() {
                                             try {
@@ -822,7 +824,7 @@ public class FightKiln extends Controller {
         aliveNPCSCount = WAVES[currentWave - 1].length;
         for (int i = 0; i < WAVES[currentWave - 1].length; i += 4) {
             final int next = i;
-            GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, (next / 4) * 4000, TimeUnit.MILLISECONDS) {
+            Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, (next / 4) * 4000, TimeUnit.MILLISECONDS) {
                 @Override
                 public void run() {
                     try {
@@ -974,7 +976,7 @@ public class FightKiln extends Controller {
     }
 
     public void setWaveEvent() {
-        GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 6, TimeUnit.SECONDS) {
+        Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 6, TimeUnit.SECONDS) {
             @Override
             public void run() {
                 try {
@@ -1208,7 +1210,7 @@ public class FightKiln extends Controller {
         harAken.resetTimer();
         harAken.setCantInteract(true);
         harAken.setNextAnimation(new Animation(16234));
-        GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 3, TimeUnit.SECONDS) {
+        Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 3, TimeUnit.SECONDS) {
             @Override
             public void run() {
                 try {

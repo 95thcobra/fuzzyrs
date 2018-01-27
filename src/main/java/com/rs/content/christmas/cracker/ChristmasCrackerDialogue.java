@@ -2,7 +2,7 @@ package com.rs.content.christmas.cracker;
 
 import com.rs.content.christmas.funnyjoke.FunnyJokeHandler;
 import com.rs.content.dialogues.Dialogue;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.Animation;
 import com.rs.world.ForceTalk;

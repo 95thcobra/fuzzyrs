@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.rs.player.Player;
-import com.rs.world.DynamicRegion;
-import com.rs.world.Region;
-import com.rs.world.RegionBuilder;
+import com.rs.world.region.DynamicRegion;
+import com.rs.world.region.Region;
+import com.rs.world.region.RegionBuilder;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
 

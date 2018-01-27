@@ -1,7 +1,7 @@
 package com.rs.content.combat.pvp;
 
 import com.rs.content.dialogues.types.SimpleMessage;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 
 public class WildernessArtifacts {

@@ -1,7 +1,7 @@
 package com.rs.world;
 
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Utils;
+import com.rs.server.GameConstants;
+import com.rs.utils.Utils;
 
 import java.io.Serializable;
 

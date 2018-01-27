@@ -1,8 +1,8 @@
 package com.rs.core.file.data.map;
 
 import com.rs.core.file.FuzzyFileManager;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
+import com.rs.server.GameConstants;
+import com.rs.utils.Logger;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;

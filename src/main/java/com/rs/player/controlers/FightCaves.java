@@ -5,18 +5,19 @@ import com.rs.content.actions.skills.summoning.Summoning;
 import com.rs.content.actions.skills.summoning.pet.Pets;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.*;
 import com.rs.world.item.Item;
 import com.rs.world.npc.fightcaves.FightCavesNPC;
 import com.rs.world.npc.fightcaves.TzKekCaves;
 import com.rs.world.npc.fightcaves.TzTok_Jad;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
+import com.rs.world.region.RegionBuilder;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -146,7 +147,7 @@ public class FightCaves extends Controller {
 					 * lets stress less the worldthread, also fastexecutor used
 					 * for mini stuff
 					 */
-					GameTaskManager.scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 6000, 0, TimeUnit.MILLISECONDS));
+					Server.getInstance().getGameTaskManager().scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 6000, 0, TimeUnit.MILLISECONDS));
 				}
 			}
 		});
@@ -230,7 +231,7 @@ public class FightCaves extends Controller {
 			player.getDialogueManager().startDialogue(SimpleNPCMessage.class,
 					THHAAR_MEJ_JAL, "Look out, here comes TzTok-Jad!");
 		}
-		GameTaskManager.scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 600, 0, TimeUnit.MILLISECONDS));
+		Server.getInstance().getGameTaskManager().scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 600, 0, TimeUnit.MILLISECONDS));
 	}
 
 	@Override

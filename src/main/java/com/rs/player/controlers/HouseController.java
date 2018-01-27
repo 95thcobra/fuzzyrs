@@ -1,7 +1,7 @@
 package com.rs.player.controlers;
 
 import com.rs.content.actions.skills.construction.House;
-import com.rs.world.RegionBuilder;
+import com.rs.world.region.RegionBuilder;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
 

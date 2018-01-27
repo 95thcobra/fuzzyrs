@@ -8,11 +8,11 @@ import com.rs.content.actions.skills.dungeoneering.rooms.impl.VisibleRoom;
 import com.rs.core.cache.loaders.NPCDefinitions;
 import com.rs.core.cores.CoresManager;
 import com.rs.core.file.data.map.MapAreas;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.controlers.DungeonController;
-import com.rs.world.RegionBuilder;
+import com.rs.world.region.RegionBuilder;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
@@ -21,8 +21,8 @@ import com.rs.world.npc.dungeonnering.AsteaFrostweb;
 import com.rs.world.npc.dungeonnering.Glutenus;
 import com.rs.world.npc.dungeonnering.Guardian;
 import com.rs.world.npc.dungeonnering.Tokash;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class DungeonManager {
 

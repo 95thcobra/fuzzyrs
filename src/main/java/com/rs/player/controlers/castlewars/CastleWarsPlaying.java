@@ -4,7 +4,8 @@ import com.rs.content.dialogues.types.SimpleMessage;
 import com.rs.content.minigames.castlewars.CastleWarBarricade;
 import com.rs.content.minigames.castlewars.CastleWars;
 import com.rs.content.minigames.castlewars.CastleWarsConstants;
-import com.rs.core.utils.Utils;
+import com.rs.entity.Entity;
+import com.rs.utils.Utils;
 import com.rs.player.Equipment;
 import com.rs.player.Inventory;
 import com.rs.player.Player;
@@ -13,8 +14,8 @@ import com.rs.world.*;
 import com.rs.world.Hit.HitLook;
 import com.rs.world.item.Item;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.List;
 

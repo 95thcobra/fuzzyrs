@@ -1,6 +1,6 @@
 package com.rs.core.cache.loaders;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 
 import java.util.HashMap;
 

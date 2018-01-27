@@ -1,10 +1,10 @@
 package com.rs.player;
 
 import com.rs.core.cache.loaders.ClientScriptMap;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Utils;
-import com.rs.core.utils.file.MusicHints;
-import com.rs.world.Region;
+import com.rs.server.GameConstants;
+import com.rs.utils.Utils;
+import com.rs.utils.file.MusicHints;
+import com.rs.world.region.Region;
 import com.rs.world.World;
 
 import java.io.Serializable;

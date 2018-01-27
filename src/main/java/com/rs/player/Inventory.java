@@ -1,8 +1,8 @@
 package com.rs.player;
 
 import com.rs.content.items.WeightManager;
-import com.rs.core.utils.Utils;
-import com.rs.core.utils.item.ItemExamines;
+import com.rs.utils.Utils;
+import com.rs.utils.item.ItemExamines;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemsContainer;
 

@@ -2,13 +2,13 @@ package com.rs.player.controlers;
 
 import com.rs.server.Server;
 import com.rs.content.dialogues.impl.QuestGuide;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class StartTutorial extends Controller {
 

@@ -10,8 +10,8 @@ import com.rs.content.economy.exchange.GrandExchangeUnlimitedItems;
 import com.rs.content.economy.shops.ShopsManager;
 import com.rs.content.items.WeightManager;
 import com.rs.content.staff.actions.StaffActionManager;
-import com.rs.core.GameEngine;
-import com.rs.core.NetworkEngine;
+import com.rs.server.engine.GameEngine;
+import com.rs.server.engine.NetworkEngine;
 import com.rs.core.cache.Cache;
 import com.rs.core.cache.loaders.ItemsEquipIds;
 import com.rs.core.cores.CoresManager;
@@ -21,17 +21,18 @@ import com.rs.core.file.data.map.ObjectSpawnsFileManager;
 import com.rs.core.file.data.npc.*;
 import com.rs.player.Player;
 import com.rs.server.file.impl.*;
-import com.rs.core.file.managers.PkRankFileManager;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.file.AutoBackup;
-import com.rs.core.utils.file.MusicHints;
-import com.rs.core.utils.huffman.Huffman;
-import com.rs.core.utils.item.ItemBonuses;
-import com.rs.core.utils.item.ItemExamines;
-import com.rs.core.utils.tools.Panel;
-import com.rs.world.RegionBuilder;
+import com.rs.server.file.impl.PkRankFileManager;
+import com.rs.utils.Logger;
+import com.rs.utils.file.AutoBackup;
+import com.rs.utils.file.MusicHints;
+import com.rs.utils.huffman.Huffman;
+import com.rs.utils.item.ItemBonuses;
+import com.rs.utils.item.ItemExamines;
+import com.rs.utils.tools.Panel;
+import com.rs.world.region.RegionBuilder;
 import com.rs.world.World;
 import com.rs.world.npc.combat.CombatScriptsHandler;
+import com.rs.task.gametask.GameTaskManager;
 import lombok.*;
 
 import java.io.IOException;
@@ -53,6 +54,9 @@ public final class Server {
     private final DisplayNamesFileManager displayNamesFileManager;
     private final ClanFilesManager clanFilesManager;
     private final GrandExchangeFileManager grandExchangeFileManager;
+    private final PkRankFileManager pkRankFileManager;
+    private final GameTaskManager gameTaskManager;
+    private final CommandManager commandManager;
 
     @Setter(AccessLevel.PRIVATE)
     private long startTime;
@@ -60,13 +64,13 @@ public final class Server {
     public void start() throws IllegalAccessException, InstantiationException, IOException, ClassNotFoundException {
         long currentTime = System.currentTimeMillis();
         getSettingsManager().init();
-        CommandManager.init();
+        getCommandManager().init();
         Cache.init();
         ItemsEquipIds.init();
         Huffman.init();
         getDisplayNamesFileManager().init();
         getIpBanFileManager().init();
-        PkRankFileManager.init();
+        getPkRankFileManager().init();
         getDtRankFileManager().init();
         MapArchiveKeys.init();
         MapAreas.init();
@@ -121,7 +125,7 @@ public final class Server {
         getDisplayNamesFileManager().save();
         GrandExchange.save();
         getIpBanFileManager().save();
-        PkRankFileManager.save();
+        getPkRankFileManager().save();
         getDtRankFileManager().save();
     }
 
@@ -151,8 +155,12 @@ public final class Server {
             DisplayNamesFileManager displayNamesFileManager = new DisplayNamesFileManager(GameFileConstants.DISPLAY_NAMES_FILE);
             ClanFilesManager clanFilesManager = new ClanFilesManager();
             GrandExchangeFileManager grandExchangeFileManager = new GrandExchangeFileManager();
+            PkRankFileManager pkRankFileManager = new PkRankFileManager(GameFileConstants.PK_RANKS_FILE);
+            GameTaskManager gameTaskManager = new GameTaskManager();
+            CommandManager commandManager = new CommandManager();
             return new Server(settingsManager, gameEngine, networkEngine, playerFileManager, dtRankFileManager,
-                    ipBanFileManager, displayNamesFileManager, clanFilesManager, grandExchangeFileManager);
+                    ipBanFileManager, displayNamesFileManager, clanFilesManager, grandExchangeFileManager, pkRankFileManager,
+                    gameTaskManager, commandManager);
         }
     }
 }

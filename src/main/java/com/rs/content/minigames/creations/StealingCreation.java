@@ -2,14 +2,14 @@ package com.rs.content.minigames.creations;
 
 import com.rs.content.actions.skills.Skills;
 import com.rs.player.Player;
+import com.rs.server.Server;
 import com.rs.world.Animation;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
 import com.rs.world.item.Item;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +44,7 @@ public class StealingCreation {
         if (!canEnter(player, inRedTeam))
             return;
         else if (!hasRequiredPlayers()) {
-            GameTaskManager.scheduleTask(new LobbyTask(GameTask.ExecutionType.FIXED_RATE, 0, 60, TimeUnit.SECONDS));
+            Server.getInstance().getGameTaskManager().scheduleTask(new LobbyTask(GameTask.ExecutionType.FIXED_RATE, 0, 60, TimeUnit.SECONDS));
         }
         player.setNextAnimation(new Animation(1560));
         WorldTasksManager.schedule(new WorldTask() {

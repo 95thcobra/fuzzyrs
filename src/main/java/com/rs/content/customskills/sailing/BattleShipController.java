@@ -1,10 +1,10 @@
 package com.rs.content.customskills.sailing;
 
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.player.content.FadingScreen;
 import com.rs.player.controlers.Controller;
-import com.rs.world.RegionBuilder;
+import com.rs.world.region.RegionBuilder;
 import com.rs.world.WorldTile;
 
 /**

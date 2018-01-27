@@ -1,8 +1,8 @@
 package com.rs.content.cutscenes.actions;
 
 import com.rs.player.Player;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 /**
  * Handles an interface showing up cutscene action.

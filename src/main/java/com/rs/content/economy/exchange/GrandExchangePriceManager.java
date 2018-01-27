@@ -1,9 +1,10 @@
 package com.rs.content.economy.exchange;
 
 import com.rs.core.cache.loaders.ItemDefinitions;
+import com.rs.server.Server;
 import com.rs.server.file.impl.GrandExchangeFileManager;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
+import com.rs.server.GameConstants;
+import com.rs.utils.Logger;
 import com.rs.world.item.Item;
 
 import java.io.BufferedReader;
@@ -22,10 +23,10 @@ public class GrandExchangePriceManager {
     public static final String DEFAULT_PRICE_PATH = GameConstants.DATA_PATH + "/items/prices/prices.txt";
     private static HashMap<Integer, Integer> prices;
 
-    public static void init() throws IOException {
+    public static void init() {
         File file = new File(GrandExchangeFileManager.GE_PRICES);
         if (file.exists()) {
-            prices = GrandExchangeFileManager.loadGEPrices();
+            prices = Server.getInstance().getGrandExchangeFileManager().loadGEPrices();
             if (prices != null) {
                 Logger.info(GrandExchangePriceManager.class, "Loaded " + prices.size() + " prices for the Grand Exchange!");
                 return;
@@ -92,7 +93,7 @@ public class GrandExchangePriceManager {
                 prices.put(itemId, price);
             }
             Logger.info(GrandExchangePriceManager.class, "Created " + prices.size() + " prices for the Grand Exchange!");
-            GrandExchangeFileManager.saveGEPrices(prices);
+            Server.getInstance().getGrandExchangeFileManager().saveGEPrices(prices);
         } catch (IOException e) {
             e.printStackTrace();
         }

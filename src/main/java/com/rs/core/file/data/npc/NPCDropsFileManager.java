@@ -1,7 +1,7 @@
 package com.rs.core.file.data.npc;
 
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
+import com.rs.server.GameConstants;
+import com.rs.utils.Logger;
 import com.rs.world.npc.Drop;
 
 import java.io.RandomAccessFile;

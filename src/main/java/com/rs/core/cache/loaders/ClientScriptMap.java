@@ -1,8 +1,8 @@
 package com.rs.core.cache.loaders;
 
 import com.rs.core.cache.Cache;
-import com.rs.core.net.io.InputStream;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.io.InputStream;
+import com.rs.utils.Utils;
 
 import java.io.IOException;
 import java.util.HashMap;

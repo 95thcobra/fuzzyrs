@@ -3,7 +3,7 @@ package com.rs.content.customskills.sailing;
 import com.rs.content.customskills.CustomSkills;
 import com.rs.content.customskills.sailing.dialogues.PickShipDialogue;
 import com.rs.content.dialogues.types.SimpleMessage;
-import com.rs.core.utils.TextUtils;
+import com.rs.utils.TextUtils;
 import com.rs.player.Player;
 import com.rs.world.WorldTile;
 

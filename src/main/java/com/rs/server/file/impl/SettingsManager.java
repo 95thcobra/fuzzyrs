@@ -1,9 +1,9 @@
 package com.rs.server.file.impl;
 
-import com.rs.core.settings.GameConstants;
-import com.rs.core.settings.Settings;
+import com.rs.server.GameConstants;
+import com.rs.server.Settings;
 import com.rs.server.file.JsonFileManager;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;

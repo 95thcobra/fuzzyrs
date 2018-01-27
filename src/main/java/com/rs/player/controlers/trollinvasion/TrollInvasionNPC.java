@@ -1,7 +1,7 @@
 package com.rs.player.controlers.trollinvasion;
 
 import com.rs.player.Player;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.World;
 import com.rs.world.WorldTile;
 import com.rs.world.npc.NPC;

@@ -1,8 +1,8 @@
 package com.rs.world.npc.godwars.zammorak;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.World;
 import com.rs.world.WorldTile;
 import com.rs.world.item.Item;

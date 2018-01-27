@@ -3,7 +3,7 @@ package com.rs.player.controlers;
 import com.rs.content.dialogues.impl.DagonHai;
 import com.rs.player.Player;
 import com.rs.player.content.Magic;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.ForceTalk;
 import com.rs.world.World;
 import com.rs.world.WorldTile;

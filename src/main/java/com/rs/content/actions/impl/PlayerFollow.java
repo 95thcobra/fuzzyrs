@@ -1,7 +1,7 @@
 package com.rs.content.actions.impl;
 
 import com.rs.content.actions.Action;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 
 public class PlayerFollow extends Action {

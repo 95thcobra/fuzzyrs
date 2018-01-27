@@ -1,7 +1,7 @@
 package com.rs.content.actions.skills.mining;
 
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
 

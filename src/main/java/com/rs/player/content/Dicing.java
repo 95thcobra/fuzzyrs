@@ -3,8 +3,8 @@ package com.rs.player.content;
 import com.rs.player.Player;
 import com.rs.world.Animation;
 import com.rs.world.Graphics;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.Random;
 

@@ -4,13 +4,14 @@ import com.rs.content.clans.ClanMember;
 import com.rs.content.clans.ClansManager;
 import com.rs.core.cores.CoresManager;
 import com.rs.player.Player;
-import com.rs.world.RegionBuilder;
+import com.rs.server.Server;
+import com.rs.world.region.RegionBuilder;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -196,7 +197,7 @@ public final class ClanWars implements Serializable {
 				c.clanWarsTask.refresh(p, false);
 			}
 			p.getControllerManager().startController(WarController.class, c);
-			GameTaskManager.scheduleTask(new PlayerRefreshTask(c, GameTask.ExecutionType.SCHEDULE, 0, 0, TimeUnit.MILLISECONDS));
+			Server.getInstance().getGameTaskManager().scheduleTask(new PlayerRefreshTask(c, GameTask.ExecutionType.SCHEDULE, 0, 0, TimeUnit.MILLISECONDS));
 			return;
 		}
 		final Integer prefix = (Integer) p.getTemporaryAttributtes().get(
@@ -476,7 +477,7 @@ public final class ClanWars implements Serializable {
 					baseLocation = new WorldTile(newCoords[0] << 3,
 							newCoords[1] << 3, 0);
 					WallHandler.loadWall(ClanWars.this);
-					GameTaskManager.scheduleTask(
+					Server.getInstance().getGameTaskManager().scheduleTask(
 							clanWarsTask = new ClanWarsTask((ClanWars.this), GameTask.ExecutionType.FIXED_RATE, 600, 600, TimeUnit.MILLISECONDS));
 					enter(player);
 					enter(other);

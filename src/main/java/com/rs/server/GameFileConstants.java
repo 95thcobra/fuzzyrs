@@ -12,4 +12,5 @@ public final class GameFileConstants {
     public static final String IP_BANS_FILE = BASE_DIR + "ip_bans.json";
     public static final String DISPLAY_NAMES_FILE = BASE_DIR + "display_names.json";
     public static final String CLANS_DIR = BASE_DIR + "/clans/";
+    public static final String PK_RANKS_FILE = BASE_DIR + "/pk_ranks.json";
 }

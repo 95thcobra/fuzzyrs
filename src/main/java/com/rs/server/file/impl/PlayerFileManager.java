@@ -9,7 +9,9 @@ import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Optional;
 
 /**
@@ -38,8 +40,7 @@ public final class PlayerFileManager extends JsonFileManager {
     }
 
     public void save(Player player) {
-        String userName = formatUserNameForFile(player.getUsername());
-        String playerFilePath = getDirectory() + userName + JSON_SUFFIX;
+        String playerFilePath = userNameToPath(player.getUsername());
         try {
             save(playerFilePath, player);
         } catch (IOException e) {
@@ -52,15 +53,23 @@ public final class PlayerFileManager extends JsonFileManager {
     }
 
     public void backupPlayer(String userName) throws IOException {
-        Files.copy(Paths.get(userNameToPath(userName)), Paths.get(userNameToBackupPath(userName)));
+        Path backupPath = Paths.get(userNameToBackupPath(userName));
+        if (backupPath.getParent() != null && !Files.exists(backupPath.getParent())) {
+            Files.createDirectories(backupPath.getParent());
+        }
+        Files.copy(Paths.get(userNameToPath(userName)), Paths.get(userNameToBackupPath(userName)), StandardCopyOption.REPLACE_EXISTING);
     }
 
     private String userNameToPath(String userName) {
-        return getDirectory() + formatUserNameForFile(userName) + JSON_SUFFIX;
+        userName = formatUserNameForFile(userName);
+        char category = userName.charAt(0);
+        return getDirectory() + category + "/" + formatUserNameForFile(userName) + JSON_SUFFIX;
     }
 
     private String userNameToBackupPath(String userName) {
-        return getDirectory() + BACKUPS_DIR + formatUserNameForFile(userName) + JSON_SUFFIX;
+        userName = formatUserNameForFile(userName);
+        char category = userName.charAt(0);
+        return getDirectory() + BACKUPS_DIR + category + "/" + formatUserNameForFile(userName) + JSON_SUFFIX;
     }
 
     public static String formatUserNameForFile(String userName) {

@@ -2,7 +2,7 @@ package com.rs.world.npc.others;
 
 import com.rs.content.actions.skills.hunter.BoxAction;
 import com.rs.content.actions.skills.hunter.Hunter;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.OwnedObjectManager;
 import com.rs.player.Player;
 import com.rs.world.World;

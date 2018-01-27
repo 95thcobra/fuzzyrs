@@ -1,9 +1,10 @@
 package com.rs.world.npc.fightcaves;
 
+import com.rs.entity.Entity;
 import com.rs.world.*;
 import com.rs.world.npc.combat.NPCCombatDefinitions;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 @SuppressWarnings("serial")
 public class TzKekCaves extends FightCavesNPC {

@@ -5,9 +5,9 @@ import com.rs.world.World;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
 import com.rs.world.item.Item;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
 
 import java.util.Iterator;
 import java.util.LinkedList;

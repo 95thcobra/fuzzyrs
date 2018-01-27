@@ -4,7 +4,7 @@ import com.rs.content.actions.skills.Skills;
 import com.rs.content.minigames.clanwars.FfaZone;
 import com.rs.content.potiontimers.PotionTimerInterface;
 import com.rs.content.potiontimers.PotionType;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.controlers.CrucibleController;
 import com.rs.player.controlers.Wilderness;
@@ -13,8 +13,8 @@ import com.rs.world.Graphics;
 import com.rs.world.Hit;
 import com.rs.world.item.Item;
 import com.rs.world.npc.familiar.Familiar;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public final class Pots {
 

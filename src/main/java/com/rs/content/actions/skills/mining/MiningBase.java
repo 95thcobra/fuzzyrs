@@ -3,8 +3,8 @@ package com.rs.content.actions.skills.mining;
 import com.rs.content.actions.Action;
 import com.rs.content.actions.skills.Skills;
 import com.rs.player.Player;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public abstract class MiningBase extends Action {
 

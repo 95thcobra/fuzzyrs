@@ -1,10 +1,11 @@
 package com.rs.world.npc.fightpits;
 
 import com.rs.content.minigames.FightPits;
+import com.rs.entity.Entity;
 import com.rs.world.*;
 import com.rs.world.npc.combat.NPCCombatDefinitions;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 @SuppressWarnings("serial")
 public class TzKekPits extends FightPitsNPC {

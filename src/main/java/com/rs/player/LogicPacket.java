@@ -1,6 +1,6 @@
 package com.rs.player;
 
-import com.rs.core.net.io.InputStream;
+import com.rs.server.net.io.InputStream;
 
 public class LogicPacket {
 

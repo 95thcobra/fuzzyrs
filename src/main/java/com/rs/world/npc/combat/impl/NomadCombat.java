@@ -1,6 +1,7 @@
 package com.rs.world.npc.combat.impl;
 
 import com.rs.content.dialogues.Dialogue;
+import com.rs.entity.Entity;
 import com.rs.player.Player;
 import com.rs.player.content.Magic;
 import com.rs.world.*;
@@ -9,8 +10,8 @@ import com.rs.world.npc.combat.CombatScript;
 import com.rs.world.npc.combat.NPCCombatDefinitions;
 import com.rs.world.npc.nomad.FlameVortex;
 import com.rs.world.npc.nomad.Nomad;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class NomadCombat extends CombatScript {
 

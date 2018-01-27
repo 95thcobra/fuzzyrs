@@ -26,7 +26,7 @@ public class ViewCommandsCommand implements Command {
         player.getPackets().sendIComponentText(275, 10, "Commands");
         List<String> commandNames;
         for (int i = player.getRank().ordinal(); i >= 0; i--) {
-            commandNames = CommandManager.listCommandNames(PlayerRank.values()[i]);
+            commandNames = Server.getInstance().getCommandManager().listCommandNames(PlayerRank.values()[i]);
             if (commandNames.isEmpty())
                 continue;
             player.getPackets().sendIComponentText(275, counter++, " ");

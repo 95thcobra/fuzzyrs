@@ -6,8 +6,10 @@ import com.rs.content.commands.impl.mod.*;
 import com.rs.content.commands.impl.owner.*;
 import com.rs.content.commands.impl.player.*;
 import com.rs.content.player.PlayerRank;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.player.Player;
+import lombok.AccessLevel;
+import lombok.Getter;
 
 import java.lang.annotation.IncompleteAnnotationException;
 import java.util.*;
@@ -15,26 +17,31 @@ import java.util.*;
 /**
  * @author FuzzyAvacado
  */
+@Getter(AccessLevel.PRIVATE)
 public class CommandManager {
 
-    private static final Map<String[], Command> commands = new HashMap<>();
+    private final Map<String[], Command> commands;
 
-    public static void add(Class<? extends Command> c) throws IllegalAccessException, InstantiationException {
-        Command command = c.newInstance();
-        commands.put(getName(command), command);
+    public CommandManager() {
+        this.commands = new HashMap<>();
     }
 
-    public static Command getCommand(String name) {
-        for (String[] s : commands.keySet()) {
+    public void add(Class<? extends Command> c) throws IllegalAccessException, InstantiationException {
+        Command command = c.newInstance();
+        getCommands().put(getName(command), command);
+    }
+
+    public Command getCommand(String name) {
+        for (String[] s : getCommands().keySet()) {
             for (String sSub : s) {
                 if (sSub.equals(name))
-                    return commands.get(s);
+                    return getCommands().get(s);
             }
         }
         return null;
     }
 
-    public static boolean processCommand(final Player player, final String commandString, final boolean console, final boolean clientCommand) {
+    public boolean processCommand(final Player player, final String commandString, final boolean console, final boolean clientCommand) {
         try {
             if (commandString.length() == 0)
                 return false;
@@ -54,22 +61,22 @@ public class CommandManager {
         return false;
     }
 
-    public static String[] getName(Command command) {
+    public String[] getName(Command command) {
         if (command.getClass().isAnnotationPresent(CommandInfo.class)) {
             return command.getClass().getAnnotation(CommandInfo.class).name();
         }
         throw new IncompleteAnnotationException(CommandInfo.class, "CommandInfo");
     }
 
-    public static PlayerRank getMinimumRank(Command command) {
+    public PlayerRank getMinimumRank(Command command) {
         return command.getClass().isAnnotationPresent(CommandInfo.class) ? command.getClass().getAnnotation(CommandInfo.class).rank() : PlayerRank.PLAYER;
     }
 
-    public static PlayerRank.DonateRank getMinimumDonateRank(Command command) {
+    public PlayerRank.DonateRank getMinimumDonateRank(Command command) {
         return command.getClass().isAnnotationPresent(CommandInfo.class) ? command.getClass().getAnnotation(CommandInfo.class).donateRank() : PlayerRank.DonateRank.NONE;
     }
 
-    public static List<String> listCommandNames(PlayerRank minRank) {
+    public List<String> listCommandNames(PlayerRank minRank) {
         List<String> names = new ArrayList<>();
         for (Command c : commands.values()) {
             if (minRank.equals(getMinimumRank(c))) {
@@ -79,7 +86,7 @@ public class CommandManager {
         return names;
     }
 
-    public static List<String> listDonateCommandNames(PlayerRank.DonateRank minDonateRank) {
+    public List<String> listDonateCommandNames(PlayerRank.DonateRank minDonateRank) {
         List<String> names = new ArrayList<>();
         for (Command c : commands.values()) {
             if (minDonateRank.equals(getMinimumDonateRank(c))) {
@@ -90,13 +97,13 @@ public class CommandManager {
     }
 
     /**
-     * And unfortunate result of not being able to load class files from within a jar.
+     * And unfortunate result of not being able to cleanly load class files from within a jar.
      *
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
 
-    public static void init() throws InstantiationException, IllegalAccessException {
+    public void init() throws InstantiationException, IllegalAccessException {
         add(BowPlayersCommand.class);
         add(BattleShipControllerCommand.class);
         add(FlyCommand.class);
@@ -173,6 +180,6 @@ public class CommandManager {
         add(ViewCommandsCommand.class);
         add(VoteCommand.class);
         add(YellCommand.class);
-        Logger.info(CommandManager.class, "Loaded " + commands.values().size() + " Commands.");
+        Logger.info(CommandManager.class, "Loaded " + getCommands().values().size() + " Commands.");
     }
 }

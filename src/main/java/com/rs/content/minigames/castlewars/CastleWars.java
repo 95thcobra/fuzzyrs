@@ -5,13 +5,13 @@ import com.rs.player.Player;
 import com.rs.player.content.Foods;
 import com.rs.player.controlers.castlewars.CastleWarsPlaying;
 import com.rs.player.controlers.castlewars.CastleWarsWaiting;
+import com.rs.server.Server;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
 import com.rs.world.item.Item;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -132,7 +132,7 @@ public final class CastleWars {
 
     public static void createPlayingGame() {
         playingGame = new PlayingGame(GameTask.ExecutionType.FIXED_RATE, 60, 60, TimeUnit.SECONDS);
-        GameTaskManager.scheduleTask(playingGame);
+        Server.getInstance().getGameTaskManager().scheduleTask(playingGame);
         refreshAllPlayersTime();
     }
 

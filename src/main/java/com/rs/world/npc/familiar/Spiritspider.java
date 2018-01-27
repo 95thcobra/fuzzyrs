@@ -1,7 +1,8 @@
 package com.rs.world.npc.familiar;
 
 import com.rs.content.actions.skills.summoning.Summoning;
-import com.rs.core.utils.Utils;
+import com.rs.entity.Entity;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.*;
 import com.rs.world.item.Item;

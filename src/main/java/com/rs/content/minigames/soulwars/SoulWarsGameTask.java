@@ -1,13 +1,13 @@
 package com.rs.content.minigames.soulwars;
 
 import com.rs.content.minigames.soulwars.SoulWarsManager.*;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.World;
 import com.rs.world.WorldTile;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
 
 import java.util.ArrayList;
 import java.util.Iterator;

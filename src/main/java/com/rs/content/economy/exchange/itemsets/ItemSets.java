@@ -2,7 +2,7 @@ package com.rs.content.economy.exchange.itemsets;
 
 import com.rs.core.cache.loaders.ClientScriptMap;
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.utils.item.ItemExamines;
+import com.rs.utils.item.ItemExamines;
 import com.rs.player.Player;
 import com.rs.world.item.Item;
 

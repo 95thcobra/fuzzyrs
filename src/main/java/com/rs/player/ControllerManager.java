@@ -1,11 +1,11 @@
 package com.rs.player;
 
 import com.rs.server.Server;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.player.content.Foods.Food;
 import com.rs.player.content.Pots.Pot;
 import com.rs.player.controlers.Controller;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
 import com.rs.world.item.Item;

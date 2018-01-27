@@ -9,7 +9,8 @@ import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.content.minigames.soulwars.SoulWarsManager.PlayerType;
 import com.rs.content.minigames.soulwars.SoulWarsManager.Teams;
 import com.rs.content.player.PlayerRank;
-import com.rs.core.utils.Utils;
+import com.rs.entity.Entity;
+import com.rs.utils.Utils;
 import com.rs.player.Equipment;
 import com.rs.player.Inventory;
 import com.rs.player.Player;
@@ -17,8 +18,8 @@ import com.rs.player.controlers.Controller;
 import com.rs.world.*;
 import com.rs.world.item.Item;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 /**
  * @author Savions Sw

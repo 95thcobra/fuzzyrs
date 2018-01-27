@@ -4,8 +4,8 @@ import com.rs.content.actions.skills.Skills;
 import com.rs.player.Player;
 import com.rs.world.Animation;
 import com.rs.world.WorldTile;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 /**
  * Agility shortcuts

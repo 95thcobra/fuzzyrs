@@ -2,7 +2,7 @@ package com.rs.content.dialogues.impl;
 
 import com.rs.content.dialogues.Dialogue;
 import com.rs.content.minigames.clanwars.ClanWars;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 
 /**
  * Handles the clan wars viewing dialogue.

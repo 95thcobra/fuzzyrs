@@ -1,10 +1,10 @@
 package com.rs.world.npc.combat.impl;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.combat.Combat;
 import com.rs.world.Animation;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.Graphics;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.combat.CombatScript;

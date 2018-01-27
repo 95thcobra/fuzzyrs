@@ -1,9 +1,9 @@
 package com.rs.player;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.world.Animation;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.ArrayList;
 import java.util.List;

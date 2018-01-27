@@ -1,5 +1,6 @@
 package com.rs.world;
 
+import com.rs.entity.Entity;
 import com.rs.player.Player;
 import lombok.ToString;
 

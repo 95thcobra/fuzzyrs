@@ -1,6 +1,6 @@
 package com.rs.world.npc.others;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.WorldTile;
 import com.rs.world.npc.NPC;

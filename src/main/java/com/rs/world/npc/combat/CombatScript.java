@@ -1,16 +1,16 @@
 package com.rs.world.npc.combat;
 
 import com.rs.content.actions.skills.Skills;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.combat.CombatDefinitions;
 import com.rs.player.combat.PlayerCombat;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.Hit;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.familiar.Steeltitan;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.Arrays;
 

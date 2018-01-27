@@ -5,7 +5,7 @@ import com.rs.content.customskills.sailing.jobs.impl.CargoSailingJob;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.content.dialogues.DialogueExpressions;
 import com.rs.core.cache.loaders.NPCDefinitions;
-import com.rs.core.utils.TextUtils;
+import com.rs.utils.TextUtils;
 
 import java.util.Arrays;
 import java.util.HashMap;

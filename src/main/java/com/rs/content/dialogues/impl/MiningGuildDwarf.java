@@ -3,7 +3,7 @@ package com.rs.content.dialogues.impl;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.core.cache.loaders.NPCDefinitions;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.World;
 import com.rs.world.npc.NPC;

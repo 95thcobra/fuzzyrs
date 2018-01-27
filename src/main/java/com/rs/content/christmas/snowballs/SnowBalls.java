@@ -1,12 +1,12 @@
 package com.rs.content.christmas.snowballs;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
+import com.rs.server.Server;
 import com.rs.world.Animation;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTask;
 
 import java.util.concurrent.TimeUnit;
 
@@ -47,7 +47,7 @@ public class SnowBalls {
         player.faceEntity(target);
         player.setNextAnimation(new Animation(7530));
         World.sendProjectile(player, player, target, 1281, 21, 21, 90, 65, 50, 0);
-        GameTaskManager.scheduleTask(new ThrowSnowballTask(target, 3, GameTask.ExecutionType.FIXED_DELAY, 0, 600, TimeUnit.MILLISECONDS));
+        Server.getInstance().getGameTaskManager().scheduleTask(new ThrowSnowballTask(target, 3, GameTask.ExecutionType.FIXED_DELAY, 0, 600, TimeUnit.MILLISECONDS));
     }
 
     public static void handleObjectClick(Player player, WorldObject object) {

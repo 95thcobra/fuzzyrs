@@ -2,7 +2,7 @@ package com.rs.content.staff.actions.impl;
 
 import com.rs.content.player.PlayerRank;
 import com.rs.content.staff.actions.StaffAction;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.server.Server;
 import com.rs.world.World;
@@ -24,9 +24,10 @@ public class CheckInventoryAction implements StaffAction {
                 target.setUsername(Utils
                         .formatPlayerNameForProtocol(value));
             }
-            loggedIn = false;
         }
-        player.getInventory().viewOtherInventory(target);
+        if (target != null) {
+            player.getInventory().viewOtherInventory(target);
+        }
     }
 
     @Override

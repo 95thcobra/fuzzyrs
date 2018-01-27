@@ -10,14 +10,16 @@ import com.rs.player.Player;
 import com.rs.player.content.Foods;
 import com.rs.player.content.Pots;
 import com.rs.player.controlers.Controller;
+import com.rs.server.Server;
 import com.rs.world.*;
 import com.rs.world.item.Item;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
+import com.rs.world.region.RegionBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -270,7 +272,7 @@ public final class RefugeOfFear extends Controller {
             player.setNextAnimation(new Animation(881));
             player.getPackets().sendGameMessage(
                     "You try to open the rusty lock with the key...");
-            GameTaskManager.scheduleTask(new RustyLockTask(player, object, cutscene, finalDoorType, finalKey,
+            Server.getInstance().getGameTaskManager().scheduleTask(new RustyLockTask(player, object, cutscene, finalDoorType, finalKey,
                     GameTask.ExecutionType.SCHEDULE, 1200, 0, TimeUnit.MILLISECONDS));
             return false;
         }

@@ -1,7 +1,7 @@
 package com.rs.world.npc.dungeonnering;
 
 import com.rs.content.actions.skills.dungeoneering.Dungeoneering.Dungeon;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.WorldTile;
 import com.rs.world.npc.NPC;
 

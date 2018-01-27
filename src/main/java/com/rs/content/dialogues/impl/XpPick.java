@@ -2,6 +2,7 @@ package com.rs.content.dialogues.impl;
 
 import com.rs.content.commands.CommandManager;
 import com.rs.content.dialogues.Dialogue;
+import com.rs.server.Server;
 
 
 public class XpPick extends Dialogue {
@@ -26,15 +27,15 @@ public class XpPick extends Dialogue {
     public void run(final int interfaceId, final int componentId) {
         if (stage == 1) {
             if (componentId == OPTION_1) {
-                CommandManager.processCommand(player, "commands", false, false);
+                Server.getInstance().getCommandManager().processCommand(player, "commands", false, false);
                 end();
             }
             if (componentId == OPTION_2) {
-                CommandManager.processCommand(player, "commands", false, false);
+                Server.getInstance().getCommandManager().processCommand(player, "commands", false, false);
                 end();
             }
             if (componentId == OPTION_3) {
-                CommandManager.processCommand(player, "commands", false, false);
+                Server.getInstance().getCommandManager().processCommand(player, "commands", false, false);
                 end();
             }
         }

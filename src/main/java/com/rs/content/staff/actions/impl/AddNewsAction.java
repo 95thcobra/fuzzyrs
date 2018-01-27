@@ -3,7 +3,7 @@ package com.rs.content.staff.actions.impl;
 import com.rs.content.player.PlayerRank;
 import com.rs.content.staff.actions.StaffAction;
 import com.rs.player.Player;
-import com.rs.world.task.gametask.impl.ServerNewsTask;
+import com.rs.task.gametask.impl.ServerNewsTask;
 
 import java.io.IOException;
 

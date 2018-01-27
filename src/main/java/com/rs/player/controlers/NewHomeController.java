@@ -2,13 +2,14 @@ package com.rs.player.controlers;
 
 import com.rs.content.dialogues.types.SimpleMessage;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
+import com.rs.entity.Entity;
 import com.rs.player.content.PlayerLook;
 import com.rs.world.*;
 import com.rs.world.item.FloorItem;
 import com.rs.world.item.Item;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class NewHomeController extends Controller {
 

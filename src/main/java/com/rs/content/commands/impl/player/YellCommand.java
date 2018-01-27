@@ -2,7 +2,7 @@ package com.rs.content.commands.impl.player;
 
 import com.rs.content.commands.Command;
 import com.rs.content.commands.CommandInfo;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.content.YellHandler;
 

@@ -3,14 +3,15 @@ package com.rs.player.controlers;
 import com.rs.server.Server;
 import com.rs.content.dialogues.impl.RewardChest;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.player.content.FadingScreen;
 import com.rs.player.content.Magic;
 import com.rs.world.*;
 import com.rs.world.item.Item;
 import com.rs.world.npc.qbd.QueenBlackDragon;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
+import com.rs.world.region.RegionBuilder;
 
 import java.util.concurrent.TimeUnit;
 

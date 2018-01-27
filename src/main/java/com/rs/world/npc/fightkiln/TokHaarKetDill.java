@@ -2,7 +2,7 @@ package com.rs.world.npc.fightkiln;
 
 import com.rs.player.Player;
 import com.rs.player.controlers.FightKiln;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.Hit;
 import com.rs.world.WorldTile;
 

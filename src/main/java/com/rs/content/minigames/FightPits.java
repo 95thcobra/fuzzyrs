@@ -2,8 +2,8 @@ package com.rs.content.minigames;
 
 import com.rs.server.Server;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
-import com.rs.core.utils.Logger;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Logger;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.controlers.fightpits.FightPitsArena;
 import com.rs.player.controlers.fightpits.FightPitsLobby;
@@ -15,18 +15,18 @@ import com.rs.world.item.Item;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.fightpits.FightPitsNPC;
 import com.rs.world.npc.fightpits.TzKekPits;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static com.rs.world.task.gametask.GameTask.ExecutionType;
+import static com.rs.task.gametask.GameTask.ExecutionType;
 
 public final class FightPits {
 
@@ -199,7 +199,7 @@ public final class FightPits {
             startedGame = false;
         }
         fightPitsTask = new FightPitsTask(ExecutionType.FIXED_RATE, end ? 60 : 10, 60, TimeUnit.SECONDS);
-        GameTaskManager.scheduleTask(fightPitsTask);
+        Server.getInstance().getGameTaskManager().scheduleTask(fightPitsTask);
 
     }
 

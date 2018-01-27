@@ -2,7 +2,7 @@ package com.rs.world.npc.familiar;
 
 import com.rs.content.actions.skills.herblore.HerbCleaning;
 import com.rs.content.actions.skills.summoning.Summoning;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.Animation;
 import com.rs.world.Graphics;

@@ -1,8 +1,8 @@
 package com.rs.player;
 
-import com.rs.core.net.io.OutputStream;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.io.OutputStream;
+import com.rs.server.GameConstants;
+import com.rs.utils.Utils;
 import com.rs.world.Hit;
 import com.rs.world.World;
 import com.rs.world.npc.NPC;

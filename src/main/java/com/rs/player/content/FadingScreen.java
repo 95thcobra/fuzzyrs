@@ -1,12 +1,13 @@
 package com.rs.player.content;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.server.Server;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -24,7 +25,7 @@ public final class FadingScreen {
                               final Runnable event) {
         final long leftTime = 2500 - (Utils.currentTimeMillis() - startTime);
         if (leftTime > 0) {
-            GameTaskManager.scheduleTask(new FadeTask(player, event, GameTask.ExecutionType.SCHEDULE, 0, leftTime, TimeUnit.MILLISECONDS));
+            Server.getInstance().getGameTaskManager().scheduleTask(new FadeTask(player, event, GameTask.ExecutionType.SCHEDULE, 0, leftTime, TimeUnit.MILLISECONDS));
         } else {
             unfade(player, event);
         }
@@ -37,7 +38,7 @@ public final class FadingScreen {
             @Override
             public void run() {
                 player.getInterfaceManager().sendFadingInterface(170);
-                GameTaskManager.scheduleTask(new UnfadeTask(player, GameTask.ExecutionType.SCHEDULE, 1200, 0, TimeUnit.MILLISECONDS));
+                Server.getInstance().getGameTaskManager().scheduleTask(new UnfadeTask(player, GameTask.ExecutionType.SCHEDULE, 1200, 0, TimeUnit.MILLISECONDS));
             }
         });
     }

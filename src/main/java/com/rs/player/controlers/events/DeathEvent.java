@@ -4,11 +4,11 @@ import com.rs.core.cores.CoresManager;
 import com.rs.player.content.Magic;
 import com.rs.player.controlers.Controller;
 import com.rs.world.Animation;
-import com.rs.world.RegionBuilder;
+import com.rs.world.region.RegionBuilder;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.concurrent.TimeUnit;
 

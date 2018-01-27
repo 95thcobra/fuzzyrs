@@ -2,7 +2,7 @@ package com.rs.content.dialogues.impl;
 
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.Dialogue;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.content.AncientEffigies;
 
 /**

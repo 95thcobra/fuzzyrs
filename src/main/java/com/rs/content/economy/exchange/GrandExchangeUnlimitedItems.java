@@ -1,8 +1,8 @@
 package com.rs.content.economy.exchange;
 
 import com.rs.core.cache.loaders.ItemDefinitions.FileUtilities;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
+import com.rs.server.GameConstants;
+import com.rs.utils.Logger;
 
 import java.io.IOException;
 import java.util.ArrayList;

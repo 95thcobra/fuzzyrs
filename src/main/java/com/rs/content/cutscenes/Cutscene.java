@@ -2,15 +2,15 @@ package com.rs.content.cutscenes;
 
 import com.rs.server.Server;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.player.InterfaceManager;
 import com.rs.player.Player;
 import com.rs.content.cutscenes.actions.CutsceneAction;
-import com.rs.world.RegionBuilder;
+import com.rs.world.region.RegionBuilder;
 import com.rs.world.WorldTile;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public abstract class Cutscene {
 

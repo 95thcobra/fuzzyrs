@@ -3,14 +3,14 @@ package com.rs.content.actions.skills.runecrafting;
 import com.rs.content.actions.Action;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.types.SimpleMessage;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.Animation;
 import com.rs.world.Graphics;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 /**
  *

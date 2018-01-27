@@ -3,7 +3,7 @@ package com.rs.content.minigames.rfd;
 import com.rs.server.Server;
 import com.rs.content.dialogues.types.SimpleNPCMessage;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 import com.rs.player.Player;
 import com.rs.player.content.FadingScreen;
 import com.rs.player.controlers.Controller;
@@ -11,11 +11,12 @@ import com.rs.world.*;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.zombies.ZombieCaves;
 import com.rs.world.npc.zombies.ZombiesNPC;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
+import com.rs.world.region.RegionBuilder;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -129,7 +130,7 @@ public class RecipeforDisaster extends Controller {
 
                 }, 1);
                 if (!login) {
-                    GameTaskManager.scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 6, 0, TimeUnit.SECONDS));
+                    Server.getInstance().getGameTaskManager().scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 6, 0, TimeUnit.SECONDS));
                 }
             }
         });
@@ -253,7 +254,7 @@ public class RecipeforDisaster extends Controller {
             player.getDialogueManager().startDialogue(SimpleNPCMessage.class, 3491,
                     "You DARE come here !?!?");
         }
-        GameTaskManager.scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 600, 0, TimeUnit.MILLISECONDS));
+        Server.getInstance().getGameTaskManager().scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 600, 0, TimeUnit.MILLISECONDS));
     }
 
     /**

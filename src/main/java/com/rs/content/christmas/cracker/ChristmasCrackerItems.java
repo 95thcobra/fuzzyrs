@@ -1,6 +1,6 @@
 package com.rs.content.christmas.cracker;
 
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.world.item.Item;
 
 /**

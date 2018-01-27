@@ -1,7 +1,7 @@
 package com.rs.content.potiontimers;
 
 import com.rs.player.Player;
-import com.rs.world.task.gametask.GameTaskManager;
+import com.rs.server.Server;
 
 /**
  * @author John (FuzzyAvacado) on 12/9/2015.
@@ -18,6 +18,6 @@ public class PotionTimerInterface {
     }
 
     public static void startTimerTask(Player player, PotionType type) {
-        GameTaskManager.scheduleTask(new PotionTimerTask(player, type));
+        Server.getInstance().getGameTaskManager().scheduleTask(new PotionTimerTask(player, type));
     }
 }

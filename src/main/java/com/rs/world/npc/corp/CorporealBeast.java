@@ -1,6 +1,6 @@
 package com.rs.world.npc.corp;
 
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.WorldTile;
 import com.rs.world.npc.NPC;
 

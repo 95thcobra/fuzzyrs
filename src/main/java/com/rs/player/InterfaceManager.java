@@ -2,7 +2,7 @@ package com.rs.player;
 
 import com.rs.server.Server;
 import com.rs.content.player.points.PlayerPoints;
-import com.rs.world.task.gametask.impl.QuestTabUpdateTask;
+import com.rs.task.gametask.impl.QuestTabUpdateTask;
 
 import java.util.concurrent.ConcurrentHashMap;
 

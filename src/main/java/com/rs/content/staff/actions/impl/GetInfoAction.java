@@ -4,7 +4,7 @@ import com.rs.content.actions.skills.Skills;
 import com.rs.content.player.PlayerRank;
 import com.rs.content.player.points.PlayerPoints;
 import com.rs.content.staff.actions.StaffAction;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.player.combat.CombatDefinitions;
 import com.rs.server.Server;

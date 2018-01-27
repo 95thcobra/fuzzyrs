@@ -1,9 +1,9 @@
 package com.rs.content.actions.skills.thieving;
 
 import com.rs.content.actions.skills.Skills;
-import com.rs.core.net.handlers.PacketHandlerManager;
-import com.rs.core.net.handlers.object.impl.DoorHandler;
-import com.rs.core.utils.Utils;
+import com.rs.server.net.handlers.PacketHandlerManager;
+import com.rs.server.net.handlers.object.impl.DoorHandler;
+import com.rs.utils.Utils;
 import com.rs.player.Equipment;
 import com.rs.player.Player;
 import com.rs.world.Animation;
@@ -11,8 +11,8 @@ import com.rs.world.ForceTalk;
 import com.rs.world.World;
 import com.rs.world.WorldObject;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.List;
 

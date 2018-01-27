@@ -3,7 +3,7 @@ package com.rs.player.controlers;
 import com.rs.player.Player;
 import com.rs.player.content.Foods.Food;
 import com.rs.player.content.Pots.Pot;
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
 import com.rs.world.item.Item;

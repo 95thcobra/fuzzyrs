@@ -1,7 +1,7 @@
 package com.rs.core.file.data.npc;
 
 import com.rs.core.file.FuzzyFileManager;
-import com.rs.core.settings.GameConstants;
+import com.rs.server.GameConstants;
 
 import java.io.IOException;
 import java.util.HashMap;

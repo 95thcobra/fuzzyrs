@@ -1,8 +1,8 @@
 package com.rs.player.content;
 
 import com.rs.content.dialogues.types.SimpleMessage;
-import com.rs.core.utils.file.EconomyPrices;
-import com.rs.core.utils.item.ItemSetsKeyGenerator;
+import com.rs.utils.file.EconomyPrices;
+import com.rs.utils.item.ItemSetsKeyGenerator;
 import com.rs.player.Player;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemsContainer;

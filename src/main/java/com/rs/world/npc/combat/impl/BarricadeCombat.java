@@ -1,6 +1,6 @@
 package com.rs.world.npc.combat.impl;
 
-import com.rs.world.Entity;
+import com.rs.entity.Entity;
 import com.rs.world.npc.NPC;
 import com.rs.world.npc.combat.CombatScript;
 

@@ -1,16 +1,17 @@
 package com.rs.player.controlers;
 
+import com.rs.entity.Entity;
 import com.rs.server.Server;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.impl.BarrowsD;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.Player;
 import com.rs.world.*;
 import com.rs.world.Hit.HitLook;
 import com.rs.world.item.Item;
 import com.rs.world.npc.others.BarrowsBrother;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.rs.content.cutscenes;
 
 import com.rs.content.cutscenes.impl.*;
-import com.rs.core.utils.Logger;
+import com.rs.utils.Logger;
 
 import java.util.HashMap;
 

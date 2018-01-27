@@ -6,8 +6,8 @@ import com.rs.world.Animation;
 import com.rs.world.ForceMovement;
 import com.rs.world.WorldObject;
 import com.rs.world.WorldTile;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
 
 public class WildernessDitch extends Dialogue {
 

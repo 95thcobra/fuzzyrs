@@ -1,7 +1,7 @@
 package com.rs.player;
 
-import com.rs.core.utils.DateUtils;
-import com.rs.core.utils.TextUtils;
+import com.rs.utils.DateUtils;
+import com.rs.utils.TextUtils;
 
 public class LoginMessages {
 

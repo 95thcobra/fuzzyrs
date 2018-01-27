@@ -1,9 +1,9 @@
 package com.rs.player;
 
 import com.rs.server.Server;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.file.EconomyPrices;
-import com.rs.core.utils.item.ItemExamines;
+import com.rs.server.GameConstants;
+import com.rs.utils.file.EconomyPrices;
+import com.rs.utils.item.ItemExamines;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemConstants;
 import com.rs.world.item.ItemsContainer;

@@ -3,9 +3,10 @@ package com.rs.content.dialogues.impl;
 import com.rs.content.dialogues.Dialogue;
 import com.rs.player.controlers.FightKiln;
 import com.rs.content.cutscenes.Cutscene;
+import com.rs.server.Server;
 import com.rs.world.WorldTile;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -125,7 +126,7 @@ public class TokHaarHok extends Dialogue {
                         player.getPackets().sendCameraPos(
                                 Cutscene.getX(player, posTile.getX()),
                                 Cutscene.getY(player, posTile.getY()), 3000);
-                        GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 3, TimeUnit.SECONDS) {
+                        Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 3, TimeUnit.SECONDS) {
                             @Override
                             public void run() {
                                 sendNPCDialogue(npcId, 9827, "Our Mej wish to test you...");
@@ -179,7 +180,7 @@ public class TokHaarHok extends Dialogue {
                         stage = 1;
                         fightKiln.showHarAken();
                         player.getInterfaceManager().closeChatBoxInterface();
-                        GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 3, TimeUnit.SECONDS) {
+                        Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 3, TimeUnit.SECONDS) {
                             @Override
                             public void run() {
                                 sendNPCDialogue(npcId, 9827, "Ah - yes, there is one final challenge...");
@@ -189,7 +190,7 @@ public class TokHaarHok extends Dialogue {
                     case 1:
                         end();
                         fightKiln.hideHarAken();
-                        GameTaskManager.scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 3, TimeUnit.SECONDS) {
+                        Server.getInstance().getGameTaskManager().scheduleTask(new GameTask(GameTask.ExecutionType.SCHEDULE, 3, TimeUnit.SECONDS) {
                             @Override
                             public void run() {
                                 fightKiln.removeScene();

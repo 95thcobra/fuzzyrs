@@ -1,7 +1,7 @@
 package com.rs.player;
 
 import com.rs.core.cache.loaders.ItemDefinitions;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.world.item.Item;
 import com.rs.world.item.ItemConstants;
 

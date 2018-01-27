@@ -5,13 +5,12 @@ import com.google.gson.GsonBuilder;
 import com.rs.content.customskills.sailing.ships.ShipShop;
 import com.rs.content.economy.shops.impl.CoinShop;
 import com.rs.content.economy.shops.impl.PointShop;
-import com.rs.core.settings.GameConstants;
-import com.rs.core.utils.Logger;
+import com.rs.server.GameConstants;
+import com.rs.utils.Logger;
 import com.rs.player.Player;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 
 public class ShopsManager {
@@ -48,14 +47,6 @@ public class ShopsManager {
                 }
             }
             Logger.info(ShopsManager.class, "Loaded " + SHOPS.size() + " SHOPS.");
-        }
-    }
-
-    public static void saveShop(ShopData shopData) {
-        try {
-            GameFileManager.storeJsonFile(shopData, new File(PATH + shopData.getName() + ".json"));
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

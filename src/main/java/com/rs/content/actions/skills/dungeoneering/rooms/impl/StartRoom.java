@@ -3,7 +3,7 @@ package com.rs.content.actions.skills.dungeoneering.rooms.impl;
 import com.rs.content.actions.skills.dungeoneering.dungeon.DungeonManager;
 import com.rs.content.actions.skills.dungeoneering.rooms.RoomEvent;
 import com.rs.content.actions.skills.dungeoneering.rooms.RoomReference;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 
 public final class StartRoom extends HandledRoom {
 

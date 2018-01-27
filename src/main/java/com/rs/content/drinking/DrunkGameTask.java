@@ -1,7 +1,7 @@
 package com.rs.content.drinking;
 
 import com.rs.player.Player;
-import com.rs.world.task.gametask.GameTask;
+import com.rs.task.gametask.GameTask;
 
 import java.util.concurrent.TimeUnit;
 

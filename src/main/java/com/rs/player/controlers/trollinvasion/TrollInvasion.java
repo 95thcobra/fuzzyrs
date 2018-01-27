@@ -3,17 +3,19 @@ package com.rs.player.controlers.trollinvasion;
 import com.rs.content.actions.skills.Skills;
 import com.rs.content.dialogues.types.SimpleMessage;
 import com.rs.core.cores.CoresManager;
-import com.rs.core.utils.Utils;
+import com.rs.utils.Utils;
 import com.rs.player.content.FadingScreen;
 import com.rs.player.controlers.Controller;
+import com.rs.server.Server;
 import com.rs.world.*;
 import com.rs.world.Hit.HitLook;
 import com.rs.world.npc.NPC;
-import com.rs.world.task.gametask.GameTask;
-import com.rs.world.task.gametask.GameTaskManager;
-import com.rs.world.task.gametask.GameTaskType;
-import com.rs.world.task.worldtask.WorldTask;
-import com.rs.world.task.worldtask.WorldTasksManager;
+import com.rs.task.gametask.GameTask;
+import com.rs.task.gametask.GameTaskManager;
+import com.rs.task.gametask.GameTaskType;
+import com.rs.task.worldtask.WorldTask;
+import com.rs.task.worldtask.WorldTasksManager;
+import com.rs.world.region.RegionBuilder;
 
 import java.util.concurrent.TimeUnit;
 
@@ -245,7 +247,7 @@ public class TrollInvasion extends Controller {
         player.setTrollsToKill(0);
         setUses(5);
         setWave(getWave() + 1);
-        GameTaskManager.scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 600, 0, TimeUnit.MILLISECONDS));
+        Server.getInstance().getGameTaskManager().scheduleTask(new StartWaveTask(GameTask.ExecutionType.SCHEDULE, 600, 0, TimeUnit.MILLISECONDS));
         WorldTasksManager.schedule(new WorldTask() {
             int loop = 0;
 
